@@ -5,6 +5,7 @@ import { AboutPage } from '@/pages/AboutPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { CollectionsPage } from '@/pages/CollectionsPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProductDetailsPage } from '@/pages/ProductDetailsPage';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: 'collections',
         element: <CollectionsPage />,
+      },
+      {
+        path: 'product/:id',
+        element: <ProductDetailsPage />,
       },
       {
         path: 'necklaces',
