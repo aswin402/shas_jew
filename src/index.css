@@ -161,20 +161,20 @@
   /* Custom scrollbar helper class */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: var(--shas-secondary) transparent;
+    scrollbar-color: var(--shas-brand) transparent;
   }
   .custom-scrollbar::-webkit-scrollbar {
-    width: 5px !important;
-    height: 5px !important;
+    width: 6px !important;
+    height: 6px !important;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent !important;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--shas-border) !important;
+    background: var(--shas-brand) !important;
     border-radius: 4px !important;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: var(--shas-brand) !important;
+    background: var(--shas-secondary) !important;
   }
 }
