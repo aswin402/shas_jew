@@ -15,6 +15,7 @@ export function CollectionsPage() {
     if (path.includes('necklaces')) return 'Necklaces';
     if (path.includes('earrings')) return 'Earrings';
     if (path.includes('rings')) return 'Rings';
+    if (path.includes('bracelets')) return 'Bracelets';
     if (path.includes('gifts')) return 'Gifts';
     return 'All';
   };
@@ -141,7 +142,7 @@ export function CollectionsPage() {
                         e.stopPropagation();
                         addItem(product);
                       }}
-                      className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-brand"
+                      className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
                     >
                       Quick Add to Bag
                     </button>
@@ -293,7 +294,7 @@ export function CollectionsPage() {
                     addItem(selectedProduct);
                     setSelectedProduct(null);
                   }}
-                  className="w-full py-4 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 shadow-md dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-brand cursor-pointer"
+                  className="w-full py-4 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 shadow-md dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream cursor-pointer"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>Add to Shopping Bag</span>
