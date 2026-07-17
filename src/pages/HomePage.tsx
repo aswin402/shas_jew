@@ -310,7 +310,7 @@ export function HomePage() {
             <div className="hero-cta-group flex flex-col sm:flex-row gap-3 w-full max-w-[240px] sm:max-w-none sm:w-auto pt-2">
               <a
                 href="#shop-catalog"
-                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-burgundy text-shas-bg hover:bg-white hover:text-black hover:border-white transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center border border-shas-burgundy shadow-sm hover:shadow-lg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-white dark:hover:text-black dark:hover:border-white"
+                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-burgundy text-shas-bg hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-cream transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center border border-shas-burgundy shadow-sm hover:shadow-lg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-cream"
               >
                 Shop All Jewelry
               </a>
@@ -494,7 +494,7 @@ export function HomePage() {
                       addItem(PRODUCTS[spot.productIndex]);
                     });
                   }}
-                  className="w-full py-3 bg-shas-burgundy text-shas-bg border border-transparent hover:bg-white hover:text-black hover:border-black transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-white dark:hover:text-black dark:hover:border-white"
+                  className="w-full py-3 bg-shas-burgundy text-shas-bg border border-transparent hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-cream transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-cream"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-shas-accent animate-pulse" />
                   <span>Shop The Complete Set</span>
