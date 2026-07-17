@@ -1,9 +1,8 @@
-import { useState, useMemo, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useState, useMemo } from 'react';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ShoppingBag, X, Star } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
-import type { Product } from '@/types/product';
 import { useCartStore } from '@/store/useCartStore';
 
 export function CollectionsPage() {
@@ -27,19 +26,6 @@ export function CollectionsPage() {
 
   // Sort & modal states
   const [selectedSort, setSelectedSort] = useState<string>('Featured');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
-  // Escape key handler to close detail drawer
-  useEffect(() => {
-    if (!selectedProduct) return;
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setSelectedProduct(null);
-      }
-    };
-    window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
-  }, [selectedProduct]);
 
   // Categories list
   const categories = ['All', 'Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts'];
@@ -140,7 +126,7 @@ export function CollectionsPage() {
                 {/* Image container & overlay */}
                 <div 
                   className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-shas-brand" 
-                  onClick={() => setSelectedProduct(product)}
+                  onClick={() => navigate(`/product/${product.id}`)}
                 >
                   <img
                     src={product.imageUrl}
@@ -190,13 +176,13 @@ export function CollectionsPage() {
                     <span className="font-serif text-sm font-semibold text-shas-brand dark:text-primary">
                       ${product.price.toFixed(2)}
                     </span>
-                    <button
-                      onClick={() => setSelectedProduct(product)}
+                    <Link
+                      to={`/product/${product.id}`}
                       className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-brand transition-colors flex items-center gap-1 font-sans cursor-pointer"
                     >
                       <span>View Details</span>
                       <ArrowRight className="w-3 h-3" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -205,123 +191,6 @@ export function CollectionsPage() {
         </motion.div>
       </section>
 
-      {/* Detailed Product Drawer Modal */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <div className="fixed inset-0 z-50 flex justify-end">
-            {/* Overlay Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedProduct(null)}
-              className="absolute inset-0 bg-black/60 cursor-pointer"
-            />
-
-            {/* Side Drawer content panel */}
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="relative w-full max-w-md h-full bg-shas-bg border-l border-shas-border p-8 flex flex-col justify-between overflow-y-auto z-10 shadow-2xl text-left"
-              role="dialog"
-              aria-modal="true"
-            >
-              <div className="space-y-6">
-                {/* Header */}
-                <div className="flex justify-between items-center">
-                  <span className="text-[9px] uppercase tracking-[0.2em] font-bold text-shas-brand dark:text-primary">
-                    {selectedProduct.category}
-                  </span>
-                  <button
-                    onClick={() => setSelectedProduct(null)}
-                    className="p-1 rounded-full hover:bg-shas-border/30 transition-colors cursor-pointer"
-                  >
-                    <X className="w-5 h-5 text-shas-heading" />
-                  </button>
-                </div>
-
-                {/* Product Image */}
-                <div className="aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border shadow-sm p-2">
-                  <img
-                    src={selectedProduct.imageUrl}
-                    alt={selectedProduct.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Title & Price */}
-                <div className="space-y-2">
-                  <h2 className="font-serif text-2xl font-medium tracking-wide">
-                    {selectedProduct.title}
-                  </h2>
-                  <div className="flex justify-between items-center">
-                    <span className="font-serif text-lg font-semibold text-shas-brand dark:text-primary">
-                      ${selectedProduct.price.toFixed(2)}
-                    </span>
-                    <div className="flex items-center gap-1 text-[10px] text-shas-accent">
-                      <Star className="w-3.5 h-3.5 fill-shas-accent text-shas-accent" />
-                      <span className="font-bold text-shas-heading">{selectedProduct.rating}</span>
-                      <span className="text-shas-secondary ml-1">({selectedProduct.reviews} reviews)</span>
-                    </div>
-                  </div>
-                </div>
-
-                <hr className="border-shas-border/40" />
-
-                {/* Description */}
-                <div className="space-y-2">
-                  <h4 className="text-[10px] uppercase tracking-widest font-bold text-shas-secondary font-sans">
-                    The Narrative
-                  </h4>
-                  <p className="text-xs md:text-sm text-shas-secondary leading-relaxed font-sans">
-                    {selectedProduct.description}
-                  </p>
-                </div>
-
-                {/* Specs */}
-                <div className="space-y-2">
-                  <h4 className="text-[10px] uppercase tracking-widest font-bold text-shas-secondary font-sans">
-                    Specifications
-                  </h4>
-                  <ul className="text-xs space-y-1.5 text-shas-secondary font-sans">
-                    <li className="flex justify-between border-b border-shas-border/20 pb-1">
-                      <span className="font-medium">Materiality:</span>
-                      <span>{selectedProduct.material}</span>
-                    </li>
-                    <li className="flex justify-between border-b border-shas-border/20 pb-1">
-                      <span className="font-medium">Collection:</span>
-                      <span>Designed by Deepa Sakthi</span>
-                    </li>
-                    <li className="flex justify-between border-b border-shas-border/20 pb-1">
-                      <span className="font-medium">Origin:</span>
-                      <span>Meticulously Crafted • Erode Store</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Add to Bag CTA */}
-              <div className="pt-6 mt-8 border-t border-shas-border/40 space-y-3">
-                <button
-                  onClick={() => {
-                    addItem(selectedProduct);
-                    setSelectedProduct(null);
-                  }}
-                  className="w-full py-4 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 shadow-md dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream cursor-pointer"
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                  <span>Add to Shopping Bag</span>
-                </button>
-                <p className="text-center text-[9px] text-shas-secondary font-sans italic">
-                  Arrives in custom recyclable velvet-lined signature linen gift box.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </main>
   );
 }
