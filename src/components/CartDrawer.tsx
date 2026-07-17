@@ -147,7 +147,7 @@ export function CartDrawer() {
                         <p className="text-xxs text-shas-secondary uppercase tracking-wider mt-1">
                           {item.material ? `${item.material} • ` : ''}
                           {item.category}
-                          {item.size ? ` • Size ${item.size}` : ''}
+                          {item.size && item.size !== 'Standard' ? ` • ${item.size}` : ''}
                         </p>
                       </div>
 

@@ -31,7 +31,10 @@ export const useCartStore = create<CartState>()(
       isCartOpen: false,
       addItem: (item) => {
         set((state) => {
-          const existingItemIndex = state.cartItems.findIndex((i) => i.id === item.id);
+          const sizeSuffix = item.size && item.size !== 'Standard' ? `-${item.size.replace(/\s+/g, '-').toLowerCase()}` : '';
+          const uniqueId = item.id.endsWith(sizeSuffix) ? item.id : `${item.id}${sizeSuffix}`;
+          const itemWithUniqueId = { ...item, id: uniqueId };
+          const existingItemIndex = state.cartItems.findIndex((i) => i.id === uniqueId);
           const addQty = item.quantity ?? 1;
           
           if (existingItemIndex > -1) {
@@ -41,7 +44,7 @@ export const useCartStore = create<CartState>()(
           }
           
           return {
-            cartItems: [...state.cartItems, { ...item, quantity: addQty }],
+            cartItems: [...state.cartItems, { ...itemWithUniqueId, quantity: addQty }],
             isCartOpen: true, // Auto-open cart drawer when item is added
           };
         });
