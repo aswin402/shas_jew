@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Swapping custom color tokens (adapts based on dark/light context) */
+  --color-shas-bg: var(--shas-bg);
+  --color-shas-brand: var(--shas-brand);
+  --color-shas-accent: var(--shas-accent);
+  --color-shas-heading: var(--shas-heading);
+  --color-shas-secondary: var(--shas-secondary);
+  --color-shas-border: var(--shas-border);
+
+  /* Constant custom color tokens (retains original hue in both modes) */
+  --color-shas-burgundy: var(--shas-burgundy);
+  --color-shas-gold: var(--shas-gold);
+  --color-shas-cream: var(--shas-cream);
+  --color-shas-charcoal: var(--shas-charcoal);
+  --color-shas-plum: var(--shas-plum);
+
+  /* Re-mapping standard colors for shadcn components */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: 0px;
+  --radius-md: 0px;
+  --radius-sm: 0px;
+}
+
+@layer base {
+  :root {
+    /* Constant Brand Colors */
+    --shas-burgundy: #A61C2E;
+    --shas-gold: #E5A924;
+    --shas-cream: #FCF9F5;
+    --shas-charcoal: #2C2A38;
+    --shas-plum: #8A5260;
+
+    /* 1. Dynamic Brand Tokens (Light Mode - Cream/Burgundy) */
+    --shas-bg: #FCF9F5;
+    --shas-brand: #A61C2E;
+    --shas-accent: #E5A924;
+    --shas-heading: #2C2A38;
+    --shas-secondary: #8A5260;
+    --shas-border: #E9DDD4;
+
+    /* 2. Standard shadcn Variable Bindings */
+    --background: #FCF9F5;
+    --foreground: #2C2A38;
+    --card: #FCF9F5;
+    --card-foreground: #2C2A38;
+    --popover: #FCF9F5;
+    --popover-foreground: #2C2A38;
+    --primary: #A61C2E;
+    --primary-foreground: #FCF9F5;
+    --secondary: #8A5260;
+    --secondary-foreground: #FCF9F5;
+    --muted: #F5EFEA;
+    --muted-foreground: #8A5260;
+    --accent: #E5A924;
+    --accent-foreground: #2C2A38;
+    --destructive: #A61C2E;
+    --border: #E9DDD4;
+    --input: #E9DDD4;
+    --ring: #A61C2E;
+    --radius: 0px;
+  }
+
+  .dark {
+    /* Constant Brand Colors */
+    --shas-burgundy: #A61C2E;
+    --shas-gold: #E5A924;
+    --shas-cream: #FCF9F5;
+    --shas-charcoal: #2C2A38;
+    --shas-plum: #8A5260;
+
+    /* 1. Dynamic Brand Tokens (Dark Mode - Charcoal/Gold) */
+    --shas-bg: #1B181E; /* Charcoal slate with subtle plum undertone */
+    --shas-brand: #E5A924; /* Muted gold as main accent in dark mode */
+    --shas-accent: #A61C2E; /* Burgundy as highlight in dark mode */
+    --shas-heading: #FCF9F5; /* Warm off-white headings */
+    --shas-secondary: #C3B4BD; /* Dusty silver-rose text */
+    --shas-border: #38303B; /* Muted dark sand-gray border */
+
+    /* 2. Standard shadcn Variable Bindings */
+    --background: #1B181E;
+    --foreground: #FCF9F5;
+    --card: #231E26;
+    --card-foreground: #FCF9F5;
+    --popover: #231E26;
+    --popover-foreground: #FCF9F5;
+    --primary: #E5A924;
+    --primary-foreground: #1B181E;
+    --secondary: #C3B4BD;
+    --secondary-foreground: #1B181E;
+    --muted: #2E2833;
+    --muted-foreground: #C3B4BD;
+    --accent: #A61C2E;
+    --accent-foreground: #FCF9F5;
+    --destructive: #A61C2E;
+    --border: #38303B;
+    --input: #38303B;
+    --ring: #E5A924;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-wide text-shas-heading;
+  }
+
+  /* Custom selection styling */
+  ::selection {
+    background-color: var(--shas-burgundy);
+    color: var(--shas-bg);
+  }
+
+  /* Smooth scrollbars for premium feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--shas-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--shas-border);
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--shas-secondary);
+  }
+}
