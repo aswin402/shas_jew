@@ -494,7 +494,7 @@ export function HomePage() {
                       addItem(PRODUCTS[spot.productIndex]);
                     });
                   }}
-                  className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-cream"
+                  className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-brand"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-shas-accent animate-pulse" />
                   <span>Shop The Complete Set</span>
@@ -543,7 +543,7 @@ export function HomePage() {
                   <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
                     <button
                       onClick={() => addItem(product)}
-                      className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-cream"
+                      className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-brand"
                     >
                       Quick Add to Bag
                     </button>
