@@ -29,14 +29,6 @@ export function CollectionsPage() {
   const [selectedSort, setSelectedSort] = useState<string>('Featured');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  // Keyboard helper for product card details
-  const handleKeyDown = (e: React.KeyboardEvent, product: Product) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      setSelectedProduct(product);
-    }
-  };
-
   // Escape key handler to close detail drawer
   useEffect(() => {
     if (!selectedProduct) return;
@@ -149,10 +141,6 @@ export function CollectionsPage() {
                 <div 
                   className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-shas-brand" 
                   onClick={() => setSelectedProduct(product)}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`View details for ${product.title}`}
-                  onKeyDown={(e) => handleKeyDown(e, product)}
                 >
                   <img
                     src={product.imageUrl}
