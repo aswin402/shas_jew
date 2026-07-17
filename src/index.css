@@ -157,4 +157,24 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--shas-secondary);
   }
+
+  /* Custom scrollbar helper class */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--shas-secondary) transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--shas-border) !important;
+    border-radius: 4px !important;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--shas-brand) !important;
+  }
 }

@@ -310,7 +310,7 @@ export function HomePage() {
             <div className="hero-cta-group flex flex-col sm:flex-row gap-3 w-full max-w-[240px] sm:max-w-none sm:w-auto pt-2">
               <a
                 href="#shop-catalog"
-                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-burgundy text-shas-bg hover:opacity-90 transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center border border-shas-burgundy shadow-sm hover:shadow-lg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg"
+                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-burgundy text-shas-bg hover:bg-white hover:text-black hover:border-white transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center border border-shas-burgundy shadow-sm hover:shadow-lg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-white dark:hover:text-black dark:hover:border-white"
               >
                 Shop All Jewelry
               </a>
@@ -494,7 +494,7 @@ export function HomePage() {
                       addItem(PRODUCTS[spot.productIndex]);
                     });
                   }}
-                  className="w-full py-3 bg-shas-burgundy text-shas-bg hover:opacity-95 transition-opacity font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-shas-burgundy text-shas-bg border border-transparent hover:bg-white hover:text-black hover:border-black transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-white dark:hover:text-black dark:hover:border-white"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-shas-accent animate-pulse" />
                   <span>Shop The Complete Set</span>
@@ -597,7 +597,7 @@ export function HomePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left side: Navigation links list */}
-            <div className="story-text-reveal lg:col-span-4 space-y-3 max-h-[480px] overflow-y-auto pr-2">
+            <div className="story-text-reveal lg:col-span-4 space-y-3 max-h-[400px] overflow-y-scroll custom-scrollbar pr-2">
               {NARRATIVES.map((narrative, index) => {
                 const isActive = activeStoryIndex === index;
                 return (
