@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, Trash2, ShoppingBag, Gift, Lock } from 'lucide-react';
 import { useCartStore } from '../store/useCartStore';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function CartDrawer() {
   const {
@@ -16,6 +16,18 @@ export function CartDrawer() {
   const [giftWrap, setGiftWrap] = useState(false);
   const [giftNote, setGiftNote] = useState('');
   const [showNoteInput, setShowNoteInput] = useState(false);
+
+  // Escape key handler to close Cart Drawer
+  useEffect(() => {
+    if (!isCartOpen) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setCartOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isCartOpen, setCartOpen]);
 
   const subtotal = getCartTotal();
   const giftWrapCost = giftWrap ? 5 : 0;
@@ -44,6 +56,8 @@ export function CartDrawer() {
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-md bg-shas-bg text-shas-heading shadow-2xl flex flex-col border-l border-shas-border"
+            role="dialog"
+            aria-modal="true"
           >
             {/* Header */}
             <div className="p-6 border-b border-shas-border flex items-center justify-between">

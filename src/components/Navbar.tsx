@@ -23,6 +23,7 @@ export function Navbar() {
     { label: 'Necklaces', path: '/necklaces' },
     { label: 'Earrings', path: '/earrings' },
     { label: 'Rings', path: '/rings' },
+    { label: 'Bracelets', path: '/bracelets' },
     { label: 'Gifts', path: '/gifts' },
     { label: 'Journal', path: '/journal' },
   ];

@@ -241,21 +241,21 @@ export function HomePage() {
       id: 'dlicatine-necklace',
       top: '40%',
       left: '42%',
-      productIndex: 0,
+      productId: 'dlicatine-necklace',
       label: 'Necklaces'
     },
     {
       id: 'hoop-earrings',
       top: '78%',
       left: '53%',
-      productIndex: 2,
+      productId: 'hoop-earrings',
       label: 'Earrings'
     },
     {
       id: 'aurelia-pearl-ring',
       top: '58%',
       left: '78%',
-      productIndex: 3,
+      productId: 'aurelia-pearl-ring',
       label: 'Rings'
     }
   ];
@@ -373,7 +373,8 @@ export function HomePage() {
 
                 {/* Hotspot Pins */}
                 {hotspots.map((spot) => {
-                  const product: Product = PRODUCTS[spot.productIndex];
+                  const product = PRODUCTS.find((p) => p.id === spot.productId);
+                  if (!product) return null;
                   const isActive = activeHotspot === spot.id;
 
                   return (
@@ -444,7 +445,8 @@ export function HomePage() {
 
               <div className="space-y-4">
                 {hotspots.map((spot) => {
-                  const product: Product = PRODUCTS[spot.productIndex];
+                  const product = PRODUCTS.find((p) => p.id === spot.productId);
+                  if (!product) return null;
                   return (
                     <div 
                       key={product.id}
@@ -483,7 +485,10 @@ export function HomePage() {
                   onClick={() => {
                     // Add all look items to cart
                     hotspots.forEach((spot) => {
-                      addItem(PRODUCTS[spot.productIndex]);
+                      const product = PRODUCTS.find((p) => p.id === spot.productId);
+                      if (product) {
+                        addItem(product);
+                      }
                     });
                   }}
                   className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-brand"

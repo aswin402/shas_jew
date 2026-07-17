@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState, useMemo, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ShoppingBag, X, Star } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
@@ -10,48 +10,66 @@ export function CollectionsPage() {
   const { addItem } = useCartStore();
   const location = useLocation();
   
+  const navigate = useNavigate();
+  
   // Resolve category filter on path changes helper
   const getCategoryFromPath = (path: string) => {
-    if (path.includes('necklaces')) return 'Necklaces';
-    if (path.includes('earrings')) return 'Earrings';
-    if (path.includes('rings')) return 'Rings';
-    if (path.includes('bracelets')) return 'Bracelets';
-    if (path.includes('gifts')) return 'Gifts';
+    const lowercase = path.toLowerCase();
+    if (lowercase.includes('necklaces')) return 'Necklaces';
+    if (lowercase.includes('earrings')) return 'Earrings';
+    if (lowercase.includes('rings')) return 'Rings';
+    if (lowercase.includes('bracelets')) return 'Bracelets';
+    if (lowercase.includes('gifts')) return 'Gifts';
     return 'All';
   };
 
-  // Sort & filter states
-  const [prevPath, setPrevPath] = useState(location.pathname);
-  const [selectedCategory, setSelectedCategory] = useState<string>(() => getCategoryFromPath(location.pathname));
+  const selectedCategory = getCategoryFromPath(location.pathname);
+
+  // Sort & modal states
   const [selectedSort, setSelectedSort] = useState<string>('Featured');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  // Sync category state if the router path changes
-  if (location.pathname !== prevPath) {
-    setPrevPath(location.pathname);
-    setSelectedCategory(getCategoryFromPath(location.pathname));
-  }
+  // Keyboard helper for product card details
+  const handleKeyDown = (e: React.KeyboardEvent, product: Product) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setSelectedProduct(product);
+    }
+  };
+
+  // Escape key handler to close detail drawer
+  useEffect(() => {
+    if (!selectedProduct) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedProduct(null);
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [selectedProduct]);
 
   // Categories list
   const categories = ['All', 'Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts'];
 
-  // Handle filtering
-  const filteredProducts = PRODUCTS.filter((product) => {
-    if (selectedCategory === 'All') return true;
-    if (selectedCategory === 'Gifts') {
-      // Gifts category returns items under $100
-      return product.price < 100;
-    }
-    return product.category === selectedCategory;
-  });
+  // Handle filtering & sorting (Memoized)
+  const sortedProducts = useMemo(() => {
+    const filtered = PRODUCTS.filter((product) => {
+      if (selectedCategory === 'All') return true;
+      if (selectedCategory === 'Gifts') {
+        // Gifts category returns items under $100
+        return product.price < 100;
+      }
+      return product.category === selectedCategory;
+    });
 
-  // Handle sorting
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
-    if (selectedSort === 'Price: Low to High') return a.price - b.price;
-    if (selectedSort === 'Price: High to Low') return b.price - a.price;
-    if (selectedSort === 'Rating') return b.rating - a.rating;
-    return 0; // Featured (Default order)
-  });
+    return [...filtered].sort((a, b) => {
+      if (selectedSort === 'Price: Low to High') return a.price - b.price;
+      if (selectedSort === 'Price: High to Low') return b.price - a.price;
+      if (selectedSort === 'Rating') return b.rating - a.rating;
+      return 0; // Featured (Default order)
+    });
+  }, [selectedCategory, selectedSort]);
 
   return (
     <main className="pt-24 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300">
@@ -76,7 +94,7 @@ export function CollectionsPage() {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => navigate(cat === 'All' ? '/collections' : '/' + cat.toLowerCase())}
                 className={`px-3 py-1.5 text-[10px] uppercase tracking-wider font-semibold border transition-all duration-300 cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-shas-burgundy border-shas-burgundy text-shas-bg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg'
@@ -128,7 +146,14 @@ export function CollectionsPage() {
                 </span>
 
                 {/* Image container & overlay */}
-                <div className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 cursor-pointer" onClick={() => setSelectedProduct(product)}>
+                <div 
+                  className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-shas-brand" 
+                  onClick={() => setSelectedProduct(product)}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`View details for ${product.title}`}
+                  onKeyDown={(e) => handleKeyDown(e, product)}
+                >
                   <img
                     src={product.imageUrl}
                     alt={product.title}
@@ -136,13 +161,13 @@ export function CollectionsPage() {
                   />
 
                   {/* Quick Add Overlay */}
-                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         addItem(product);
                       }}
-                      className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
+                      className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 group-focus-within:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
                     >
                       Quick Add to Bag
                     </button>
@@ -212,6 +237,8 @@ export function CollectionsPage() {
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="relative w-full max-w-md h-full bg-shas-bg border-l border-shas-border p-8 flex flex-col justify-between overflow-y-auto z-10 shadow-2xl text-left"
+              role="dialog"
+              aria-modal="true"
             >
               <div className="space-y-6">
                 {/* Header */}

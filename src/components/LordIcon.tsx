@@ -62,23 +62,32 @@ export function LordIcon({
   const { theme } = useThemeStore();
 
   useEffect(() => {
+    let active = true;
     fetch(src)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         return res.json();
       })
       .then((data) => {
-        setIconData(data);
-        setIsLoading(false);
+        if (active) {
+          setIconData(data);
+          setIsLoading(false);
+        }
       })
       .catch((err) => {
         console.error('Failed to load lordicon from url:', src, err);
-        setIsLoading(false);
+        if (active) {
+          setIsLoading(false);
+        }
       });
+    return () => {
+      active = false;
+    };
   }, [src]);
 
   // Resolve CSS color variables and currentColors dynamically to HEX
   useEffect(() => {
+    let active = true;
     if (!colors || isLoading || !containerRef.current) {
       setResolvedColors(colors);
       return;
@@ -97,10 +106,15 @@ export function LordIcon({
         return `${key}:${hexColor}`;
       });
 
-      setResolvedColors(resolvedParts.join(','));
+      if (active) {
+        setResolvedColors(resolvedParts.join(','));
+      }
     }, 50); // 50ms delay is enough to let the DOM class rewrite commit
 
-    return () => clearTimeout(timer);
+    return () => {
+      active = false;
+      clearTimeout(timer);
+    };
   }, [colors, isLoading, theme]);
 
   useEffect(() => {
