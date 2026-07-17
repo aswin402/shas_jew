@@ -3,12 +3,15 @@ import { ShoppingBag, Mail, Phone, MapPin, Heart, ShieldCheck, Truck, RefreshCw 
 import { useThemeStore } from '../store/useThemeStore';
 import logoLight from '../assets/shaslogo.png';
 import logoDark from '../assets/shaslogodark.png';
+import stampLogoLight from '../assets/shastamillogolight.png';
+import stampLogoDark from '../assets/shastamillogodark.png';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const { theme } = useThemeStore();
   const isDark = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
   const logoSrc = isDark ? logoDark : logoLight;
+  const stampLogoSrc = isDark ? stampLogoDark : stampLogoLight;
 
   return (
     <footer className="w-full border-t border-shas-border bg-shas-bg text-shas-heading relative z-10 py-16 px-6 md:px-12 transition-colors duration-300">
@@ -164,6 +167,12 @@ export function Footer() {
       {/* Bottom Copyright bar */}
       <div className="max-w-7xl mx-auto border-t border-shas-border/60 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-[10px] text-shas-secondary">
         <p>© {currentYear} SHAS Jewellers. Designed by Deepa Sakthi. All rights reserved.</p>
+        
+        {/* Stamp Logo Center */}
+        <div className="flex justify-center items-center">
+          <img src={stampLogoSrc} alt="SHAS Stamp Logo" className="h-10 md:h-12 w-auto object-contain" />
+        </div>
+
         <p className="flex items-center gap-1">
           Made with <Heart className="w-3 h-3 text-shas-brand fill-shas-brand animate-pulse" /> for the modern romantic.
         </p>
