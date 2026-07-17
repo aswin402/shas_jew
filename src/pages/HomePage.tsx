@@ -597,31 +597,33 @@ export function HomePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left side: Navigation links list */}
-            <div 
-              className="story-text-reveal lg:col-span-4 space-y-3 custom-scrollbar pr-2"
-              style={{ height: '400px', overflowY: 'scroll' }}
-            >
-              {NARRATIVES.map((narrative, index) => {
-                const isActive = activeStoryIndex === index;
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setActiveStoryIndex(index)}
-                    className={`w-full text-left p-4 border transition-all duration-300 flex flex-col gap-1.5 cursor-pointer ${
-                      isActive 
-                        ? 'bg-shas-burgundy/5 border-shas-burgundy shadow-sm' 
-                        : 'bg-transparent border-shas-border/60 hover:border-shas-brand/60'
-                    }`}
-                  >
-                    <span className={`text-[9px] uppercase tracking-wider font-semibold ${isActive ? 'text-shas-brand' : 'text-shas-secondary'}`}>
-                      Story 0{index + 1}
-                    </span>
-                    <h3 className={`font-serif text-sm font-medium ${isActive ? 'text-shas-heading' : 'text-shas-secondary'}`}>
-                      {narrative.title}
-                    </h3>
-                  </button>
-                );
-              })}
+            <div className="story-text-reveal lg:col-span-4">
+              <div 
+                className="space-y-3 custom-scrollbar pr-2"
+                style={{ height: '400px', overflowY: 'scroll' }}
+              >
+                {NARRATIVES.map((narrative, index) => {
+                  const isActive = activeStoryIndex === index;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => setActiveStoryIndex(index)}
+                      className={`w-full text-left p-4 border transition-all duration-300 flex flex-col gap-1.5 cursor-pointer ${
+                        isActive 
+                          ? 'bg-shas-burgundy/5 border-shas-burgundy shadow-sm' 
+                          : 'bg-transparent border-shas-border/60 hover:border-shas-brand/60'
+                      }`}
+                    >
+                      <span className={`text-[9px] uppercase tracking-wider font-semibold ${isActive ? 'text-shas-brand' : 'text-shas-secondary'}`}>
+                        Story 0{index + 1}
+                      </span>
+                      <h3 className={`font-serif text-sm font-medium ${isActive ? 'text-shas-heading' : 'text-shas-secondary'}`}>
+                        {narrative.title}
+                      </h3>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Right side: Detailed narrative card */}
