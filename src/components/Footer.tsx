@@ -170,7 +170,7 @@ export function Footer() {
         
         {/* Stamp Logo Center */}
         <div className="flex justify-center items-center">
-          <img src={stampLogoSrc} alt="SHAS Stamp Logo" className="h-10 md:h-12 w-auto object-contain" />
+          <img src={stampLogoSrc} alt="SHAS Stamp Logo" className="h-16 md:h-20 w-auto object-contain" />
         </div>
 
         <p className="flex items-center gap-1">
