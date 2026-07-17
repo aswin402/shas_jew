@@ -256,12 +256,25 @@ export function HomePage() {
   // Automatically scroll links list to keep active story button visible
   useEffect(() => {
     if (!scrollContainerRef.current) return;
-    const activeEl = scrollContainerRef.current.querySelector('[data-active="true"]');
+    const container = scrollContainerRef.current;
+    const activeEl = container.querySelector('[data-active="true"]') as HTMLElement;
     if (activeEl) {
-      activeEl.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest'
-      });
+      const containerTop = container.scrollTop;
+      const containerBottom = containerTop + container.clientHeight;
+      const elemTop = activeEl.offsetTop;
+      const elemBottom = elemTop + activeEl.offsetHeight;
+
+      if (elemTop < containerTop) {
+        container.scrollTo({
+          top: elemTop,
+          behavior: 'smooth'
+        });
+      } else if (elemBottom > containerBottom) {
+        container.scrollTo({
+          top: elemBottom - container.clientHeight,
+          behavior: 'smooth'
+        });
+      }
     }
   }, [activeStoryIndex]);
 
