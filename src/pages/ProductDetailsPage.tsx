@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ShoppingBag, Star, ShieldCheck, Truck, RefreshCw, ArrowRight } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
@@ -13,7 +13,6 @@ import {
 
 export function ProductDetailsPage() {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const { addItem } = useCartStore();
   
   // Find product
@@ -262,10 +261,10 @@ export function ProductDetailsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {recommendations.map((rec) => (
-              <div
+              <Link
                 key={rec.id}
-                onClick={() => navigate(`/product/${rec.id}`)}
-                className="group flex flex-col h-full bg-transparent border border-shas-border/40 p-4 hover:shadow-md transition-all duration-300 relative cursor-pointer text-left"
+                to={`/product/${rec.id}`}
+                className="group flex flex-col h-full bg-transparent border border-shas-border/40 p-4 hover:shadow-md transition-all duration-300 relative cursor-pointer text-left block"
               >
                 <div className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 mb-4">
                   <img
@@ -293,7 +292,7 @@ export function ProductDetailsPage() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
