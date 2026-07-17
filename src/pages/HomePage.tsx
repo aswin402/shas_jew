@@ -9,56 +9,11 @@ import backgroundMobile from '../assets/shashmob.png';
 import backgroundDesktopDark from '../assets/shashdesktopdark.png';
 import backgroundMobileDark from '../assets/shashmobdark.png';
 import { useThemeStore } from '../store/useThemeStore';
+import { PRODUCTS } from '@/data/products';
+import type { Product } from '@/types/product';
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
-
-const PRODUCTS = [
-  {
-    id: 'dlicatine-necklace',
-    title: 'Dlicatine Necklace',
-    price: 85.00,
-    imageUrl: '/images/shas_product_necklace.jpg',
-    category: 'Necklaces',
-    material: '14k Gold Vermeil',
-    rating: 5.0,
-    reviews: 24,
-    description: 'A delicate 14k gold chain adorned with a single selected freshwater pearl and star accent. Perfect for daily layering.'
-  },
-  {
-    id: 'finellase-bracelet',
-    title: 'Finellase Bracelet',
-    price: 95.00,
-    imageUrl: '/images/shas_product_bracelet.jpg',
-    category: 'Bracelets',
-    material: '14k Gold Vermeil',
-    rating: 4.9,
-    reviews: 18,
-    description: 'Minimalist links crafted with precision, reflecting light with every movement. Complete with a signature clasp.'
-  },
-  {
-    id: 'hoop-earrings',
-    title: 'Hoop Earrings',
-    price: 65.00,
-    imageUrl: '/images/shas_product_earrings.jpg',
-    category: 'Earrings',
-    material: '14k Gold & Baroque Pearl',
-    rating: 5.0,
-    reviews: 32,
-    description: 'Organic handpicked baroque pearls suspended from textured, hand-hammered 14k gold hoops.'
-  },
-  {
-    id: 'aurelia-pearl-ring',
-    title: 'Aurelia Pearl Ring',
-    price: 75.00,
-    imageUrl: '/images/shas_product_ring.jpg',
-    category: 'Rings',
-    material: '14k Gold & Freshwater Pearl',
-    rating: 4.8,
-    reviews: 15,
-    description: 'A twisted rope band meticulously detailed with a central freshwater pearl and micro-pave diamond-like accents.'
-  }
-];
 
 const NARRATIVES = [
   {
@@ -416,7 +371,7 @@ export function HomePage() {
 
                 {/* Hotspot Pins */}
                 {hotspots.map((spot) => {
-                  const product = PRODUCTS[spot.productIndex];
+                  const product: Product = PRODUCTS[spot.productIndex];
                   const isActive = activeHotspot === spot.id;
 
                   return (
@@ -487,7 +442,7 @@ export function HomePage() {
 
               <div className="space-y-4">
                 {hotspots.map((spot) => {
-                  const product = PRODUCTS[spot.productIndex];
+                  const product: Product = PRODUCTS[spot.productIndex];
                   return (
                     <div 
                       key={product.id}
@@ -557,7 +512,7 @@ export function HomePage() {
 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PRODUCTS.map((product) => (
+            {PRODUCTS.map((product: Product) => (
               <div
                 key={product.id}
                 className="product-card-reveal group border border-shas-border bg-shas-bg p-4 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
