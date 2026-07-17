@@ -118,6 +118,7 @@ export function HomePage() {
   const [activeStoryIndex, setActiveStoryIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const storyImageRef = useRef<HTMLImageElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const { theme } = useThemeStore();
   const isDark = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -242,6 +243,27 @@ export function HomePage() {
 
     return () => ctx.revert();
   }, [reducedMotion]);
+
+  // 10-second automatic story rotation timer
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStoryIndex((prev) => (prev + 1) % NARRATIVES.length);
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [activeStoryIndex]);
+
+  // Automatically scroll links list to keep active story button visible
+  useEffect(() => {
+    if (!scrollContainerRef.current) return;
+    const activeEl = scrollContainerRef.current.querySelector('[data-active="true"]');
+    if (activeEl) {
+      activeEl.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+    }
+  }, [activeStoryIndex]);
 
   // Hotspot details
   const hotspots = [
@@ -599,6 +621,7 @@ export function HomePage() {
             {/* Left side: Navigation links list */}
             <div className="story-text-reveal lg:col-span-4">
               <div 
+                ref={scrollContainerRef}
                 className="space-y-3 custom-scrollbar pr-2"
                 style={{ height: '400px', overflowY: 'scroll' }}
               >
@@ -608,6 +631,7 @@ export function HomePage() {
                     <button
                       key={index}
                       onClick={() => setActiveStoryIndex(index)}
+                      data-active={isActive}
                       className={`w-full text-left p-4 border transition-all duration-300 flex flex-col gap-1.5 cursor-pointer ${
                         isActive 
                           ? 'bg-shas-burgundy/5 border-shas-burgundy shadow-sm' 
