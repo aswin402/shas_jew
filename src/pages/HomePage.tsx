@@ -310,7 +310,7 @@ export function HomePage() {
             <div className="hero-cta-group flex flex-col sm:flex-row gap-3 w-full max-w-[240px] sm:max-w-none sm:w-auto pt-2">
               <a
                 href="#shop-catalog"
-                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-burgundy text-shas-bg hover:opacity-90 transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center border border-shas-burgundy shadow-sm hover:shadow-lg"
+                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-burgundy text-shas-bg hover:opacity-90 transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center border border-shas-burgundy shadow-sm hover:shadow-lg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg"
               >
                 Shop All Jewelry
               </a>
@@ -326,11 +326,11 @@ export function HomePage() {
             <div className="hero-cta-group hidden md:grid pt-8 border-t border-shas-border/60 grid grid-cols-3 gap-6 w-full max-w-md font-sans text-left">
               <div>
                 <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Atelier</span>
-                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Erode Store 📌</span>
+                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Erode Store</span>
               </div>
               <div>
                 <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Director</span>
-                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Deepa Sakthi 🔥</span>
+                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Deepa Sakthi</span>
               </div>
               <div>
                 <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Materials</span>
