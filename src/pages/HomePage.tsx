@@ -68,7 +68,10 @@ const NARRATIVES = [
 
 export function HomePage() {
   const { addItem } = useCartStore();
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  });
   const [activeHotspot, setActiveHotspot] = useState<string | null>(null);
   const [activeStoryIndex, setActiveStoryIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -83,7 +86,6 @@ export function HomePage() {
   // Check accessibility reduced-motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mediaQuery.matches);
     
     const handleChange = (e: MediaQueryListEvent) => {
       setReducedMotion(e.matches);

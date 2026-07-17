@@ -8,14 +8,21 @@ interface LottieAnimationProps {
 }
 
 // Handle Vite ESM/CommonJS default export wrapper mismatch
-const LottieComponent = (Lottie as any).default || Lottie;
+const LottieComponent = (Lottie as unknown as { default?: React.ComponentType<{ animationData: object | null; loop?: boolean }> }).default || Lottie;
 
 export function LottieAnimation({ src, className, loop = true }: LottieAnimationProps) {
-  const [animationData, setAnimationData] = useState<any>(null);
+  const [prevSrc, setPrevSrc] = useState(src);
+  const [animationData, setAnimationData] = useState<object | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+  // Sync state if src changes
+  if (src !== prevSrc) {
+    setPrevSrc(src);
     setIsLoading(true);
+    setAnimationData(null);
+  }
+
+  useEffect(() => {
     fetch(src)
       .then((res) => {
         if (!res.ok) throw new Error(`Failed to fetch Lottie JSON: ${res.status}`);

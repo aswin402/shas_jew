@@ -46,15 +46,22 @@ export function LordIcon({
 }: LordIconProps) {
   const playerRef = useRef<Player>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [iconData, setIconData] = useState<any>(null);
+  const [prevSrc, setPrevSrc] = useState(src);
+  const [iconData, setIconData] = useState<object | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [resolvedColors, setResolvedColors] = useState<string | undefined>(undefined);
   
+  // Sync state if src changes
+  if (src !== prevSrc) {
+    setPrevSrc(src);
+    setIsLoading(true);
+    setIconData(null);
+  }
+
   // Hook into theme store to trigger re-renders on theme toggle
   const { theme } = useThemeStore();
 
   useEffect(() => {
-    setIsLoading(true);
     fetch(src)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
