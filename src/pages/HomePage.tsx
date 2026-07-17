@@ -494,7 +494,7 @@ export function HomePage() {
                       addItem(PRODUCTS[spot.productIndex]);
                     });
                   }}
-                  className="w-full py-3 bg-shas-burgundy text-shas-bg border border-transparent hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-cream transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-cream"
+                  className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-cream"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-shas-accent animate-pulse" />
                   <span>Shop The Complete Set</span>
