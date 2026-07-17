@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -524,7 +525,10 @@ export function HomePage() {
                 key={product.id}
                 className="product-card-reveal group border border-shas-border bg-shas-bg p-4 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
               >
-                <div className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40">
+                <Link
+                  to={`/product/${product.id}`}
+                  className="relative block aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40"
+                >
                   <img
                     src={product.imageUrl}
                     alt={product.title}
@@ -539,13 +543,17 @@ export function HomePage() {
                   {/* Add to Cart Overlay slide up */}
                   <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
                     <button
-                      onClick={() => addItem(product)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        addItem(product);
+                      }}
                       className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-brand"
                     >
                       Quick Add to Bag
                     </button>
                   </div>
-                </div>
+                </Link>
 
                 <div className="mt-4 text-left flex-1 flex flex-col justify-between">
                   <div className="space-y-1">
@@ -562,13 +570,13 @@ export function HomePage() {
 
                   <div className="mt-4 pt-3 border-t border-shas-border/40 flex justify-between items-center">
                     <p className="text-sm font-semibold text-shas-brand font-mono">${product.price.toFixed(2)}</p>
-                    <button
-                      onClick={() => addItem(product)}
+                    <Link
+                      to={`/product/${product.id}`}
                       className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-brand transition-colors flex items-center gap-1 font-sans cursor-pointer sm:hidden lg:flex"
                     >
-                      <span>Add to Bag</span>
+                      <span>View Details</span>
                       <ArrowRight className="w-3 h-3" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
