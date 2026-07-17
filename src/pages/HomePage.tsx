@@ -597,7 +597,7 @@ export function HomePage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left side: Navigation links list */}
-            <div className="story-text-reveal lg:col-span-4 space-y-3 max-h-[400px] overflow-y-scroll custom-scrollbar pr-2">
+            <div className="story-text-reveal lg:col-span-4 space-y-3 h-[300px] lg:h-[450px] overflow-y-scroll custom-scrollbar pr-2">
               {NARRATIVES.map((narrative, index) => {
                 const isActive = activeStoryIndex === index;
                 return (
