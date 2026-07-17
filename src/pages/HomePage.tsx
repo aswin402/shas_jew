@@ -60,10 +60,62 @@ const PRODUCTS = [
   }
 ];
 
+const NARRATIVES = [
+  {
+    title: "A Memory in the Making",
+    quote: "One day, it won’t just be jewellery—it will be a memory. ❤️✨",
+    body: "Every piece you own carries a story. A celebration, a milestone, a loved one, or a moment you’ll cherish forever. That’s why every SHAS creation begins with more than just a design—it begins with an emotion.\n\nThis soft blush pink piece paired with delicate pearls was born from a simple thought: Why not create something refreshingly elegant? The result is a timeless design that feels graceful, unique, and effortlessly beautiful. Because sometimes, the most memorable jewellery isn’t the boldest—it’s the one that speaks to your heart.\n\nDiscover jewellery that’s designed to become a part of your story. Visit SHAS, Periyar Nagar, Erode. ❤️",
+    tags: ["designerjewellery", "blushpink", "pearljewellery", "luxuryjewellery", "bridaljewellery", "statementjewellery", "weddingjewellery", "erode", "shasjewellers"]
+  },
+  {
+    title: "Complete Your Look",
+    quote: "The right jewellery doesn’t just complete your outfit—it completes your look. ✨",
+    body: "Sometimes, it’s not about having more jewellery. It’s about choosing the right piece. The wrong styling choice can take away from your entire look, while the perfect one can elevate it effortlessly.\n\nAt SHAS, we believe every jewellery piece has a purpose. Whether it’s a timeless Lakshmi design or a contemporary statement piece, the right styling makes all the difference. Because true elegance lies in knowing what to wear, and when to wear it.\n\nVisit SHAS and let us help you find the jewellery that complements your style perfectly. ❤️",
+    tags: ["jewellerystyling", "stylingtips", "bridaljewellery", "traditionaljewellery", "lakshmijewellery", "goldjewellery", "luxuryjewellery", "erode", "shasjewellers"]
+  },
+  {
+    title: "Our Bridal Show Success",
+    quote: "The greatest reward isn’t just creating beautiful jewellery—it’s knowing it became a part of someone’s story. ❤️✨",
+    body: "Our recent Bridal Show in Erode was filled with moments we’ll always cherish. From hearing how every piece felt thoughtfully curated and deeply personal to seeing so many of you connect with our collections, every conversation reminded us why we do what we do.\n\nWhat made it even more special was the love that continued beyond the event. So many customers visited us after the show to customize their dream jewellery, and many even travelled from different places to experience SHAS. Your trust, appreciation, and support mean the world to us.\n\nThank you for making our Bridal Show a beautiful success. We can’t wait to welcome you to SHAS, Athiyar Nagar, Erode, and be a part of your next special moment. ❤️",
+    tags: ["bridalshow", "bridaljewellery", "customizedjewellery", "weddingjewellery", "erode", "luxuryjewellery", "bridalshopping", "southindianbride", "shasjewellers"]
+  },
+  {
+    title: "The Entrepreneur's Journey",
+    quote: "Success is visible. The struggle behind it rarely is.",
+    body: "Every entrepreneur’s journey looks different. Some battles are seen, while many are fought quietly behind the scenes. No matter where you come from or what people assume about your journey, building something meaningful takes courage, consistency, and unwavering belief.\n\nThe opinions of others will always exist, but they should never define your path. Keep showing up, trust the process, and stay committed to your vision. One step at a time, you’ll find the light at the end of the tunnel.\n\nKeep building. Keep believing. Keep walking. ✨",
+    tags: ["entrepreneurship", "founderjourney", "trusttheprocess", "businessgrowth", "leadership", "consistency", "womenentrepreneurs", "shasjewellers"]
+  },
+  {
+    title: "Founder's GRWM Styling",
+    quote: "Getting ready is never just about what you wear, it’s about how you feel. ✨",
+    body: "Join Deepa Akka, Founder of SHAS, as she styles some of her favorite jewellery pieces.\n\nFrom timeless classics to statement pieces, every choice tells a story and celebrates individuality.\n\nWhich look is your favorite? Tell us in the comments below. ✨",
+    tags: ["getreadywithme", "grwm", "jewellerystyling", "shasjewellers", "bridaljewellery", "goldjewellery", "fashionreel", "southindianjewellery"]
+  },
+  {
+    title: "Details of Ruby",
+    quote: "Every piece of jewellery tells a story, but it’s the details that make it unforgettable. ❤️✨",
+    body: "The rich ruby at the heart of this design isn’t just a gemstone, it’s the soul of the piece. Its vibrant brilliance adds depth, elegance, and a timeless charm that makes every look feel extraordinary.\n\nWhether you’re the bride or someone celebrating alongside her, this collection is designed to make you feel like the center of every beautiful moment.\n\nDiscover the Ruby Collection at SHAS and find the piece that’s made to shine with you. ❤️",
+    tags: ["rubyjewellery", "bridaljewellery", "bridalfashion", "weddingjewellery", "luxuryjewellery", "breadcrumbs", "erode", "shasjewellers"]
+  },
+  {
+    title: "Artisanal Perfection",
+    quote: "Good things take time, but the best things? They take a little extra care 💎",
+    body: "We don’t believe in rushed timelines or false promises. Every piece at SHAS is handcrafted by artisans who take the time they need to ensure absolute perfection\nBecause when it comes to your special moments, you deserve nothing less than a masterpiece 💕",
+    tags: ["ShasJewellery", "HandmadeWithLove", "JewelleryDesign", "ArtisanCrafted", "TraditionalJewellery", "Shas", "Craftsmanship", "PremiumJewellery", "HandcraftedWithCare"]
+  },
+  {
+    title: "Natural Light & Trust",
+    quote: "What you see is what you get ✨",
+    body: "At Shas Jewellers, we believe true beauty needs no filters. That’s why every piece is photographed in natural light, allowing its colours, craftsmanship, and brilliance to shine exactly as they do in real life 🧡\n\nFrom the soft glow of pearls to the rich sparkle of rubies, every detail is captured with honesty so when your jewellery reaches you, it feels just as beautiful as the moment you first saw it ✨💕\n\nBecause at Shas, trust is as important as craftsmanship, and elegance is best experienced in its truest form ❤️",
+    tags: ["ShasJewellers", "RealBeauty", "NaturalLightJewellery", "AuthenticElegance", "PearlsAndRubies", "TimelessJeweller", "CraftedWithLove", "JewelleryWithEmotion", "FineJewellery", "LuxuryJewellery", "TraditionalMeetsModern", "ShasExperience", "TimelessElegance"]
+  }
+];
+
 export function HomePage() {
   const { addItem } = useCartStore();
   const [reducedMotion, setReducedMotion] = useState(false);
   const [activeHotspot, setActiveHotspot] = useState<string | null>(null);
+  const [activeStoryIndex, setActiveStoryIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const storyImageRef = useRef<HTMLImageElement>(null);
 
@@ -240,17 +292,17 @@ export function HomePage() {
           <div className="lg:col-span-7 flex flex-col items-start text-left space-y-4 sm:space-y-6 lg:space-y-8">
             <div className="hero-subtitle-tag flex items-center gap-2 text-[10px] sm:text-xxs uppercase tracking-[0.25em] text-shas-secondary font-sans font-semibold">
               <Sparkles className="w-3.5 h-3.5 text-shas-accent" />
-              <span>DTC Handcrafted Luxury</span>
+              <span>Heritage in Every Carat • Natural Diamonds & Gold</span>
             </div>
 
             <div className="space-y-3 sm:space-y-4">
               <h1 className="hero-title-main font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide leading-[1.1] text-shas-heading">
-                ELEGANCE <br />
-                <span className="font-light italic text-shas-brand">REVEALED.</span>
+                TRADITIONAL <br />
+                <span className="font-light italic text-shas-brand">LUXURY.</span>
               </h1>
               
               <p className="hero-desc-main text-sm sm:text-base leading-relaxed text-shas-heading/90 max-w-[310px] sm:max-w-md lg:max-w-lg font-sans">
-                Discover Curated Collections of Timeless Jewelry. Designed for the modern romantic, crafted meticulously to celebrate the beauty of intention.
+                Designed by Deepa Sakthi. Experience traditional luxury at our Erode Store. Every piece is handcrafted by artisans to ensure absolute perfection.
               </p>
             </div>
 
@@ -273,16 +325,16 @@ export function HomePage() {
             {/* Editorial Specs Bar */}
             <div className="hero-cta-group hidden md:grid pt-8 border-t border-shas-border/60 grid grid-cols-3 gap-6 w-full max-w-md font-sans text-left">
               <div>
+                <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Atelier</span>
+                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Erode Store 📌</span>
+              </div>
+              <div>
+                <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Director</span>
+                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Deepa Sakthi 🔥</span>
+              </div>
+              <div>
                 <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Materials</span>
-                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">14k Vermeil Gold</span>
-              </div>
-              <div>
-                <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Sourcing</span>
-                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Sustainably Minded</span>
-              </div>
-              <div>
-                <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Packaging</span>
-                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Linen Boxed</span>
+                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Diamonds & Gold</span>
               </div>
             </div>
           </div>
@@ -529,47 +581,96 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 4. THE SHAS STORY EDITORIAL */}
+      {/* 4. THE SHAS JOURNAL EDITORIAL */}
       <section className="story-section py-20 md:py-28 px-6 md:px-16 border-t border-b border-shas-border bg-shas-bg text-shas-heading overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="max-w-7xl mx-auto space-y-12">
           
-          {/* Story Copy */}
-          <div className="story-text-reveal lg:col-span-6 space-y-6 text-left">
-            <span className="text-xxs uppercase tracking-[0.25em] text-shas-brand font-sans font-bold">The Editorial Narrative</span>
-            <h2 className="font-serif text-3xl md:text-5xl font-light tracking-wide text-shas-heading leading-tight">
-              The SHAS Story
-            </h2>
-            
-            <blockquote className="font-serif text-lg md:text-xl text-shas-secondary italic leading-relaxed border-l-2 border-shas-burgundy pl-6 py-1">
-              "At SHAS, we believe that luxury isn't about excess; it's about the beauty of intention. Every piece in our collection is meticulously designed and sustainably sourced, crafted to be worn as an extension of your own narrative."
-            </blockquote>
-            
-            <p className="text-xs md:text-sm text-shas-secondary font-sans leading-relaxed">
-              From delicate everyday chains to striking heirloom-quality statements, we bring you modern artifacts that stand the test of time. Every single gemstone is responsibly harvested, and our precious metals are recycled, ensuring that our imprint on the earth is as delicate as the jewelry we build.
-            </p>
-
-            <button
-              onClick={() => alert('About section simulation!')}
-              className="px-8 py-3.5 bg-transparent border border-shas-heading text-shas-heading hover:bg-shas-brand hover:border-shas-brand hover:text-shas-bg transition-all font-sans text-xs uppercase tracking-widest font-semibold"
-            >
-              Learn More
-            </button>
-          </div>
-
-          {/* Parallax Craftsmanship Image */}
-          <div className="lg:col-span-6 w-full flex justify-center">
-            <div className="relative w-full max-w-md aspect-[4/5] overflow-hidden bg-stone-100 border border-shas-border shadow-xl p-4">
-              <div className="w-full h-[115%] overflow-hidden relative -top-[10%]">
-                <img
-                  ref={storyImageRef}
-                  src="/images/shas_story_macro.jpg"
-                  alt="Crafting a SHAS ring"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-shas-border pb-6">
+            <div className="space-y-2">
+              <span className="text-xxs uppercase tracking-[0.25em] text-shas-brand font-sans font-bold">Atelier Narrative</span>
+              <h2 className="font-serif text-3xl md:text-4xl font-light tracking-wide text-shas-heading dark:text-foreground">The SHAS Journal</h2>
             </div>
+            <p className="text-xs md:text-sm text-shas-secondary max-w-sm font-sans leading-relaxed">
+              Discover stories of craft, milestones, and styling from the heart of our Erode studio.
+            </p>
           </div>
 
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left side: Navigation links list */}
+            <div className="story-text-reveal lg:col-span-4 space-y-3 max-h-[480px] overflow-y-auto pr-2">
+              {NARRATIVES.map((narrative, index) => {
+                const isActive = activeStoryIndex === index;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveStoryIndex(index)}
+                    className={`w-full text-left p-4 border transition-all duration-300 flex flex-col gap-1.5 cursor-pointer ${
+                      isActive 
+                        ? 'bg-shas-burgundy/5 border-shas-burgundy shadow-sm' 
+                        : 'bg-transparent border-shas-border/60 hover:border-shas-brand/60'
+                    }`}
+                  >
+                    <span className={`text-[9px] uppercase tracking-wider font-semibold ${isActive ? 'text-shas-brand' : 'text-shas-secondary'}`}>
+                      Story 0{index + 1}
+                    </span>
+                    <h3 className={`font-serif text-sm font-medium ${isActive ? 'text-shas-heading' : 'text-shas-secondary'}`}>
+                      {narrative.title}
+                    </h3>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right side: Detailed narrative card */}
+            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              
+              {/* Story text info */}
+              <div className="md:col-span-7 space-y-6 text-left">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeStoryIndex}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
+                    className="space-y-6"
+                  >
+                    <blockquote className="font-serif text-lg md:text-xl text-shas-heading italic leading-relaxed border-l-2 border-shas-burgundy pl-6 py-1">
+                      "{NARRATIVES[activeStoryIndex].quote}"
+                    </blockquote>
+                    
+                    <p className="text-xs md:text-sm text-shas-secondary font-sans leading-relaxed whitespace-pre-line">
+                      {NARRATIVES[activeStoryIndex].body}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {NARRATIVES[activeStoryIndex].tags.map((tag, i) => (
+                        <span key={i} className="text-[9px] font-mono text-shas-brand bg-shas-brand/5 px-2 py-0.5 border border-shas-brand/10">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Parallax Image / Ambient Craftsman image */}
+              <div className="md:col-span-5 w-full flex justify-center">
+                <div className="relative w-full aspect-[4/5] overflow-hidden bg-stone-100 border border-shas-border shadow-md p-3">
+                  <div className="w-full h-[115%] overflow-hidden relative -top-[10%]">
+                    <img
+                      ref={storyImageRef}
+                      src="/images/shas_story_macro.jpg"
+                      alt="Crafting a SHAS ring"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </section>
 

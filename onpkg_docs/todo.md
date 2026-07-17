@@ -11,6 +11,7 @@
 - [x] Set up full-bleed Hero Section background with responsive `<picture>` tags
 - [x] Integrate Zustand-based theme store support for dynamic SVG/PNG logos
 - [x] Adjust text sizes and positioning for mobile hero compatibility
+- [x] Integrate Erode store editorial journal narratives and brand social details
 - [ ] Integrate database/storage for catalog persistence
 - [x] Add GSAP timelines and scroll-triggered animations
 
@@ -18,3 +19,5 @@
 - [x] Run lint checks and build validation
 - [x] Audit responsive layouts on mobile (375px - 768px) and desktop (1024px - 1440px)
 - [x] Confirm light/dark logo changes react to user system preferences
+- [x] Verify Google Maps location pin and Instagram/Facebook/Threads links function in footer
+
