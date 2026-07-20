@@ -12,6 +12,8 @@
 - [x] Integrate Zustand-based theme store support for dynamic SVG/PNG logos
 - [x] Adjust text sizes and positioning for mobile hero compatibility
 - [x] Integrate Erode store editorial journal narratives and brand social details
+- [x] Redesign AboutPage and ContactPage from placeholder templates
+- [x] Implement JournalPage and update App router config
 - [ ] Integrate database/storage for catalog persistence
 - [x] Add GSAP timelines and scroll-triggered animations
 

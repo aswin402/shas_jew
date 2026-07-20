@@ -19,25 +19,23 @@ export function ProductDetailsPage() {
   const product = PRODUCTS.find((p) => p.id === id);
 
   // Option state (size or length)
-  const [selectedOption, setSelectedOption] = useState<string>('');
+  const [selectedOption, setSelectedOption] = useState<string>(() => {
+    if (!product) return '';
+    if (product.category === 'Rings') return '7';
+    if (product.category === 'Necklaces') return '18"';
+    return 'Standard';
+  });
+
+  const [prevId, setPrevId] = useState(id);
+  if (id !== prevId) {
+    setPrevId(id);
+    setSelectedOption(product?.category === 'Rings' ? '7' : product?.category === 'Necklaces' ? '18"' : 'Standard');
+  }
 
   // Scroll to top on load/change
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (product) {
-      // Set default option matching requirements:
-      // Ring Sizes: 6, 7, 8 (default 7)
-      // Necklace Length: 16", 18" (default 18")
-      // Standard for earrings/bracelets
-      if (product.category === 'Rings') {
-        setSelectedOption('7');
-      } else if (product.category === 'Necklaces') {
-        setSelectedOption('18"');
-      } else {
-        setSelectedOption('Standard');
-      }
-    }
-  }, [id, product]);
+  }, [id]);
 
   if (!product) {
     return (

@@ -6,6 +6,12 @@ import { ContactPage } from '@/pages/ContactPage';
 import { CollectionsPage } from '@/pages/CollectionsPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProductDetailsPage } from '@/pages/ProductDetailsPage';
+import { JournalPage } from '@/pages/JournalPage';
+import { PrivacyPolicyPage } from '@/pages/PrivacyPolicyPage';
+import { TermsPage } from '@/pages/TermsPage';
+import { ShippingReturnsPage } from '@/pages/ShippingReturnsPage';
+import { FaqPage } from '@/pages/FaqPage';
+import { CheckoutPage } from '@/pages/CheckoutPage';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -50,8 +56,44 @@ const router = createBrowserRouter([
         element: <AboutPage />,
       },
       {
+        path: 'about-us',
+        element: <AboutPage />,
+      },
+      {
         path: 'contact',
         element: <ContactPage />,
+      },
+      {
+        path: 'contact-us',
+        element: <ContactPage />,
+      },
+      {
+        path: 'journal',
+        element: <JournalPage />,
+      },
+      {
+        path: 'privacy-policy',
+        element: <PrivacyPolicyPage />,
+      },
+      {
+        path: 'terms',
+        element: <TermsPage />,
+      },
+      {
+        path: 'shipping-returns',
+        element: <ShippingReturnsPage />,
+      },
+      {
+        path: 'faq',
+        element: <FaqPage />,
+      },
+      {
+        path: 'faqs',
+        element: <FaqPage />,
+      },
+      {
+        path: 'checkout',
+        element: <CheckoutPage />,
       },
       {
         path: '*',

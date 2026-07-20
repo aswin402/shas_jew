@@ -6,10 +6,12 @@ import { useCartStore } from '../store/useCartStore';
 import { useThemeStore } from '../store/useThemeStore';
 import logoLight from '../assets/shaslogo.png';
 import logoDark from '../assets/shaslogodark.png';
+import { SearchModal } from '@/components/SearchModal';
 
 export function Navbar() {
   const { setCartOpen, getCartCount } = useCartStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
   const cartCount = getCartCount();
 
@@ -26,6 +28,8 @@ export function Navbar() {
     { label: 'Bracelets', path: '/bracelets' },
     { label: 'Gifts', path: '/gifts' },
     { label: 'Journal', path: '/journal' },
+    { label: 'About Us', path: '/about-us' },
+    { label: 'Contact Us', path: '/contact-us' },
   ];
 
   const isActive = (path: string) => {
@@ -56,12 +60,12 @@ export function Navbar() {
         </div>
 
         {/* Center: Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-3 lg:space-x-5 xl:space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               to={link.path}
-              className={`text-xs uppercase tracking-widest font-sans font-medium transition-colors duration-350 relative py-2 group ${
+              className={`text-[10px] xl:text-xs uppercase tracking-widest font-sans font-medium transition-colors duration-350 relative py-2 group ${
                 isActive(link.path)
                   ? 'text-shas-brand dark:text-primary'
                   : 'text-shas-heading/70 hover:text-shas-brand dark:text-foreground/75 dark:hover:text-primary'
@@ -82,7 +86,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 md:gap-4">
           {/* Mock Search trigger */}
           <button
-            onClick={() => alert('Search functionality simulator!')}
+            onClick={() => setIsSearchOpen(true)}
             className="h-10 w-10 flex items-center justify-center rounded-full text-shas-heading dark:text-foreground hover:bg-shas-border/40 transition-colors focus:outline-none"
             title="Search Products"
           >
@@ -142,6 +146,7 @@ export function Navbar() {
           </div>
         </div>
       )}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 }

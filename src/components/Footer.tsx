@@ -48,7 +48,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
         
         {/* Brand Column */}
         <div className="md:col-span-2 space-y-4 text-left">
@@ -131,6 +131,43 @@ export function Footer() {
             <li>
               <Link to="/journal" className="text-shas-secondary hover:text-shas-brand transition-colors">
                 The Journal
+              </Link>
+            </li>
+            <li>
+              <Link to="/about-us" className="text-shas-secondary hover:text-shas-brand transition-colors">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact-us" className="text-shas-secondary hover:text-shas-brand transition-colors">
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Customer Care Column */}
+        <div className="space-y-4 text-left">
+          <h4 className="font-sans font-semibold text-xs uppercase tracking-widest text-shas-heading">Customer Care</h4>
+          <ul className="space-y-2 font-sans text-xs">
+            <li>
+              <Link to="/faq" className="text-shas-secondary hover:text-shas-brand transition-colors">
+                FAQs
+              </Link>
+            </li>
+            <li>
+              <Link to="/shipping-returns" className="text-shas-secondary hover:text-shas-brand transition-colors">
+                Shipping & Returns
+              </Link>
+            </li>
+            <li>
+              <Link to="/privacy-policy" className="text-shas-secondary hover:text-shas-brand transition-colors">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/terms" className="text-shas-secondary hover:text-shas-brand transition-colors">
+                Terms of Service
               </Link>
             </li>
           </ul>

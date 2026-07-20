@@ -2,8 +2,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, Trash2, ShoppingBag, Gift, Lock } from 'lucide-react';
 import { useCartStore } from '../store/useCartStore';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function CartDrawer() {
+  const navigate = useNavigate();
   const {
     cartItems,
     isCartOpen,
@@ -272,7 +274,8 @@ export function CartDrawer() {
                 <div className="space-y-2 pt-2">
                   <button
                     onClick={() => {
-                      alert('Checkout pipeline simulation! Under production.');
+                      setCartOpen(false);
+                      navigate('/checkout');
                     }}
                     className="w-full py-4 bg-shas-brand text-shas-bg hover:opacity-95 transition-opacity font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2"
                   >
