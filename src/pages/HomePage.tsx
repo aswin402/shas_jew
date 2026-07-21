@@ -265,7 +265,7 @@ export function HomePage() {
     <div ref={containerRef} className="relative bg-shas-bg text-shas-heading transition-colors duration-300">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[calc(100vh-6rem)] flex items-start lg:items-center pt-36 sm:pt-48 lg:pt-44 pb-12 sm:pb-20 px-6 md:px-16 overflow-hidden border-b border-shas-border">
+      <section className="relative min-h-screen flex items-center pt-24 pb-16 px-6 md:px-16 overflow-hidden border-b border-shas-border">
         {/* Full-bleed Hero Background Image */}
         <div className="hero-image-frame absolute inset-0 w-full h-full z-0 overflow-hidden">
           <picture className="w-full h-full">
@@ -338,12 +338,12 @@ export function HomePage() {
         </div>
 
         {/* Floating caption overlay on the background image */}
-        <div className="absolute bottom-6 right-6 md:right-16 z-10 bg-shas-bg/90 dark:bg-card/90 px-3 py-1.5 border border-shas-border/60 text-[9px] uppercase tracking-widest font-sans text-shas-secondary font-medium">
+        <div className="absolute bottom-8 right-6 md:right-16 z-10 bg-shas-bg/90 dark:bg-card/90 px-3 py-1.5 border border-shas-border/60 text-[9px] uppercase tracking-widest font-sans text-shas-secondary font-medium">
           Style Study No. 04 / Plinths
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 cursor-pointer text-shas-secondary opacity-70 hover:opacity-100 transition-opacity">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1.5 cursor-pointer text-shas-secondary opacity-70 hover:opacity-100 transition-opacity">
           <span className="text-[9px] uppercase tracking-widest font-sans font-bold">Scroll Down</span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </div>
