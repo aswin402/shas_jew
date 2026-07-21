@@ -49,39 +49,39 @@
 @layer base {
   :root {
     /* Constant Brand Colors */
-    --shas-burgundy: #A61C2E;
-    --shas-gold: #E5A924;
+    --shas-burgundy: #9E1527;
+    --shas-gold: #D99E18;
     --shas-cream: #FCF9F5;
-    --shas-charcoal: #2C2A38;
-    --shas-plum: #8A5260;
+    --shas-charcoal: #181620;
+    --shas-plum: #5C323D;
 
-    /* 1. Dynamic Brand Tokens (Light Mode - Cream/Burgundy) */
+    /* 1. Dynamic Brand Tokens (Light Mode - Thicker High Contrast) */
     --shas-bg: #FCF9F5;
-    --shas-brand: #A61C2E;
-    --shas-accent: #E5A924;
-    --shas-heading: #2C2A38;
-    --shas-secondary: #8A5260;
-    --shas-border: #E9DDD4;
+    --shas-brand: #9E1527;
+    --shas-accent: #D99E18;
+    --shas-heading: #181620; /* Deep charcoal for sharp, bold headings */
+    --shas-secondary: #4A2B33; /* Darker plum-slate for thicker secondary text */
+    --shas-border: #E2D3C7;
 
     /* 2. Standard shadcn Variable Bindings */
     --background: #FCF9F5;
-    --foreground: #2C2A38;
+    --foreground: #181620;
     --card: #FCF9F5;
-    --card-foreground: #2C2A38;
+    --card-foreground: #181620;
     --popover: #FCF9F5;
-    --popover-foreground: #2C2A38;
-    --primary: #A61C2E;
+    --popover-foreground: #181620;
+    --primary: #9E1527;
     --primary-foreground: #FCF9F5;
-    --secondary: #8A5260;
+    --secondary: #4A2B33;
     --secondary-foreground: #FCF9F5;
-    --muted: #F5EFEA;
-    --muted-foreground: #8A5260;
-    --accent: #E5A924;
-    --accent-foreground: #2C2A38;
-    --destructive: #A61C2E;
-    --border: #E9DDD4;
-    --input: #E9DDD4;
-    --ring: #A61C2E;
+    --muted: #F3EBE4;
+    --muted-foreground: #4A2B33;
+    --accent: #D99E18;
+    --accent-foreground: #181620;
+    --destructive: #9E1527;
+    --border: #E2D3C7;
+    --input: #E2D3C7;
+    --ring: #9E1527;
     --radius: 0px;
   }
 
@@ -90,36 +90,36 @@
     --shas-burgundy: #A61C2E;
     --shas-gold: #E5A924;
     --shas-cream: #FCF9F5;
-    --shas-charcoal: #2C2A38;
+    --shas-charcoal: #181620;
     --shas-plum: #8A5260;
 
-    /* 1. Dynamic Brand Tokens (Dark Mode - Charcoal/Gold) */
-    --shas-bg: #1B181E; /* Charcoal slate with subtle plum undertone */
-    --shas-brand: #E5A924; /* Muted gold as main accent in dark mode */
-    --shas-accent: #A61C2E; /* Burgundy as highlight in dark mode */
-    --shas-heading: #FCF9F5; /* Warm off-white headings */
-    --shas-secondary: #C3B4BD; /* Dusty silver-rose text */
-    --shas-border: #38303B; /* Muted dark sand-gray border */
+    /* 1. Dynamic Brand Tokens (Dark Mode - High Contrast White & Gold) */
+    --shas-bg: #141217; /* Rich deep charcoal slate */
+    --shas-brand: #F2B82E; /* Vibrant gold for dark mode brand elements */
+    --shas-accent: #C42338; /* Crisp burgundy highlight */
+    --shas-heading: #FFFFFF; /* Pure bold white for maximum contrast */
+    --shas-secondary: #E4D9E0; /* Bright silver-rose text for thick legibility */
+    --shas-border: #423846; /* Defined dark border */
 
     /* 2. Standard shadcn Variable Bindings */
-    --background: #1B181E;
-    --foreground: #FCF9F5;
-    --card: #231E26;
-    --card-foreground: #FCF9F5;
-    --popover: #231E26;
-    --popover-foreground: #FCF9F5;
-    --primary: #E5A924;
-    --primary-foreground: #1B181E;
-    --secondary: #C3B4BD;
-    --secondary-foreground: #1B181E;
-    --muted: #2E2833;
-    --muted-foreground: #C3B4BD;
-    --accent: #A61C2E;
-    --accent-foreground: #FCF9F5;
-    --destructive: #A61C2E;
-    --border: #38303B;
-    --input: #38303B;
-    --ring: #E5A924;
+    --background: #141217;
+    --foreground: #FFFFFF;
+    --card: #1D1922;
+    --card-foreground: #FFFFFF;
+    --popover: #1D1922;
+    --popover-foreground: #FFFFFF;
+    --primary: #F2B82E;
+    --primary-foreground: #141217;
+    --secondary: #E4D9E0;
+    --secondary-foreground: #141217;
+    --muted: #28222E;
+    --muted-foreground: #E4D9E0;
+    --accent: #C42338;
+    --accent-foreground: #FFFFFF;
+    --destructive: #C42338;
+    --border: #423846;
+    --input: #423846;
+    --ring: #F2B82E;
   }
 
   * {
@@ -128,12 +128,12 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground font-body antialiased font-medium;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading tracking-wide text-shas-heading;
+    @apply font-heading tracking-wide text-shas-heading font-bold;
   }
 
   /* Custom selection styling */

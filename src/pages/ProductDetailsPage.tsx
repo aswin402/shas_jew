@@ -40,7 +40,7 @@ export function ProductDetailsPage() {
   if (!product) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-shas-bg text-shas-heading p-6 font-sans">
-        <h2 className="font-serif text-2xl font-light mb-4">Product Not Found</h2>
+        <h2 className="font-serif text-2xl font-bold mb-4">Product Not Found</h2>
         <Link to="/collections" className="text-xs uppercase tracking-widest font-semibold text-shas-brand hover:underline">
           Back to Collections
         </Link>
@@ -97,7 +97,7 @@ export function ProductDetailsPage() {
               <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-bold font-sans">
                 {product.category} Collection
               </span>
-              <h1 className="font-serif text-3xl md:text-4xl font-light tracking-wide leading-tight">
+              <h1 className="font-serif text-3xl md:text-4xl font-bold tracking-wide leading-tight">
                 {product.title}
               </h1>
               <div className="flex items-center gap-4 pt-1">
@@ -254,7 +254,7 @@ export function ProductDetailsPage() {
         <div className="border-t border-shas-border/40 pt-16 space-y-10">
           <div className="text-center max-w-xl mx-auto space-y-2">
             <span className="text-[9px] uppercase tracking-[0.25em] text-shas-secondary font-bold font-sans">Curated Recommendations</span>
-            <h3 className="font-serif text-2xl font-light tracking-wide text-shas-heading dark:text-foreground">You May Also Love</h3>
+            <h3 className="font-serif text-2xl font-bold tracking-wide text-shas-heading dark:text-foreground">You May Also Love</h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -276,7 +276,7 @@ export function ProductDetailsPage() {
                     <h4 className="font-serif text-sm font-medium text-shas-heading dark:text-foreground">
                       {rec.title}
                     </h4>
-                    <p className="text-[9px] text-shas-secondary font-light italic">
+                    <p className="text-[9px] text-shas-secondary font-normal italic">
                       {rec.material}
                     </p>
                   </div>

@@ -106,7 +106,7 @@ export function JournalPage() {
               <span>• {selectedStory.readTime}</span>
             </div>
 
-            <h1 className="font-serif text-3xl md:text-5xl font-light tracking-wide leading-tight">
+            <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-wide leading-tight">
               {selectedStory.title}
             </h1>
           </div>
@@ -145,7 +145,7 @@ export function JournalPage() {
               <BookOpen className="w-4 h-4 text-shas-accent" />
               <span>The Atelier Chronicles</span>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-light tracking-wide">
+            <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-wide">
               The SHAS Journal
             </h1>
             <p className="text-xs md:text-sm text-shas-secondary font-sans leading-relaxed">
@@ -177,7 +177,7 @@ export function JournalPage() {
                   <span>By {featuredStory.author}</span>
                   <span>{featuredStory.readTime}</span>
                 </div>
-                <h2 className="font-serif text-2xl md:text-3xl font-light tracking-wide leading-tight text-shas-heading group-hover:text-shas-brand transition-colors">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-wide leading-tight text-shas-heading group-hover:text-shas-brand transition-colors">
                   {featuredStory.title}
                 </h2>
                 <p className="text-xs text-shas-secondary leading-relaxed font-sans line-clamp-4">
@@ -196,7 +196,7 @@ export function JournalPage() {
 
           {/* Grid Layout of regular articles */}
           <div className="space-y-8">
-            <h3 className="font-serif text-xl font-light tracking-wide text-left border-b border-shas-border/40 pb-3 uppercase text-shas-secondary text-[11px] tracking-[0.2em] font-semibold">
+            <h3 className="font-serif text-xl font-bold tracking-wide text-left border-b border-shas-border/40 pb-3 uppercase text-shas-secondary text-[11px] tracking-[0.2em]">
               More Stories
             </h3>
             

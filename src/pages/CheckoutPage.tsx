@@ -140,7 +140,7 @@ export function CheckoutPage() {
                   <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-semibold font-sans flex items-center gap-1.5">
                     <Lock className="w-3.5 h-3.5" /> Secure Checkout Portal
                   </span>
-                  <h1 className="font-serif text-3xl md:text-4xl font-light tracking-wide leading-tight">
+                  <h1 className="font-serif text-3xl md:text-4xl font-bold tracking-wide leading-tight">
                     Order Details
                   </h1>
                 </div>
@@ -403,7 +403,7 @@ export function CheckoutPage() {
                   <Sparkles className="w-3.5 h-3.5 text-shas-accent animate-pulse" /> Order Confirmed
                 </div>
                 
-                <h1 className="font-serif text-3xl font-light text-shas-heading leading-tight">
+                <h1 className="font-serif text-3xl font-bold text-shas-heading leading-tight">
                   Thank You For Buying.
                 </h1>
                 

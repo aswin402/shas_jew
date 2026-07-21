@@ -289,9 +289,9 @@ export function HomePage() {
             </div>
 
             <div className="space-y-3 sm:space-y-4">
-              <h1 className="hero-title-main font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-wide leading-[1.1] text-shas-heading">
+              <h1 className="hero-title-main font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-wide leading-[1.1] text-shas-heading">
                 TRADITIONAL <br />
-                <span className="font-light italic text-shas-brand">LUXURY.</span>
+                <span className="font-bold italic text-shas-brand">LUXURY.</span>
               </h1>
               
               <p className="hero-desc-main text-sm sm:text-base leading-relaxed text-shas-heading/90 max-w-[310px] sm:max-w-md lg:max-w-lg font-sans">
@@ -355,7 +355,7 @@ export function HomePage() {
           
           <div className="text-center max-w-xl mx-auto space-y-3">
             <span className="text-xxs uppercase tracking-[0.25em] text-shas-brand font-sans font-bold">Interactive Curation</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-light tracking-wide text-shas-heading">Shop the Studio Look</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-wide text-shas-heading">Shop the Studio Look</h2>
             <p className="text-xs md:text-sm text-shas-secondary font-sans leading-relaxed">
               Hover or click the interactive hotspots on our studio scene to details. Layer them together to claim the signature look.
             </p>
@@ -511,7 +511,7 @@ export function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-shas-border pb-6">
             <div className="space-y-2">
               <span className="text-xxs uppercase tracking-[0.25em] text-shas-secondary font-sans font-bold">Curated Selection</span>
-              <h2 className="font-serif text-3xl md:text-4xl font-light tracking-wide text-shas-heading dark:text-foreground">The Signature Artifacts</h2>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-wide text-shas-heading dark:text-foreground">The Signature Artifacts</h2>
             </div>
             <p className="text-xs md:text-sm text-shas-secondary max-w-sm font-sans leading-relaxed">
               Meticulously selected essential everyday items, hand-forged in 14k gold vermeil and ethically harvested pearls.
@@ -593,7 +593,7 @@ export function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-shas-border pb-6">
             <div className="space-y-2">
               <span className="text-xxs uppercase tracking-[0.25em] text-shas-brand font-sans font-bold">Atelier Narrative</span>
-              <h2 className="font-serif text-3xl md:text-4xl font-light tracking-wide text-shas-heading dark:text-foreground">The SHAS Journal</h2>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-wide text-shas-heading dark:text-foreground">The SHAS Journal</h2>
             </div>
             <p className="text-xs md:text-sm text-shas-secondary max-w-sm font-sans leading-relaxed">
               Discover stories of craft, milestones, and styling from the heart of our Erode studio.
@@ -692,7 +692,7 @@ export function HomePage() {
           
           <div className="text-center max-w-xl mx-auto space-y-2">
             <span className="text-xxs uppercase tracking-[0.25em] text-shas-secondary font-sans font-bold">Uncompromising Quality</span>
-            <h2 className="font-serif text-3xl font-light tracking-wide text-shas-heading dark:text-foreground">Designed for the Discerning</h2>
+            <h2 className="font-serif text-3xl font-bold tracking-wide text-shas-heading dark:text-foreground">Designed for the Discerning</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

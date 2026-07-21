@@ -23,7 +23,7 @@ export function TermsPage() {
           <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-semibold font-sans">
             Terms of Use
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl font-light tracking-wide leading-tight">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-wide leading-tight">
             Terms of Service
           </h1>
           <p className="text-[10px] font-mono text-shas-secondary">Last updated: July 20, 2026</p>

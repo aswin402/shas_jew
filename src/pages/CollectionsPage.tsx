@@ -118,7 +118,7 @@ export function CollectionsPage() {
           <span className={`text-[10px] uppercase tracking-[0.25em] font-semibold font-sans transition-colors duration-500 ${style.accentText}`}>
             {style.tagline}
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl font-light tracking-wide">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-wide">
             {style.title}
           </h1>
           <p className="max-w-xl mx-auto text-xs md:text-sm text-shas-secondary font-sans leading-relaxed">
@@ -238,7 +238,7 @@ export function CollectionsPage() {
                       <h3 className="font-serif text-sm font-medium text-shas-heading dark:text-foreground">
                         {product.title}
                       </h3>
-                      <p className="text-[10px] text-shas-secondary font-sans font-light italic leading-tight">
+                      <p className="text-[10px] text-shas-secondary font-sans font-normal italic leading-tight">
                         {product.material}
                       </p>
                     </div>

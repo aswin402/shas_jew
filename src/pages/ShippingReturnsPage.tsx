@@ -23,7 +23,7 @@ export function ShippingReturnsPage() {
           <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-semibold font-sans">
             Atelier Logistics
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl font-light tracking-wide leading-tight">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-wide leading-tight">
             Shipping & Returns
           </h1>
           <p className="text-[10px] font-mono text-shas-secondary">Policies governing shipments, custom box packaging, and exchanges.</p>

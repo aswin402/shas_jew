@@ -52,7 +52,7 @@ export function FaqPage() {
           <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-semibold font-sans">
             Customer Care
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl font-light tracking-wide leading-tight">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-wide leading-tight">
             Frequently Asked Questions
           </h1>
           <p className="text-xs text-shas-secondary font-sans leading-relaxed">

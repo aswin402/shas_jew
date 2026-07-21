@@ -27,9 +27,9 @@ export function AboutPage() {
           <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-semibold font-sans">
             Atelier & Heritage
           </span>
-          <h1 className="font-serif text-4xl md:text-6xl font-light tracking-wide leading-tight">
+          <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-wide leading-tight">
             The Philosophy of <br />
-            <span className="font-light italic text-shas-brand">Mindful Creation.</span>
+            <span className="font-bold italic text-shas-brand">Mindful Creation.</span>
           </h1>
           <p className="text-sm md:text-base text-shas-secondary font-sans leading-relaxed pt-2">
             SHAS is a DTC luxury jewelry storefront founded by Deepa Sakthi. Operating from our boutique showroom in Erode, Tamil Nadu, we dedicate ourselves to designing timeless vermeil gold and hand-selected baroque pearl jewelry for the modern romantic.
@@ -59,7 +59,7 @@ export function AboutPage() {
 
         {/* Our Three Pillars */}
         <section className="space-y-8">
-          <h2 className="font-serif text-2xl md:text-3xl font-light tracking-wide text-left border-b border-shas-border/40 pb-3">
+          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-wide text-left border-b border-shas-border/40 pb-3">
             Our Materials & Commitments
           </h2>
           
@@ -128,7 +128,7 @@ export function AboutPage() {
 
         {/* Call to action */}
         <div className="border border-shas-border bg-shas-bg/50 p-8 md:p-12 text-center space-y-6">
-          <h3 className="font-serif text-2xl md:text-3xl font-light text-shas-heading">Begin Your Story</h3>
+          <h3 className="font-serif text-2xl md:text-3xl font-bold text-shas-heading">Begin Your Story</h3>
           <p className="text-xs text-shas-secondary max-w-md mx-auto font-sans leading-relaxed">
             Browse our core signature catalog of everyday gold vermeil rings, droplets, necklaces, and signature cuffs.
           </p>

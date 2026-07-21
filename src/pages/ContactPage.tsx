@@ -38,7 +38,7 @@ export function ContactPage() {
           <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-semibold font-sans">
             Atelier Booking & Support
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl font-light tracking-wide leading-tight">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-wide leading-tight">
             Connect with SHAS.
           </h1>
           <p className="text-xs md:text-sm text-shas-secondary font-sans leading-relaxed">
@@ -201,7 +201,7 @@ export function ContactPage() {
                     </div>
                     
                     <div className="space-y-2 max-w-sm mx-auto">
-                      <h3 className="font-serif text-2xl font-light text-shas-heading">
+                      <h3 className="font-serif text-2xl font-bold text-shas-heading">
                         Inquiry Received
                       </h3>
                       <p className="text-xs text-shas-secondary leading-relaxed">
