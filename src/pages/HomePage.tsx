@@ -265,7 +265,7 @@ export function HomePage() {
     <div ref={containerRef} className="relative bg-shas-bg text-shas-heading transition-colors duration-300">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[calc(100vh-5rem)] flex items-start lg:items-center py-10 sm:py-16 lg:py-20 px-6 md:px-16 overflow-hidden border-b border-shas-border">
+      <section className="relative min-h-[calc(100vh-6rem)] flex items-start lg:items-center pt-28 sm:pt-36 lg:pt-32 pb-12 sm:pb-20 px-6 md:px-16 overflow-hidden border-b border-shas-border">
         {/* Full-bleed Hero Background Image */}
         <div className="hero-image-frame absolute inset-0 w-full h-full z-0 overflow-hidden">
           <picture className="w-full h-full">

@@ -82,7 +82,7 @@ export function JournalPage() {
   const regularStories = STORIES.slice(1);
 
   return (
-    <main className="pt-24 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300">
+    <main className="pt-28 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300">
       
       {selectedStory ? (
         /* Full Story View */
