@@ -41,7 +41,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 h-20 border-b border-shas-border bg-background/95 backdrop-blur-md z-40 flex items-center justify-between px-6 md:px-12 transition-colors duration-300">
+      <header className="fixed top-0 left-0 right-0 h-24 border-b border-shas-border bg-background/95 backdrop-blur-md z-40 flex items-center justify-between px-6 md:px-12 transition-colors duration-300">
         {/* Left: Mobile Toggle & Brand Logo */}
         <div className="flex items-center gap-4">
           <button
@@ -53,9 +53,9 @@ export function Navbar() {
           
           <Link 
             to="/" 
-            className="transition-opacity hover:opacity-90 flex items-center"
+            className="transition-opacity hover:opacity-90 flex items-center py-1"
           >
-            <img src={logoSrc} alt="SHAS Logo" className="h-12 md:h-14 w-auto object-contain" />
+            <img src={logoSrc} alt="SHAS Logo" className="h-16 md:h-20 w-auto object-contain" />
           </Link>
         </div>
 
@@ -114,7 +114,7 @@ export function Navbar() {
 
       {/* Mobile Slide-Down Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-20 z-30 bg-shas-bg/98 dark:bg-card/98 backdrop-blur-md flex flex-col p-8 space-y-6 md:hidden animate-fade-in border-b border-shas-border">
+        <div className="fixed inset-0 top-24 z-30 bg-shas-bg/98 dark:bg-card/98 backdrop-blur-md flex flex-col p-8 space-y-6 md:hidden animate-fade-in border-b border-shas-border">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link

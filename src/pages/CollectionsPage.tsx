@@ -128,7 +128,7 @@ export function CollectionsPage() {
       </section>
 
       {/* Filter & Sort Bar */}
-      <section className="border-t border-b border-shas-border bg-shas-bg/50 backdrop-blur-md sticky top-20 z-20 px-6 md:px-12 py-4">
+      <section className="border-t border-b border-shas-border bg-shas-bg/50 backdrop-blur-md sticky top-24 z-20 px-6 md:px-12 py-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between font-sans">
           
           {/* Category tabs - Only show on main Collections page */}
