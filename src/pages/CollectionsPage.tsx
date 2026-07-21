@@ -108,7 +108,7 @@ export function CollectionsPage() {
   }, [selectedCategory, selectedSort]);
 
   return (
-    <main className="pt-28 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300 relative">
+    <main className="pt-32 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300 relative">
       {/* Background dynamic glow */}
       <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-[120px] pointer-events-none transition-all duration-500 ${style.bgGlow}`} />
 
