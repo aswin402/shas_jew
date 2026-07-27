@@ -1,8 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Star } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
+import { supabase } from '@/lib/supabase';
+import type { Product } from '@/types/product';
 import { useCartStore } from '@/store/useCartStore';
 
 const CATEGORY_STYLES: Record<string, {
@@ -68,6 +70,54 @@ export function CollectionsPage() {
   const location = useLocation();
   const navigate = useNavigate();
   
+  // State for dynamic products & categories from Supabase
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<string[]>(['All', 'Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts']);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  // Fetch products and categories from Supabase
+  useEffect(() => {
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const [productsRes, categoriesRes] = await Promise.all([
+          supabase.from('products').select('*'),
+          supabase.from('categories').select('*')
+        ]);
+
+        if (productsRes.data && productsRes.data.length > 0) {
+          const mappedProducts: Product[] = productsRes.data.map((row: any) => ({
+            id: row.id,
+            title: row.title,
+            price: Number(row.price),
+            imageUrl: row.image_url || row.imageUrl || '',
+            category: row.category_name || row.category || 'Necklaces',
+            material: row.material || '',
+            rating: Number(row.rating ?? 5.0),
+            reviews: Number(row.reviews ?? 0),
+            description: row.description || '',
+            stock: row.stock ?? 0
+          }));
+          setProducts(mappedProducts);
+        } else {
+          setProducts(PRODUCTS);
+        }
+
+        if (categoriesRes.data && categoriesRes.data.length > 0) {
+          const fetchedCatNames = categoriesRes.data.map((c: any) => c.name);
+          const uniqueCats = Array.from(new Set(['All', ...fetchedCatNames, 'Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts']));
+          setCategories(uniqueCats);
+        }
+      } catch (err) {
+        console.error('Error fetching collections data from Supabase:', err);
+        setProducts(PRODUCTS);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
   // Resolve category filter on path changes helper
   const getCategoryFromPath = (path: string) => {
     const lowercase = path.toLowerCase();
@@ -85,12 +135,10 @@ export function CollectionsPage() {
   // Sort & modal states
   const [selectedSort, setSelectedSort] = useState<string>('Featured');
 
-  // Categories list
-  const categories = ['All', 'Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts'];
-
   // Handle filtering & sorting (Memoized)
   const sortedProducts = useMemo(() => {
-    const filtered = PRODUCTS.filter((product) => {
+    const sourceProducts = products.length > 0 ? products : PRODUCTS;
+    const filtered = sourceProducts.filter((product) => {
       if (selectedCategory === 'All') return true;
       if (selectedCategory === 'Gifts') {
         // Gifts category returns items under $100
@@ -105,7 +153,7 @@ export function CollectionsPage() {
       if (selectedSort === 'Rating') return b.rating - a.rating;
       return 0; // Featured (Default order)
     });
-  }, [selectedCategory, selectedSort]);
+  }, [products, selectedCategory, selectedSort]);
 
   return (
     <main className="pt-32 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300 relative">
@@ -175,15 +223,27 @@ export function CollectionsPage() {
       </section>      {/* Grid display */}
       <section className="py-12 md:py-20 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${selectedCategory}-${selectedSort}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.35, ease: 'easeInOut' }}
-              className="col-span-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
-            >
+          {isLoading ? (
+            <div className="col-span-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="animate-pulse border border-shas-border/40 p-4 space-y-4">
+                  <div className="aspect-square bg-stone-200 dark:bg-stone-800 w-full" />
+                  <div className="h-4 bg-stone-200 dark:bg-stone-800 w-3/4" />
+                  <div className="h-3 bg-stone-200 dark:bg-stone-800 w-1/2" />
+                  <div className="h-4 bg-stone-200 dark:bg-stone-800 w-1/3" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`${selectedCategory}-${selectedSort}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                className="col-span-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+              >
               {sortedProducts.map((product) => (
                 <div
                   key={product.id}
@@ -260,6 +320,7 @@ export function CollectionsPage() {
               ))}
             </motion.div>
           </AnimatePresence>
+          )}
         </div>
       </section>
 

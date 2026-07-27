@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Search, ArrowRight, Sparkles } from 'lucide-react';
+import { X, Search, ArrowRight, Sparkles, Loader2 } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
+import { supabase } from '@/lib/supabase';
+import type { Product } from '@/types/product';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -14,6 +16,8 @@ const TRENDING_SEARCHES = ['Pearl', 'Necklace', 'Rings', 'Vermeil', 'Aurelia', '
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState('');
   const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [isSearching, setIsSearching] = useState<boolean>(false);
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -22,6 +26,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     setPrevIsOpen(isOpen);
     if (!isOpen) {
       setQuery('');
+      setFilteredProducts([]);
     }
   }
 
@@ -44,15 +49,77 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Filter products based on search query
-  const filteredProducts = query.trim() === '' 
-    ? [] 
-    : PRODUCTS.filter((product) => {
-        const titleMatch = product.title.toLowerCase().includes(query.toLowerCase());
-        const materialMatch = product.material.toLowerCase().includes(query.toLowerCase());
-        const categoryMatch = product.category.toLowerCase().includes(query.toLowerCase());
-        return titleMatch || materialMatch || categoryMatch;
-      });
+  // Query products from Supabase based on search query
+  useEffect(() => {
+    if (!isOpen || query.trim() === '') {
+      setFilteredProducts([]);
+      setIsSearching(false);
+      return;
+    }
+
+    const timer = setTimeout(async () => {
+      setIsSearching(true);
+      const q = query.trim();
+      try {
+        const { data, error } = await supabase
+          .from('products')
+          .select('*')
+          .or(`title.ilike.%${q}%,material.ilike.%${q}%,category_name.ilike.%${q}%`);
+
+        if (error) {
+          console.error('Supabase search error:', error);
+          const local = PRODUCTS.filter((product) => {
+            const titleMatch = product.title.toLowerCase().includes(q.toLowerCase());
+            const materialMatch = product.material.toLowerCase().includes(q.toLowerCase());
+            const categoryMatch = product.category.toLowerCase().includes(q.toLowerCase());
+            return titleMatch || materialMatch || categoryMatch;
+          });
+          setFilteredProducts(local);
+        } else if (data && data.length > 0) {
+          const mapped: Product[] = data.map((row: any) => ({
+            id: row.id,
+            title: row.title,
+            price: Number(row.price),
+            imageUrl: row.image_url || row.imageUrl || '',
+            category: row.category_name || row.category || 'Necklaces',
+            material: row.material || '',
+            rating: Number(row.rating ?? 5.0),
+            reviews: Number(row.reviews ?? 0),
+            description: row.description || '',
+            stock: row.stock ?? 0,
+          }));
+          setFilteredProducts(mapped);
+        } else {
+          // Check if DB table is empty; if so, search static PRODUCTS
+          const { count } = await supabase.from('products').select('*', { count: 'exact', head: true });
+          if (count === 0) {
+            const local = PRODUCTS.filter((product) => {
+              const titleMatch = product.title.toLowerCase().includes(q.toLowerCase());
+              const materialMatch = product.material.toLowerCase().includes(q.toLowerCase());
+              const categoryMatch = product.category.toLowerCase().includes(q.toLowerCase());
+              return titleMatch || materialMatch || categoryMatch;
+            });
+            setFilteredProducts(local);
+          } else {
+            setFilteredProducts([]);
+          }
+        }
+      } catch (err) {
+        console.error('Search fetch error:', err);
+        const local = PRODUCTS.filter((product) => {
+          const titleMatch = product.title.toLowerCase().includes(q.toLowerCase());
+          const materialMatch = product.material.toLowerCase().includes(q.toLowerCase());
+          const categoryMatch = product.category.toLowerCase().includes(q.toLowerCase());
+          return titleMatch || materialMatch || categoryMatch;
+        });
+        setFilteredProducts(local);
+      } finally {
+        setIsSearching(false);
+      }
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [query, isOpen]);
 
   const handleResultClick = (productId: string) => {
     onClose();
@@ -87,7 +154,11 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               {/* Top row: search bar input and close */}
               <div className="flex items-center justify-between gap-4 border-b border-shas-border pb-3">
                 <div className="flex items-center gap-3 flex-1">
-                  <Search className="w-5 h-5 text-shas-brand" />
+                  {isSearching ? (
+                    <Loader2 className="w-5 h-5 text-shas-brand animate-spin" />
+                  ) : (
+                    <Search className="w-5 h-5 text-shas-brand" />
+                  )}
                   <input
                     ref={inputRef}
                     type="text"

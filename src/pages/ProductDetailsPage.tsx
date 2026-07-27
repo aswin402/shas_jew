@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ShoppingBag, Star, ShieldCheck, Truck, RefreshCw, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ShoppingBag, Star, ShieldCheck, Truck, RefreshCw, ArrowRight, Package } from 'lucide-react';
 import { PRODUCTS } from '@/data/products';
+import { supabase } from '@/lib/supabase';
+import type { Product } from '@/types/product';
 import { useCartStore } from '@/store/useCartStore';
 import {
   Accordion,
@@ -15,27 +17,117 @@ export function ProductDetailsPage() {
   const { id } = useParams<{ id: string }>();
   const { addItem } = useCartStore();
   
-  // Find product
-  const product = PRODUCTS.find((p) => p.id === id);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [recommendations, setRecommendations] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // Option state (size or length)
-  const [selectedOption, setSelectedOption] = useState<string>(() => {
-    if (!product) return '';
-    if (product.category === 'Rings') return '7';
-    if (product.category === 'Necklaces') return '18"';
-    return 'Standard';
-  });
+  const [selectedOption, setSelectedOption] = useState<string>('Standard');
 
-  const [prevId, setPrevId] = useState(id);
-  if (id !== prevId) {
-    setPrevId(id);
-    setSelectedOption(product?.category === 'Rings' ? '7' : product?.category === 'Necklaces' ? '18"' : 'Standard');
-  }
-
-  // Scroll to top on load/change
+  // Scroll to top on load/change and fetch product data
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    async function fetchProductData() {
+      if (!id) return;
+      setIsLoading(true);
+      try {
+        const { data: prodData, error: prodError } = await supabase
+          .from('products')
+          .select('*')
+          .eq('id', id)
+          .single();
+
+        let currentProduct: Product | null = null;
+        if (prodData && !prodError) {
+          currentProduct = {
+            id: prodData.id,
+            title: prodData.title,
+            price: Number(prodData.price),
+            imageUrl: prodData.image_url || prodData.imageUrl || '',
+            category: prodData.category_name || prodData.category || 'Necklaces',
+            material: prodData.material || '',
+            rating: Number(prodData.rating ?? 5.0),
+            reviews: Number(prodData.reviews ?? 0),
+            description: prodData.description || '',
+            stock: prodData.stock ?? 12,
+          };
+        } else {
+          const staticMatch = PRODUCTS.find((p) => p.id === id);
+          if (staticMatch) {
+            currentProduct = { ...staticMatch, stock: 15 };
+          }
+        }
+
+        setProduct(currentProduct);
+        if (currentProduct) {
+          setSelectedOption(
+            currentProduct.category === 'Rings' ? '7' : currentProduct.category === 'Necklaces' ? '18"' : 'Standard'
+          );
+        }
+
+        // Fetch recommendations
+        const { data: recData } = await supabase.from('products').select('*');
+        let allProducts: Product[] = [];
+        if (recData && recData.length > 0) {
+          allProducts = recData.map((row: any) => ({
+            id: row.id,
+            title: row.title,
+            price: Number(row.price),
+            imageUrl: row.image_url || row.imageUrl || '',
+            category: row.category_name || row.category || 'Necklaces',
+            material: row.material || '',
+            rating: Number(row.rating ?? 5.0),
+            reviews: Number(row.reviews ?? 0),
+            description: row.description || '',
+            stock: row.stock ?? 0,
+          }));
+        } else {
+          allProducts = PRODUCTS;
+        }
+
+        if (currentProduct) {
+          const sameCategory = allProducts.filter(
+            (p) => p.category === currentProduct!.category && p.id !== currentProduct!.id
+          );
+          const otherCategories = allProducts.filter(
+            (p) => p.category !== currentProduct!.category && p.id !== currentProduct!.id
+          );
+          setRecommendations([...sameCategory, ...otherCategories].slice(0, 4));
+        }
+      } catch (err) {
+        console.error('Error fetching product details from Supabase:', err);
+        const staticMatch = PRODUCTS.find((p) => p.id === id);
+        if (staticMatch) {
+          setProduct({ ...staticMatch, stock: 15 });
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchProductData();
   }, [id]);
+
+  if (isLoading) {
+    return (
+      <main className="pt-28 pb-20 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 animate-pulse space-y-8">
+          <div className="h-4 bg-stone-200 dark:bg-stone-800 w-32" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-6 aspect-square bg-stone-200 dark:bg-stone-800 w-full" />
+            <div className="lg:col-span-6 space-y-6">
+              <div className="h-6 bg-stone-200 dark:bg-stone-800 w-1/4" />
+              <div className="h-10 bg-stone-200 dark:bg-stone-800 w-3/4" />
+              <div className="h-8 bg-stone-200 dark:bg-stone-800 w-1/3" />
+              <div className="h-20 bg-stone-200 dark:bg-stone-800 w-full" />
+              <div className="h-12 bg-stone-200 dark:bg-stone-800 w-full" />
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   if (!product) {
     return (
@@ -47,11 +139,6 @@ export function ProductDetailsPage() {
       </div>
     );
   }
-
-  // Recommendations: same category products first, then fill with others up to 4 items
-  const sameCategory = PRODUCTS.filter((p) => p.category === product.category && p.id !== product.id);
-  const otherCategories = PRODUCTS.filter((p) => p.category !== product.category && p.id !== product.id);
-  const recommendations = [...sameCategory, ...otherCategories].slice(0, 4);
 
   return (
     <main className="pt-28 pb-20 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300">
@@ -128,6 +215,17 @@ export function ProductDetailsPage() {
                   {product.description}
                 </p>
               </div>
+
+              {/* Live stock level */}
+              {product.stock !== undefined && (
+                <div className="flex items-center gap-2 text-xs font-sans font-medium pt-2">
+                  <Package className="w-4 h-4 text-shas-brand" />
+                  <span className={`w-2 h-2 rounded-full ${product.stock > 0 ? 'bg-emerald-500 animate-pulse' : 'bg-red-500'}`} />
+                  <span className={product.stock > 0 ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-600'}>
+                    {product.stock > 0 ? `In Stock (${product.stock} units available)` : 'Out of Stock'}
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Interactive Sizing/Length Selector */}

@@ -8,4 +8,6 @@ export interface Product {
   rating: number;
   reviews: number;
   description: string;
+  stock?: number;
 }
+

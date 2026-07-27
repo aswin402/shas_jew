@@ -11,6 +11,7 @@ import backgroundDesktopDark from '../assets/shashdesktopdark.png';
 import backgroundMobileDark from '../assets/shashmobdark.png';
 import { useThemeStore } from '../store/useThemeStore';
 import { PRODUCTS } from '@/data/products';
+import { supabase } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 
 // Register ScrollTrigger
@@ -69,6 +70,8 @@ const NARRATIVES = [
 
 export function HomePage() {
   const { addItem } = useCartStore();
+  const [products, setProducts] = useState<Product[]>(PRODUCTS);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [reducedMotion, setReducedMotion] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -83,6 +86,44 @@ export function HomePage() {
   const isDark = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
   const desktopBg = isDark ? backgroundDesktopDark : backgroundDesktop;
   const mobileBg = isDark ? backgroundMobileDark : backgroundMobile;
+
+  // Fetch products from Supabase
+  useEffect(() => {
+    async function fetchProducts() {
+      setIsLoading(true);
+      try {
+        const { data, error } = await supabase.from('products').select('*');
+        if (error) {
+          console.error('Error fetching products for HomePage:', error);
+          setProducts(PRODUCTS);
+          return;
+        }
+        if (data && data.length > 0) {
+          const mapped: Product[] = data.map((row: any) => ({
+            id: row.id,
+            title: row.title,
+            price: Number(row.price),
+            imageUrl: row.image_url || row.imageUrl || '',
+            category: row.category_name || row.category || 'Necklaces',
+            material: row.material || '',
+            rating: Number(row.rating ?? 5.0),
+            reviews: Number(row.reviews ?? 0),
+            description: row.description || '',
+            stock: row.stock ?? 0,
+          }));
+          setProducts(mapped);
+        } else {
+          setProducts(PRODUCTS);
+        }
+      } catch (err) {
+        console.error('Failed to load products from Supabase:', err);
+        setProducts(PRODUCTS);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchProducts();
+  }, []);
 
   // Check accessibility reduced-motion preference
   useEffect(() => {
@@ -374,7 +415,7 @@ export function HomePage() {
 
                 {/* Hotspot Pins */}
                 {hotspots.map((spot) => {
-                  const product = PRODUCTS.find((p) => p.id === spot.productId);
+                  const product = products.find((p) => p.id === spot.productId) || PRODUCTS.find((p) => p.id === spot.productId);
                   if (!product) return null;
                   const isActive = activeHotspot === spot.id;
 
@@ -446,7 +487,7 @@ export function HomePage() {
 
               <div className="space-y-4">
                 {hotspots.map((spot) => {
-                  const product = PRODUCTS.find((p) => p.id === spot.productId);
+                  const product = products.find((p) => p.id === spot.productId) || PRODUCTS.find((p) => p.id === spot.productId);
                   if (!product) return null;
                   return (
                     <div 
@@ -480,13 +521,18 @@ export function HomePage() {
               <div className="pt-4 border-t border-shas-border space-y-4">
                 <div className="flex justify-between text-xs font-semibold">
                   <span className="text-shas-secondary uppercase tracking-wider">Set Total AOV</span>
-                  <span className="text-shas-brand font-bold text-sm">$225.00</span>
+                  <span className="text-shas-brand font-bold text-sm">
+                    ${hotspots.reduce((sum, spot) => {
+                      const p = products.find((prod) => prod.id === spot.productId) || PRODUCTS.find((prod) => prod.id === spot.productId);
+                      return sum + (p ? p.price : 0);
+                    }, 0).toFixed(2)}
+                  </span>
                 </div>
                 <button
                   onClick={() => {
                     // Add all look items to cart
                     hotspots.forEach((spot) => {
-                      const product = PRODUCTS.find((p) => p.id === spot.productId);
+                      const product = products.find((p) => p.id === spot.productId) || PRODUCTS.find((p) => p.id === spot.productId);
                       if (product) {
                         addItem(product);
                       }
@@ -519,69 +565,82 @@ export function HomePage() {
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PRODUCTS.map((product: Product) => (
-              <div
-                key={product.id}
-                className="product-card-reveal group border border-shas-border bg-shas-bg p-4 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
-              >
-                <Link
-                  to={`/product/${product.id}`}
-                  className="relative block aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40"
+          {isLoading ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="animate-pulse border border-shas-border/40 p-4 space-y-4">
+                  <div className="aspect-square bg-stone-200 dark:bg-stone-800 w-full" />
+                  <div className="h-4 bg-stone-200 dark:bg-stone-800 w-3/4" />
+                  <div className="h-3 bg-stone-200 dark:bg-stone-800 w-1/2" />
+                  <div className="h-4 bg-stone-200 dark:bg-stone-800 w-1/3" />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {products.map((product: Product) => (
+                <div
+                  key={product.id}
+                  className="product-card-reveal group border border-shas-border bg-shas-bg p-4 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
                 >
-                  <img
-                    src={product.imageUrl}
-                    alt={product.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  
-                  {/* Category tag bubble */}
-                  <span className="absolute top-2 left-2 bg-shas-bg/90 dark:bg-card/90 px-2 py-0.5 border border-shas-border text-[8px] uppercase tracking-wider font-sans text-shas-secondary">
-                    {product.category}
-                  </span>
+                  <Link
+                    to={`/product/${product.id}`}
+                    className="relative block aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40"
+                  >
+                    <img
+                      src={product.imageUrl}
+                      alt={product.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    
+                    {/* Category tag bubble */}
+                    <span className="absolute top-2 left-2 bg-shas-bg/90 dark:bg-card/90 px-2 py-0.5 border border-shas-border text-[8px] uppercase tracking-wider font-sans text-shas-secondary">
+                      {product.category}
+                    </span>
 
-                  {/* Add to Cart Overlay slide up */}
-                  <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        addItem(product);
-                      }}
-                      className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
-                    >
-                      Quick Add to Bag
-                    </button>
-                  </div>
-                </Link>
+                    {/* Add to Cart Overlay slide up */}
+                    <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          addItem(product);
+                        }}
+                        className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
+                      >
+                        Quick Add to Bag
+                      </button>
+                    </div>
+                  </Link>
 
-                <div className="mt-4 text-left flex-1 flex flex-col justify-between">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-1 text-[10px] text-shas-accent">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-current" />
-                      ))}
-                      <span className="text-shas-secondary text-[9px] ml-1 font-sans">({product.reviews})</span>
+                  <div className="mt-4 text-left flex-1 flex flex-col justify-between">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-1 text-[10px] text-shas-accent">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-current" />
+                        ))}
+                        <span className="text-shas-secondary text-[9px] ml-1 font-sans">({product.reviews})</span>
+                      </div>
+
+                      <h3 className="font-serif text-lg text-shas-heading mt-1 font-medium">{product.title}</h3>
+                      <p className="text-[10px] text-shas-secondary italic font-sans">{product.material}</p>
                     </div>
 
-                    <h3 className="font-serif text-lg text-shas-heading mt-1 font-medium">{product.title}</h3>
-                    <p className="text-[10px] text-shas-secondary italic font-sans">{product.material}</p>
-                  </div>
-
-                  <div className="mt-4 pt-3 border-t border-shas-border/40 flex justify-between items-center">
-                    <p className="text-sm font-semibold text-shas-brand font-mono">${product.price.toFixed(2)}</p>
-                    <Link
-                      to={`/product/${product.id}`}
-                      className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-brand transition-colors flex items-center gap-1 font-sans cursor-pointer sm:hidden lg:flex"
-                    >
-                      <span>View Details</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
+                    <div className="mt-4 pt-3 border-t border-shas-border/40 flex justify-between items-center">
+                      <p className="text-sm font-semibold text-shas-brand font-mono">${product.price.toFixed(2)}</p>
+                      <Link
+                        to={`/product/${product.id}`}
+                        className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-brand transition-colors flex items-center gap-1 font-sans cursor-pointer sm:hidden lg:flex"
+                      >
+                        <span>View Details</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
         </div>
       </section>
