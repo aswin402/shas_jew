@@ -59,7 +59,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
     const timer = setTimeout(async () => {
       setIsSearching(true);
-      const sanitized = query.replace(/[, "'()]/g, '').trim();
+      const sanitized = query.replace(/[,"'()]/g, '').trim();
       if (!sanitized) {
         setFilteredProducts([]);
         setIsSearching(false);
