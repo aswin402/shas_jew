@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   LayoutDashboard,
@@ -58,7 +58,6 @@ export const AdminLayout: React.FC = () => {
       } else {
         setIsAuthenticated(false);
         setUser(null);
-        navigate('/admin-dashboard/login', { replace: true });
       }
     });
 
@@ -66,7 +65,7 @@ export const AdminLayout: React.FC = () => {
       isMounted = false;
       subscription.unsubscribe();
     };
-  }, [setUser, navigate]);
+  }, [setUser]);
 
   const handleLogout = async () => {
     try {
@@ -94,10 +93,9 @@ export const AdminLayout: React.FC = () => {
     );
   }
 
-  // 2. Unauthenticated State -> Immediate redirect fallback
+  // 2. Unauthenticated State -> Declarative redirect
   if (!isAuthenticated) {
-    navigate('/admin-dashboard/login', { replace: true });
-    return null;
+    return <Navigate to="/admin-dashboard/login" replace />;
   }
 
   const navItems = [
