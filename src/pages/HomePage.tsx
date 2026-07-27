@@ -578,7 +578,7 @@ export function HomePage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products.map((product: Product) => (
+              {products.slice(0, 4).map((product: Product) => (
                 <div
                   key={product.id}
                   className="product-card-reveal group border border-shas-border bg-shas-bg p-4 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"

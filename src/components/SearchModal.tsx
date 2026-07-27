@@ -59,19 +59,24 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
     const timer = setTimeout(async () => {
       setIsSearching(true);
-      const q = query.trim();
+      const sanitized = query.replace(/[, "'()]/g, '').trim();
+      if (!sanitized) {
+        setFilteredProducts([]);
+        setIsSearching(false);
+        return;
+      }
       try {
         const { data, error } = await supabase
           .from('products')
           .select('*')
-          .or(`title.ilike.%${q}%,material.ilike.%${q}%,category_name.ilike.%${q}%`);
+          .or(`title.ilike.%${sanitized}%,material.ilike.%${sanitized}%,category_name.ilike.%${sanitized}%`);
 
         if (error) {
           console.error('Supabase search error:', error);
           const local = PRODUCTS.filter((product) => {
-            const titleMatch = product.title.toLowerCase().includes(q.toLowerCase());
-            const materialMatch = product.material.toLowerCase().includes(q.toLowerCase());
-            const categoryMatch = product.category.toLowerCase().includes(q.toLowerCase());
+            const titleMatch = product.title.toLowerCase().includes(sanitized.toLowerCase());
+            const materialMatch = product.material.toLowerCase().includes(sanitized.toLowerCase());
+            const categoryMatch = product.category.toLowerCase().includes(sanitized.toLowerCase());
             return titleMatch || materialMatch || categoryMatch;
           });
           setFilteredProducts(local);
@@ -94,9 +99,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           const { count } = await supabase.from('products').select('*', { count: 'exact', head: true });
           if (count === 0) {
             const local = PRODUCTS.filter((product) => {
-              const titleMatch = product.title.toLowerCase().includes(q.toLowerCase());
-              const materialMatch = product.material.toLowerCase().includes(q.toLowerCase());
-              const categoryMatch = product.category.toLowerCase().includes(q.toLowerCase());
+              const titleMatch = product.title.toLowerCase().includes(sanitized.toLowerCase());
+              const materialMatch = product.material.toLowerCase().includes(sanitized.toLowerCase());
+              const categoryMatch = product.category.toLowerCase().includes(sanitized.toLowerCase());
               return titleMatch || materialMatch || categoryMatch;
             });
             setFilteredProducts(local);
@@ -107,9 +112,9 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       } catch (err) {
         console.error('Search fetch error:', err);
         const local = PRODUCTS.filter((product) => {
-          const titleMatch = product.title.toLowerCase().includes(q.toLowerCase());
-          const materialMatch = product.material.toLowerCase().includes(q.toLowerCase());
-          const categoryMatch = product.category.toLowerCase().includes(q.toLowerCase());
+          const titleMatch = product.title.toLowerCase().includes(sanitized.toLowerCase());
+          const materialMatch = product.material.toLowerCase().includes(sanitized.toLowerCase());
+          const categoryMatch = product.category.toLowerCase().includes(sanitized.toLowerCase());
           return titleMatch || materialMatch || categoryMatch;
         });
         setFilteredProducts(local);
