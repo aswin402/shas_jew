@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { RootLayout } from '@/layouts/RootLayout';
+import { AdminLayout } from '@/layouts/AdminLayout';
 import { HomePage } from '@/pages/HomePage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ContactPage } from '@/pages/ContactPage';
@@ -12,6 +13,10 @@ import { TermsPage } from '@/pages/TermsPage';
 import { ShippingReturnsPage } from '@/pages/ShippingReturnsPage';
 import { FaqPage } from '@/pages/FaqPage';
 import { CheckoutPage } from '@/pages/CheckoutPage';
+import { AdminLogin } from '@/pages/admin/AdminLogin';
+import { AdminOverview } from '@/pages/admin/AdminOverview';
+import { ProductManager } from '@/pages/admin/ProductManager';
+import { CategoryManager } from '@/pages/admin/CategoryManager';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -98,6 +103,33 @@ const router = createBrowserRouter([
       {
         path: '*',
         element: <NotFoundPage />,
+      },
+    ],
+  },
+  {
+    path: 'admin-dashboard',
+    children: [
+      {
+        path: 'login',
+        element: <AdminLogin />,
+      },
+      {
+        path: '',
+        element: <AdminLayout />,
+        children: [
+          {
+            index: true,
+            element: <AdminOverview />,
+          },
+          {
+            path: 'products',
+            element: <ProductManager />,
+          },
+          {
+            path: 'categories',
+            element: <CategoryManager />,
+          },
+        ],
       },
     ],
   },
