@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, Search, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ThemeToggleButton } from '@/components/ThemeToggleButton';
+// import { ThemeToggleButton } from '@/components/ThemeToggleButton';
 import { useCartStore } from '../store/useCartStore';
 import { useThemeStore } from '../store/useThemeStore';
 import logoLight from '../assets/shaslogo.png';
@@ -164,7 +164,7 @@ export function Navbar() {
           </button>
 
           {/* Theme Toggle Button */}
-          <ThemeToggleButton />
+          {/* <ThemeToggleButton /> */}
 
           {/* Shopping Bag Trigger with Badge Count */}
           <button
