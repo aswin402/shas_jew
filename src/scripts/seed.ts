@@ -1,6 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 import { PRODUCTS } from '../data/products';
 
+declare const process: any;
+
+
 const supabaseUrl = process.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY || '';
 

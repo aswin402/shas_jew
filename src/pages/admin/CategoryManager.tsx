@@ -12,7 +12,6 @@ import {
   Layers,
   X,
   Lock,
-  Info,
   Sparkles,
   Link as LinkIcon
 } from 'lucide-react';

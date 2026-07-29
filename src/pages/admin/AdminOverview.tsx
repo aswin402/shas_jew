@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Package,
   AlertTriangle,
@@ -7,7 +7,6 @@ import {
   FolderTree,
   RefreshCw,
   Search,
-  Filter,
   ArrowUpRight,
   ShieldAlert,
   CheckCircle2,
@@ -293,7 +292,7 @@ export const AdminOverview: React.FC = () => {
         >
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-              Low Stock Alert (<5)
+              Low Stock Alert ({"<5"})
             </span>
             <div
               className={`p-2.5 rounded-xl border relative ${

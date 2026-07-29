@@ -122,7 +122,7 @@ export const ProductManager: React.FC = () => {
     reset,
     formState: { errors },
   } = useForm<ProductFormData>({
-    resolver: zodResolver(productFormSchema),
+    resolver: zodResolver(productFormSchema) as any,
     defaultValues: {
       title: '',
       price: 0,
@@ -654,7 +654,7 @@ export const ProductManager: React.FC = () => {
                                 alt={product.title}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                                 onError={(e) => {
-                                  (e.target as HTMLElement).src =
+                                  (e.target as HTMLImageElement).src =
                                     'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=300';
                                 }}
                               />
