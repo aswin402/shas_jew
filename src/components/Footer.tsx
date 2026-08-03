@@ -14,35 +14,35 @@ export function Footer() {
   const stampLogoSrc = isDark ? stampLogoDark : stampLogoLight;
 
   return (
-    <footer className="w-full border-t border-shas-border bg-shas-bg text-shas-heading relative z-10 py-16 px-6 md:px-12 transition-colors duration-300">
+    <footer className="w-full border-t border-shas-border bg-[#FAF6F2] dark:bg-zinc-950 text-shas-heading relative z-10 py-16 px-6 md:px-12 transition-colors duration-300">
       
       {/* Brand Value Pre-Footer */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-shas-border/60 mb-12 font-sans">
         <div className="flex gap-4 items-start">
-          <Truck className="w-5 h-5 text-shas-brand mt-0.5" />
+          <Truck className="w-5 h-5 text-shas-burgundy mt-0.5" />
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-shas-heading">Complimentary Shipping</h4>
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-shas-burgundy">Complimentary Shipping</h4>
             <p className="text-xxs text-shas-secondary mt-1">Enjoy free secure shipping on all domestic orders over $150.</p>
           </div>
         </div>
         <div className="flex gap-4 items-start">
-          <RefreshCw className="w-5 h-5 text-shas-brand mt-0.5" />
+          <RefreshCw className="w-5 h-5 text-shas-burgundy mt-0.5" />
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-shas-heading">Signature Returns</h4>
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-shas-burgundy">Signature Returns</h4>
             <p className="text-xxs text-shas-secondary mt-1">30-day trial period. Free return shipping labels provided.</p>
           </div>
         </div>
         <div className="flex gap-4 items-start">
-          <ShieldCheck className="w-5 h-5 text-shas-brand mt-0.5" />
+          <ShieldCheck className="w-5 h-5 text-shas-burgundy mt-0.5" />
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-shas-heading">Material Guarantee</h4>
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-shas-burgundy">Material Guarantee</h4>
             <p className="text-xxs text-shas-secondary mt-1">Lifetime warranty covering craftsmanship and stone settings.</p>
           </div>
         </div>
         <div className="flex gap-4 items-start">
-          <ShoppingBag className="w-5 h-5 text-shas-brand mt-0.5" />
+          <ShoppingBag className="w-5 h-5 text-shas-burgundy mt-0.5" />
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-shas-heading">Linen Kept Box</h4>
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-shas-burgundy">Linen Kept Box</h4>
             <p className="text-xxs text-shas-secondary mt-1">Arrives packaged in our custom recyclable signature linen box.</p>
           </div>
         </div>
@@ -65,7 +65,7 @@ export function Footer() {
               href="https://www.instagram.com/shasjewellers/?hl=en" 
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full border border-shas-border flex items-center justify-center text-shas-secondary hover:text-shas-brand hover:border-shas-brand transition-all duration-300"
+              className="w-9 h-9 rounded-full border border-shas-burgundy flex items-center justify-center text-shas-burgundy hover:text-shas-gold hover:border-shas-gold transition-all duration-300"
               title="Instagram"
             >
               <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" className="w-4 h-4">
@@ -78,7 +78,7 @@ export function Footer() {
               href="https://www.threads.com/@shasjewellers?xmt=AQG0xI2__kOCPmEmHSfHh_anE0QfXCLp4ZTxY60JjllMt_E" 
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full border border-shas-border flex items-center justify-center text-shas-secondary hover:text-shas-brand hover:border-shas-brand transition-all duration-300"
+              className="w-9 h-9 rounded-full border border-shas-burgundy flex items-center justify-center text-shas-burgundy hover:text-shas-gold hover:border-shas-gold transition-all duration-300"
               title="Threads"
             >
               <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" className="w-4 h-4">
@@ -89,7 +89,7 @@ export function Footer() {
               href="https://www.facebook.com/people/Shas-Jewellers/61589777022840/?ref=NONE_xav_ig_profile_page_web" 
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full border border-shas-border flex items-center justify-center text-shas-secondary hover:text-shas-brand hover:border-shas-brand transition-all duration-300"
+              className="w-9 h-9 rounded-full border border-shas-burgundy flex items-center justify-center text-shas-burgundy hover:text-shas-gold hover:border-shas-gold transition-all duration-300"
               title="Facebook"
             >
               <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" className="w-4 h-4">
@@ -101,45 +101,45 @@ export function Footer() {
 
         {/* Links Column */}
         <div className="space-y-4 text-left">
-          <h4 className="font-sans font-semibold text-xs uppercase tracking-widest text-shas-heading">Catalog</h4>
+          <h4 className="font-sans font-semibold text-xs uppercase tracking-widest text-shas-burgundy">Catalog</h4>
           <ul className="space-y-2 font-sans text-xs">
             <li>
-              <Link to="/collections" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/collections" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Collections
               </Link>
             </li>
             <li>
-              <Link to="/necklaces" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/necklaces" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Necklaces
               </Link>
             </li>
             <li>
-              <Link to="/earrings" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/earrings" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Earrings
               </Link>
             </li>
             <li>
-              <Link to="/rings" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/rings" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Rings
               </Link>
             </li>
             <li>
-              <Link to="/gifts" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/gifts" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Gifts Selection
               </Link>
             </li>
             <li>
-              <Link to="/journal" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/journal" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 The Journal
               </Link>
             </li>
             <li>
-              <Link to="/about-us" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/about-us" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 About Us
               </Link>
             </li>
             <li>
-              <Link to="/contact-us" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/contact-us" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Contact Us
               </Link>
             </li>
@@ -148,25 +148,25 @@ export function Footer() {
 
         {/* Customer Care Column */}
         <div className="space-y-4 text-left">
-          <h4 className="font-sans font-semibold text-xs uppercase tracking-widest text-shas-heading">Customer Care</h4>
+          <h4 className="font-sans font-semibold text-xs uppercase tracking-widest text-shas-burgundy">Customer Care</h4>
           <ul className="space-y-2 font-sans text-xs">
             <li>
-              <Link to="/faq" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/faq" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 FAQs
               </Link>
             </li>
             <li>
-              <Link to="/shipping-returns" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/shipping-returns" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Shipping & Returns
               </Link>
             </li>
             <li>
-              <Link to="/privacy-policy" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/privacy-policy" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link to="/terms" className="text-shas-secondary hover:text-shas-brand transition-colors">
+              <Link to="/terms" className="text-shas-secondary hover:text-shas-gold transition-colors">
                 Terms of Service
               </Link>
             </li>
@@ -175,23 +175,23 @@ export function Footer() {
 
         {/* Customer Support Info Column */}
         <div className="space-y-4 text-left">
-          <h4 className="font-sans font-semibold text-xs uppercase tracking-widest text-shas-heading">Erode Store</h4>
+          <h4 className="font-sans font-semibold text-xs uppercase tracking-widest text-shas-burgundy">Erode Store</h4>
           <ul className="space-y-3 font-sans text-xs text-shas-secondary">
             <li className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-shas-brand" />
+              <Mail className="w-3.5 h-3.5 text-shas-burgundy" />
               <span>atelier@shasjewellers.com</span>
             </li>
             <li className="flex items-center gap-2">
-              <Phone className="w-3.5 h-3.5 text-shas-brand" />
+              <Phone className="w-3.5 h-3.5 text-shas-burgundy" />
               <span>+91 98765 43210</span>
             </li>
             <li className="flex items-center gap-2.5">
-              <MapPin className="w-4 h-4 text-shas-brand flex-shrink-0" />
+              <MapPin className="w-4 h-4 text-shas-burgundy flex-shrink-0" />
               <a 
                 href="https://maps.app.goo.gl/TPyzzbEHRfyPZrUX6" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-shas-brand hover:underline transition-colors"
+                className="hover:text-shas-gold hover:underline transition-colors"
               >
                 SHAS Jewellers, Periyar Nagar,<br />Erode, Tamil Nadu 638001
               </a>
@@ -211,7 +211,7 @@ export function Footer() {
         </div>
 
         <p className="flex items-center gap-1">
-          Made with <Heart className="w-3 h-3 text-shas-brand fill-shas-brand animate-pulse" /> for the modern romantic.
+          Made with <Heart className="w-3 h-3 text-shas-burgundy fill-shas-burgundy animate-pulse" /> for the modern romantic.
         </p>
       </div>
     </footer>

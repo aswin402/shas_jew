@@ -21,9 +21,12 @@
 
   /* Constant custom color tokens (retains original hue in both modes) */
   --color-shas-burgundy: var(--shas-burgundy);
+  --color-shas-burgundy-hover: var(--shas-burgundy-hover);
   --color-shas-gold: var(--shas-gold);
+  --color-shas-gold-hover: var(--shas-gold-hover);
   --color-shas-cream: var(--shas-cream);
   --color-shas-charcoal: var(--shas-charcoal);
+  --color-shas-charcoal-secondary: var(--shas-charcoal-secondary);
   --color-shas-plum: var(--shas-plum);
 
   /* Re-mapping standard colors for shadcn components */
@@ -49,48 +52,54 @@
 @layer base {
   :root {
     /* Constant Brand Colors */
-    --shas-burgundy: #9E1527;
+    --shas-burgundy: #AE0B36;
+    --shas-burgundy-hover: #8A0A2B;
     --shas-gold: #D99E18;
-    --shas-cream: #FCF9F5;
-    --shas-charcoal: #181620;
+    --shas-gold-hover: #C58B12;
+    --shas-cream: #F8F4EE;
+    --shas-charcoal: #111111;
+    --shas-charcoal-secondary: #5E5E5E;
     --shas-plum: #5C323D;
 
     /* 1. Dynamic Brand Tokens (Light Mode - Thicker High Contrast) */
-    --shas-bg: #FCF9F5;
-    --shas-brand: #9E1527;
+    --shas-bg: #F8F4EE;
+    --shas-brand: #AE0B36;
     --shas-accent: #D99E18;
-    --shas-heading: #181620; /* Deep charcoal for sharp, bold headings */
-    --shas-secondary: #4A2B33; /* Darker plum-slate for thicker secondary text */
-    --shas-border: #E2D3C7;
+    --shas-heading: #111111; /* Deep charcoal for sharp, bold headings */
+    --shas-secondary: #5E5E5E; /* Darker plum-slate for thicker secondary text */
+    --shas-border: #E9DED4;
 
     /* 2. Standard shadcn Variable Bindings */
-    --background: #FCF9F5;
-    --foreground: #181620;
-    --card: #FCF9F5;
-    --card-foreground: #181620;
-    --popover: #FCF9F5;
-    --popover-foreground: #181620;
-    --primary: #9E1527;
-    --primary-foreground: #FCF9F5;
-    --secondary: #4A2B33;
-    --secondary-foreground: #FCF9F5;
-    --muted: #F3EBE4;
-    --muted-foreground: #4A2B33;
+    --background: #F8F4EE;
+    --foreground: #111111;
+    --card: #F8F4EE;
+    --card-foreground: #111111;
+    --popover: #F8F4EE;
+    --popover-foreground: #111111;
+    --primary: #AE0B36;
+    --primary-foreground: #FFFFFF;
+    --secondary: #5E5E5E;
+    --secondary-foreground: #FFFFFF;
+    --muted: #FAF6F2;
+    --muted-foreground: #5E5E5E;
     --accent: #D99E18;
-    --accent-foreground: #181620;
-    --destructive: #9E1527;
-    --border: #E2D3C7;
-    --input: #E2D3C7;
-    --ring: #9E1527;
+    --accent-foreground: #111111;
+    --destructive: #AE0B36;
+    --border: #E9DED4;
+    --input: #E9DED4;
+    --ring: #AE0B36;
     --radius: 0px;
   }
 
   .dark {
     /* Constant Brand Colors */
-    --shas-burgundy: #A61C2E;
-    --shas-gold: #E5A924;
-    --shas-cream: #FCF9F5;
-    --shas-charcoal: #181620;
+    --shas-burgundy: #AE0B36;
+    --shas-burgundy-hover: #8A0A2B;
+    --shas-gold: #D99E18;
+    --shas-gold-hover: #C58B12;
+    --shas-cream: #F8F4EE;
+    --shas-charcoal: #111111;
+    --shas-charcoal-secondary: #5E5E5E;
     --shas-plum: #8A5260;
 
     /* 1. Dynamic Brand Tokens (Dark Mode - High Contrast White & Gold) */

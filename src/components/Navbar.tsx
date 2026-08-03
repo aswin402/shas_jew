@@ -81,13 +81,18 @@ export function Navbar() {
                     to={link.path}
                     className={`text-xs uppercase tracking-widest font-semibold transition-colors duration-300 flex items-center gap-1.5 py-2 ${
                       isActive('/collections') || isActive('/necklaces') || isActive('/earrings') || isActive('/rings') || isActive('/bracelets') || isActive('/gifts')
-                        ? 'text-shas-brand dark:text-primary font-bold'
-                        : 'text-shas-heading/80 hover:text-shas-brand dark:text-foreground/80 dark:hover:text-primary'
+                        ? 'text-shas-burgundy font-bold'
+                        : 'text-shas-heading/80 hover:text-shas-burgundy'
                     }`}
                   >
                     <span>{link.label}</span>
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${isCollectionsDropdownOpen ? 'rotate-180 text-shas-brand' : ''}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${isCollectionsDropdownOpen ? 'rotate-180 text-shas-burgundy' : ''}`} />
                   </Link>
+                  <span
+                    className={`absolute bottom-0 left-0 right-0 h-[3px] bg-shas-gold origin-left transition-transform duration-300 ${
+                      isActive('/collections') || isActive('/necklaces') || isActive('/earrings') || isActive('/rings') || isActive('/bracelets') || isActive('/gifts') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
 
                   {/* Dropdown Menu */}
                   <AnimatePresence>
@@ -100,7 +105,7 @@ export function Navbar() {
                         className="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-shas-bg dark:bg-card border border-shas-border shadow-2xl p-4 z-50 text-left"
                       >
                         <div className="space-y-2">
-                          <span className="block text-[8px] uppercase tracking-[0.2em] font-sans font-bold text-shas-brand px-2 pb-1 border-b border-shas-border/40">
+                          <span className="block text-[8px] uppercase tracking-[0.2em] font-sans font-bold text-shas-burgundy px-2 pb-1 border-b border-shas-border/40">
                             Jewelry Categories
                           </span>
                           <div className="space-y-0.5">
@@ -109,13 +114,13 @@ export function Navbar() {
                                 key={sub.label}
                                 to={sub.path}
                                 onClick={() => setIsCollectionsDropdownOpen(false)}
-                                className="group/sub flex flex-col p-2 hover:bg-shas-burgundy/5 dark:hover:bg-shas-brand/10 transition-colors border border-transparent hover:border-shas-border/40"
+                                className="group/sub flex flex-col p-2 hover:bg-shas-burgundy/5 transition-colors border border-transparent hover:border-shas-border/40"
                               >
                                 <div className="flex items-center justify-between">
-                                  <span className="font-serif text-sm font-semibold text-shas-heading group-hover/sub:text-shas-brand transition-colors">
+                                  <span className="font-serif text-sm font-semibold text-shas-heading group-hover/sub:text-shas-burgundy transition-colors">
                                     {sub.label}
                                   </span>
-                                  <ArrowRight className="w-3 h-3 text-shas-brand opacity-0 group-hover/sub:opacity-100 group-hover/sub:translate-x-0.5 transition-all" />
+                                  <ArrowRight className="w-3 h-3 text-shas-burgundy opacity-0 group-hover/sub:opacity-100 group-hover/sub:translate-x-0.5 transition-all" />
                                 </div>
                                 <span className="text-[10px] text-shas-secondary font-sans font-normal">
                                   {sub.desc}
@@ -137,13 +142,13 @@ export function Navbar() {
                 to={link.path}
                 className={`text-xs uppercase tracking-widest font-semibold transition-colors duration-300 relative py-2 group ${
                   isActive(link.path)
-                    ? 'text-shas-brand dark:text-primary font-bold'
-                    : 'text-shas-heading/80 hover:text-shas-brand dark:text-foreground/80 dark:hover:text-primary'
+                    ? 'text-shas-burgundy font-bold'
+                    : 'text-shas-heading/80 hover:text-shas-burgundy'
                 }`}
               >
                 <span>{link.label}</span>
                 <span
-                  className={`absolute bottom-0 left-0 right-0 h-0.5 bg-shas-brand dark:bg-primary origin-left transition-transform duration-300 ${
+                  className={`absolute bottom-0 left-0 right-0 h-[3px] bg-shas-gold origin-left transition-transform duration-300 ${
                     isActive(link.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                   }`}
                 />
@@ -157,7 +162,7 @@ export function Navbar() {
           {/* Mock Search trigger */}
           <button
             onClick={() => setIsSearchOpen(true)}
-            className="h-10 w-10 flex items-center justify-center rounded-full text-shas-heading dark:text-foreground hover:bg-shas-border/40 transition-colors focus:outline-none"
+            className="h-10 w-10 flex items-center justify-center rounded-full text-shas-heading hover:text-shas-burgundy transition-colors focus:outline-none"
             title="Search Products"
           >
             <Search className="w-4.5 h-4.5" />
@@ -169,12 +174,12 @@ export function Navbar() {
           {/* Shopping Bag Trigger with Badge Count */}
           <button
             onClick={() => setCartOpen(true)}
-            className="h-10 w-10 flex items-center justify-center rounded-full text-shas-heading dark:text-foreground hover:bg-shas-border/40 transition-colors relative focus:outline-none cursor-pointer"
+            className="h-10 w-10 flex items-center justify-center rounded-full text-shas-heading hover:text-shas-burgundy transition-colors relative focus:outline-none cursor-pointer"
             title="Open Cart"
           >
-            <ShoppingBag className="w-4.5 h-4.5 text-shas-brand dark:text-primary" />
+            <ShoppingBag className="w-4.5 h-4.5" />
             {cartCount > 0 && (
-              <span className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-shas-accent text-shas-heading font-sans font-bold text-[9px] flex items-center justify-center border border-shas-bg animate-pulse">
+              <span className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-shas-gold text-black font-sans font-bold text-[9px] flex items-center justify-center border border-shas-bg animate-pulse">
                 {cartCount}
               </span>
             )}

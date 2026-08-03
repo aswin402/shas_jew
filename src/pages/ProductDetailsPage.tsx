@@ -181,18 +181,18 @@ export function ProductDetailsPage() {
           >
             {/* Category, Stars & Title */}
             <div className="space-y-4">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-bold font-sans">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-shas-burgundy font-bold font-sans">
                 {product.category} Collection
               </span>
               <h1 className="font-serif text-3xl md:text-4xl font-bold tracking-wide leading-tight">
                 {product.title}
               </h1>
               <div className="flex items-center gap-4 pt-1">
-                <span className="font-serif text-2xl font-semibold text-shas-brand">
+                <span className="font-serif text-2xl font-semibold text-shas-burgundy">
                   ${product.price.toFixed(2)}
                 </span>
-                <div className="flex items-center gap-1 text-xs text-shas-accent border-l border-shas-border/60 pl-4 font-sans">
-                  <Star className="w-4 h-4 fill-shas-accent text-shas-accent" />
+                <div className="flex items-center gap-1 text-xs text-shas-gold border-l border-shas-border/60 pl-4 font-sans">
+                  <Star className="w-4 h-4 fill-shas-gold text-shas-gold" />
                   <span className="font-bold text-shas-heading">{product.rating}</span>
                   <span className="text-shas-secondary ml-1">({product.reviews} customer reviews)</span>
                 </div>
@@ -219,7 +219,7 @@ export function ProductDetailsPage() {
               {/* Live stock level */}
               {product.stock !== undefined && (
                 <div className="flex items-center gap-2 text-xs font-sans font-medium pt-2">
-                  <Package className="w-4 h-4 text-shas-brand" />
+                  <Package className="w-4 h-4 text-shas-burgundy" />
                   <span className={`w-2 h-2 rounded-full ${product.stock > 0 ? 'bg-emerald-500 animate-pulse' : 'bg-red-500'}`} />
                   <span className={product.stock > 0 ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-600'}>
                     {product.stock > 0 ? `In Stock (${product.stock} units available)` : 'Out of Stock'}
@@ -239,8 +239,8 @@ export function ProductDetailsPage() {
                       onClick={() => setSelectedOption(size)}
                       className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold border transition-all duration-300 cursor-pointer ${
                         selectedOption === size
-                          ? 'bg-shas-burgundy border-shas-burgundy text-shas-bg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg'
-                          : 'border-shas-border/60 hover:border-shas-brand text-shas-secondary'
+                          ? 'bg-shas-burgundy border-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold'
+                          : 'border-shas-border/60 hover:border-shas-burgundy text-shas-secondary'
                       }`}
                     >
                       Size {size}
@@ -260,8 +260,8 @@ export function ProductDetailsPage() {
                       onClick={() => setSelectedOption(length)}
                       className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold border transition-all duration-300 cursor-pointer ${
                         selectedOption === length
-                          ? 'bg-shas-burgundy border-shas-burgundy text-shas-bg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg'
-                          : 'border-shas-border/60 hover:border-shas-brand text-shas-secondary'
+                          ? 'bg-shas-burgundy border-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold'
+                          : 'border-shas-border/60 hover:border-shas-burgundy text-shas-secondary'
                       }`}
                     >
                       {length}
@@ -277,7 +277,7 @@ export function ProductDetailsPage() {
                 onClick={() => {
                   addItem({ ...product, size: selectedOption });
                 }}
-                className="w-full py-4 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 shadow-md dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream cursor-pointer"
+                className="w-full py-4 bg-shas-burgundy text-white border border-shas-burgundy hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 shadow-md dark:bg-shas-burgundy dark:border-shas-burgundy dark:text-white dark:hover:bg-shas-burgundy-hover dark:hover:border-shas-burgundy-hover cursor-pointer"
               >
                 <ShoppingBag className="w-4.5 h-4.5" />
                 <span>Add to Shopping Bag</span>

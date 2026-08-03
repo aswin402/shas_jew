@@ -183,7 +183,7 @@ export function ContactPage() {
 
                     <button
                       type="submit"
-                      className="w-full py-4 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all text-xs tracking-widest uppercase font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
+                      className="w-full py-4 bg-shas-burgundy text-white border border-shas-burgundy hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all text-xs tracking-widest uppercase font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer dark:bg-shas-burgundy dark:border-shas-burgundy dark:text-white dark:hover:bg-shas-burgundy-hover dark:hover:border-shas-burgundy-hover"
                     >
                       <Send className="w-4 h-4" />
                       <span>Send Narrative Inquiry</span>
@@ -196,8 +196,8 @@ export function ContactPage() {
                     animate={{ scale: 1, opacity: 1 }}
                     className="text-center py-10 space-y-6 font-sans"
                   >
-                    <div className="inline-flex p-4 bg-shas-brand/10 border border-shas-brand/20 rounded-full text-shas-brand">
-                      <Sparkles className="w-8 h-8 text-shas-accent animate-pulse" />
+                    <div className="inline-flex p-4 bg-shas-burgundy/10 border border-shas-burgundy/20 rounded-full text-shas-burgundy">
+                      <Sparkles className="w-8 h-8 text-shas-gold animate-pulse" />
                     </div>
                     
                     <div className="space-y-2 max-w-sm mx-auto">

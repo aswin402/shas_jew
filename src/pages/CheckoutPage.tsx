@@ -311,7 +311,7 @@ export function CheckoutPage() {
                   <button
                     type="submit"
                     disabled={isProcessing}
-                    className="w-full py-4.5 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all text-xs tracking-widest uppercase font-bold flex items-center justify-center gap-2 cursor-pointer dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-4.5 bg-shas-burgundy text-white border border-shas-burgundy hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all text-xs tracking-widest uppercase font-bold flex items-center justify-center gap-2 cursor-pointer dark:bg-shas-burgundy dark:border-shas-burgundy dark:text-white dark:hover:bg-shas-burgundy-hover dark:hover:border-shas-burgundy-hover disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isProcessing ? (
                       <>
@@ -433,13 +433,13 @@ export function CheckoutPage() {
               <div className="pt-4 flex flex-col gap-3 font-sans">
                 <Link
                   to="/collections"
-                  className="w-full py-3.5 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all text-xs tracking-widest uppercase font-bold text-center dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
+                  className="w-full py-3.5 bg-shas-burgundy text-white border border-shas-burgundy hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all text-xs tracking-widest uppercase font-bold text-center dark:bg-shas-burgundy dark:border-shas-burgundy dark:text-white dark:hover:bg-shas-burgundy-hover dark:hover:border-shas-burgundy-hover"
                 >
                   Continue Curation
                 </Link>
                 <Link
                   to="/"
-                  className="text-[10px] uppercase tracking-widest font-semibold text-shas-secondary hover:text-shas-brand transition-colors block py-2"
+                  className="text-[10px] uppercase tracking-widest font-semibold text-shas-secondary hover:text-shas-burgundy transition-colors block py-2"
                 >
                   Return to Home
                 </Link>

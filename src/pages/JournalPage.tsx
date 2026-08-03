@@ -177,7 +177,7 @@ export function JournalPage() {
                   <span>By {featuredStory.author}</span>
                   <span>{featuredStory.readTime}</span>
                 </div>
-                <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-wide leading-tight text-shas-heading group-hover:text-shas-brand transition-colors">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-wide leading-tight text-shas-heading group-hover:text-shas-burgundy transition-colors">
                   {featuredStory.title}
                 </h2>
                 <p className="text-xs text-shas-secondary leading-relaxed font-sans line-clamp-4">
@@ -187,7 +187,7 @@ export function JournalPage() {
 
               <button
                 onClick={() => setSelectedStory(featuredStory)}
-                className="w-full sm:w-auto px-6 py-3 bg-shas-burgundy text-shas-bg hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] uppercase tracking-widest font-bold text-center border border-shas-burgundy shadow-sm dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-cream dark:hover:text-shas-cream cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3 bg-shas-burgundy text-white hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all font-sans text-[10px] uppercase tracking-widest font-bold text-center border border-shas-burgundy shadow-sm dark:bg-shas-burgundy dark:border-shas-burgundy dark:text-white dark:hover:bg-shas-burgundy-hover dark:hover:border-shas-burgundy-hover cursor-pointer"
               >
                 Read Featured Narrative
               </button>
@@ -204,7 +204,7 @@ export function JournalPage() {
               {regularStories.map((story) => (
                 <div
                   key={story.id}
-                  className="group flex flex-col h-full bg-transparent border border-shas-border/40 p-5 hover:shadow-md hover:border-shas-brand transition-all duration-300 text-left cursor-pointer"
+                  className="group flex flex-col h-full bg-transparent border border-[#ECE3DA] hover:border-[#AE0B36] p-5 hover:shadow-sm transition-all duration-300 text-left cursor-pointer"
                   onClick={() => setSelectedStory(story)}
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-stone-50 border border-shas-border/40 mb-5">
@@ -222,7 +222,7 @@ export function JournalPage() {
                         <span>{story.readTime}</span>
                       </div>
                       
-                      <h4 className="font-serif text-lg font-medium text-shas-heading group-hover:text-shas-brand transition-colors line-clamp-2">
+                      <h4 className="font-serif text-lg font-medium text-shas-heading group-hover:text-shas-burgundy transition-colors line-clamp-2">
                         {story.title}
                       </h4>
                       
@@ -231,9 +231,9 @@ export function JournalPage() {
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-shas-border/30 flex justify-between items-center text-[9px] uppercase tracking-widest font-bold text-shas-heading group-hover:text-shas-brand transition-colors">
+                    <div className="pt-3 border-t border-shas-border/30 flex justify-between items-center text-[9px] uppercase tracking-widest font-bold text-shas-burgundy group-hover:text-shas-gold transition-colors">
                       <span>Read Story</span>
-                      <span className="text-shas-brand group-hover:translate-x-1 transition-transform inline-block">→</span>
+                      <span className="text-shas-burgundy group-hover:text-shas-gold group-hover:translate-x-1 transition-all inline-block">→</span>
                     </div>
                   </div>
                 </div>

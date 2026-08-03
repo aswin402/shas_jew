@@ -306,7 +306,7 @@ export function HomePage() {
     <div ref={containerRef} className="relative bg-shas-bg text-shas-heading transition-colors duration-300">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-start lg:items-center pt-28 sm:pt-32 lg:pt-24 pb-16 px-6 md:px-16 overflow-hidden border-b border-shas-border">
+      <section className="relative min-h-[140vh] sm:min-h-[120vh] lg:min-h-screen flex items-start lg:items-center pt-28 sm:pt-32 lg:pt-24 pb-16 px-6 md:px-16 overflow-hidden border-b border-shas-border">
         {/* Full-bleed Hero Background Image */}
         <div className="hero-image-frame absolute inset-0 w-full h-full z-0 overflow-hidden">
           <picture className="w-full h-full">
@@ -315,7 +315,7 @@ export function HomePage() {
             <img
               src={desktopBg}
               alt="SHAS Luxury Editorial Jewelry Background"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-bottom lg:object-center"
             />
           </picture>
         </div>
@@ -325,7 +325,7 @@ export function HomePage() {
           {/* Hero Editorial Text Overlay */}
           <div className="lg:col-span-7 flex flex-col items-start text-left space-y-4 sm:space-y-6 lg:space-y-8">
             <div className="hero-subtitle-tag flex items-center gap-2 text-[10px] sm:text-xxs uppercase tracking-[0.25em] text-shas-secondary font-sans font-semibold">
-              <Sparkles className="w-3.5 h-3.5 text-shas-accent" />
+              <Sparkles className="w-3.5 h-3.5 text-shas-gold" />
               <span>Heritage in Every Carat • Natural Diamonds & Gold</span>
             </div>
 
@@ -335,6 +335,8 @@ export function HomePage() {
                 <span className="font-bold italic text-shas-brand">LUXURY.</span>
               </h1>
               
+              <div className="w-24 h-0.5 bg-shas-gold my-4" />
+
               <p className="hero-desc-main text-sm sm:text-base leading-relaxed text-shas-heading/90 max-w-[310px] sm:max-w-md lg:max-w-lg font-sans">
                 Designed by Deepa Sakthi. Experience traditional luxury at our Erode Store. Every piece is handcrafted by artisans to ensure absolute perfection.
               </p>
@@ -344,31 +346,31 @@ export function HomePage() {
             <div className="hero-cta-group flex flex-col sm:flex-row gap-3 w-full max-w-[240px] sm:max-w-none sm:w-auto pt-2">
               <a
                 href="#shop-catalog"
-                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-burgundy text-shas-bg hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center border border-shas-burgundy shadow-sm hover:shadow-lg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-cream dark:hover:text-shas-cream"
+                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center border border-shas-burgundy shadow-sm hover:shadow-lg dark:bg-shas-burgundy dark:border-shas-burgundy dark:text-white dark:hover:bg-shas-gold dark:hover:text-black dark:hover:border-shas-gold"
               >
                 Shop All Jewelry
               </a>
               <a
                 href="#shop-look"
-                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-bg/60 md:bg-transparent text-shas-heading border border-shas-accent hover:bg-shas-accent hover:text-shas-bg transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center"
+                className="w-full sm:w-auto px-4 py-2.5 md:px-8 md:py-4 bg-shas-bg/60 md:bg-transparent text-shas-burgundy border border-shas-burgundy hover:bg-shas-burgundy hover:text-white transition-all font-sans text-[9px] md:text-xs uppercase tracking-widest font-semibold text-center dark:text-shas-burgundy dark:border-shas-burgundy dark:hover:bg-shas-burgundy dark:hover:text-white"
               >
                 Explore Collections
               </a>
             </div>
 
             {/* Editorial Specs Bar */}
-            <div className="hero-cta-group hidden md:grid pt-8 border-t border-shas-border/60 grid grid-cols-3 gap-6 w-full max-w-md font-sans text-left">
+            <div className="hero-cta-group hidden md:grid pt-4 pb-4 px-6 mt-4 grid-cols-3 gap-6 w-full max-w-md font-sans text-left relative overflow-hidden bg-gradient-to-br from-white/35 via-white/15 to-white/10 dark:from-white/15 dark:via-white/5 dark:to-transparent backdrop-blur-xl border border-white/60 dark:border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] before:absolute before:inset-x-0 before:top-0 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-white/80 before:to-transparent">
               <div>
-                <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Atelier</span>
-                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Erode Store</span>
+                <span className="block text-[10px] text-shas-burgundy font-bold uppercase tracking-widest">Atelier</span>
+                <span className="text-xs sm:text-sm font-bold text-shas-heading dark:text-white">Erode Store</span>
               </div>
               <div>
-                <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Director</span>
-                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Deepa Sakthi</span>
+                <span className="block text-[10px] text-shas-burgundy font-bold uppercase tracking-widest">Director</span>
+                <span className="text-xs sm:text-sm font-bold text-shas-heading dark:text-white">Deepa Sakthi</span>
               </div>
               <div>
-                <span className="block text-xxs text-shas-secondary uppercase tracking-wider">Materials</span>
-                <span className="text-xs font-semibold text-shas-heading dark:text-foreground">Diamonds & Gold</span>
+                <span className="block text-[10px] text-shas-burgundy font-bold uppercase tracking-widest">Materials</span>
+                <span className="text-xs sm:text-sm font-bold text-shas-heading dark:text-white">Diamonds & Gold</span>
               </div>
             </div>
           </div>
@@ -480,8 +482,8 @@ export function HomePage() {
 
             {/* Sidebar Look Bundle checklist */}
             <div className="lg:col-span-4 border border-shas-border bg-shas-bg p-6 md:p-8 space-y-6 shadow-sm">
-              <h3 className="font-serif text-lg font-medium tracking-wide text-shas-heading">The Travertine Look</h3>
-              <p className="text-xxs uppercase tracking-widest text-shas-secondary border-b border-shas-border pb-3">
+              <h3 className="font-serif text-lg font-medium tracking-wide text-shas-burgundy">The Travertine Look</h3>
+              <p className="text-xxs uppercase tracking-widest text-shas-secondary border-b border-shas-gold pb-3">
                 Select pieces styled in this set
               </p>
 
@@ -492,7 +494,7 @@ export function HomePage() {
                   return (
                     <div 
                       key={product.id}
-                      className="flex items-center justify-between group border-b border-shas-border/40 pb-4 last:border-0 last:pb-0"
+                      className="flex items-center justify-between group border-b border-shas-gold/40 pb-4 last:border-0 last:pb-0"
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-stone-50 border border-shas-border overflow-hidden">
@@ -518,9 +520,9 @@ export function HomePage() {
                 })}
               </div>
 
-              <div className="pt-4 border-t border-shas-border space-y-4">
+              <div className="pt-4 border-t border-shas-gold space-y-4">
                 <div className="flex justify-between text-xs font-semibold">
-                  <span className="text-shas-secondary uppercase tracking-wider">Set Total AOV</span>
+                  <span className="text-shas-burgundy uppercase tracking-wider">Set Total AOV</span>
                   <span className="text-shas-brand font-bold text-sm">
                     ${hotspots.reduce((sum, spot) => {
                       const p = products.find((prod) => prod.id === spot.productId) || PRODUCTS.find((prod) => prod.id === spot.productId);
@@ -538,9 +540,9 @@ export function HomePage() {
                       }
                     });
                   }}
-                  className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 dark:hover:bg-shas-cream dark:hover:text-shas-charcoal dark:hover:border-shas-brand"
+                  className="w-full py-3 bg-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold transition-all font-sans text-xs tracking-widest uppercase font-semibold flex items-center justify-center gap-2 border border-shas-burgundy group dark:bg-shas-burgundy dark:border-shas-burgundy dark:text-white dark:hover:bg-shas-gold dark:hover:text-black dark:hover:border-shas-gold"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-shas-accent animate-pulse" />
+                  <Sparkles className="w-3.5 h-3.5 text-shas-gold group-hover:text-black animate-pulse transition-colors" />
                   <span>Shop The Complete Set</span>
                 </button>
               </div>
@@ -581,7 +583,7 @@ export function HomePage() {
               {products.slice(0, 4).map((product: Product) => (
                 <div
                   key={product.id}
-                  className="product-card-reveal group border border-shas-border bg-shas-bg p-4 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+                  className="product-card-reveal group border border-[#ECE3DA] hover:border-[#AE0B36] bg-shas-bg p-4 transition-all duration-300 hover:shadow-sm flex flex-col justify-between"
                 >
                   <Link
                     to={`/product/${product.id}`}
@@ -594,7 +596,7 @@ export function HomePage() {
                     />
                     
                     {/* Category tag bubble */}
-                    <span className="absolute top-2 left-2 bg-shas-bg/90 dark:bg-card/90 px-2 py-0.5 border border-shas-border text-[8px] uppercase tracking-wider font-sans text-shas-secondary">
+                    <span className="absolute top-2 left-2 bg-shas-burgundy text-white hover:bg-shas-gold hover:text-black transition-colors duration-300 px-2 py-0.5 border border-shas-burgundy text-[8px] uppercase tracking-wider font-sans font-semibold">
                       {product.category}
                     </span>
 
@@ -606,7 +608,7 @@ export function HomePage() {
                           e.stopPropagation();
                           addItem(product);
                         }}
-                        className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
+                        className="w-full py-3 bg-shas-burgundy text-white border border-shas-burgundy hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
                       >
                         Quick Add to Bag
                       </button>
@@ -615,7 +617,7 @@ export function HomePage() {
 
                   <div className="mt-4 text-left flex-1 flex flex-col justify-between">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-1 text-[10px] text-shas-accent">
+                      <div className="flex items-center gap-1 text-[10px] text-shas-gold">
                         {Array.from({ length: 5 }).map((_, i) => (
                           <Star key={i} className="w-3 h-3 fill-current" />
                         ))}
@@ -627,10 +629,10 @@ export function HomePage() {
                     </div>
 
                     <div className="mt-4 pt-3 border-t border-shas-border/40 flex justify-between items-center">
-                      <p className="text-sm font-semibold text-shas-brand font-mono">${product.price.toFixed(2)}</p>
+                      <p className="text-sm font-semibold text-shas-burgundy font-mono">${product.price.toFixed(2)}</p>
                       <Link
                         to={`/product/${product.id}`}
-                        className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-brand transition-colors flex items-center gap-1 font-sans cursor-pointer sm:hidden lg:flex"
+                        className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-burgundy transition-colors flex items-center gap-1 font-sans cursor-pointer sm:hidden lg:flex"
                       >
                         <span>View Details</span>
                         <ArrowRight className="w-3 h-3" />
@@ -757,27 +759,27 @@ export function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Value Card 1 */}
-            <div className="value-card-reveal border border-shas-border p-8 text-left space-y-4 hover:shadow-md hover:border-shas-burgundy bg-shas-bg/50 dark:bg-shas-burgundy/[0.03] dark:hover:bg-shas-burgundy/[0.08] transition-all">
+            <div className="value-card-reveal border border-[#EFE3D6] p-8 text-left space-y-4 hover:shadow-md hover:border-shas-gold bg-shas-bg/50 dark:bg-shas-burgundy/[0.03] dark:hover:bg-shas-burgundy/[0.08] transition-all">
               <span className="font-serif text-xs text-shas-brand font-semibold tracking-wider">01 / Materiality</span>
-              <h3 className="font-serif text-xl text-shas-heading font-medium">14k Vermeil & Solid Gold</h3>
+              <h3 className="font-serif text-xl text-shas-burgundy font-medium">14k Vermeil & Solid Gold</h3>
               <p className="text-xs text-shas-secondary leading-relaxed font-sans">
                 Our vermeil standard is thicker than standard plating: a solid 14k gold shell of at least 2.5 microns thick layered over 925 sterling silver for enduring luster.
               </p>
             </div>
 
             {/* Value Card 2 */}
-            <div className="value-card-reveal border border-shas-border p-8 text-left space-y-4 hover:shadow-md hover:border-shas-burgundy bg-shas-bg/50 dark:bg-shas-burgundy/[0.03] dark:hover:bg-shas-burgundy/[0.08] transition-all">
+            <div className="value-card-reveal border border-[#EFE3D6] p-8 text-left space-y-4 hover:shadow-md hover:border-shas-gold bg-shas-bg/50 dark:bg-shas-burgundy/[0.03] dark:hover:bg-shas-burgundy/[0.08] transition-all">
               <span className="font-serif text-xs text-shas-brand font-semibold tracking-wider">02 / Sustainability</span>
-              <h3 className="font-serif text-xl text-shas-heading font-medium">Recycled Precious Metals</h3>
+              <h3 className="font-serif text-xl text-shas-burgundy font-medium">Recycled Precious Metals</h3>
               <p className="text-xs text-shas-secondary leading-relaxed font-sans">
                 We utilize recycled silver and gold to minimize the environmental footprint of our pieces. Our diamonds and pearls are sourced strictly from suppliers complying with the Kimberly Process.
               </p>
             </div>
 
             {/* Value Card 3 */}
-            <div className="value-card-reveal border border-shas-border p-8 text-left space-y-4 hover:shadow-md hover:border-shas-burgundy bg-shas-bg/50 dark:bg-shas-burgundy/[0.03] dark:hover:bg-shas-burgundy/[0.08] transition-all">
+            <div className="value-card-reveal border border-[#EFE3D6] p-8 text-left space-y-4 hover:shadow-md hover:border-shas-gold bg-shas-bg/50 dark:bg-shas-burgundy/[0.03] dark:hover:bg-shas-burgundy/[0.08] transition-all">
               <span className="font-serif text-xs text-shas-brand font-semibold tracking-wider">03 / Care Package</span>
-              <h3 className="font-serif text-xl text-shas-heading font-medium">Custom Linen Gift Boxing</h3>
+              <h3 className="font-serif text-xl text-shas-burgundy font-medium">Custom Linen Gift Boxing</h3>
               <p className="text-xs text-shas-secondary leading-relaxed font-sans">
                 Every piece arrives tucked inside a velvet-lined custom linen keepsake box, complete with a microfiber polishing cloth and a signed certificate of material authenticity.
               </p>

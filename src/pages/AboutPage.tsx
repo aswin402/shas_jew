@@ -66,12 +66,12 @@ export function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Pillar 1 */}
-            <div className="border border-shas-border/80 bg-shas-bg/30 p-8 space-y-4 hover:border-shas-brand transition-colors text-left flex flex-col justify-between">
+            <div className="border border-[#EFE3D6] bg-shas-bg/30 p-8 space-y-4 hover:border-shas-gold transition-colors text-left flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-10 h-10 border border-shas-accent/40 rounded-full flex items-center justify-center text-shas-brand">
+                <div className="w-10 h-10 border border-shas-gold/40 rounded-full flex items-center justify-center text-shas-gold">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-lg font-medium text-shas-heading">14k Gold Vermeil</h3>
+                <h3 className="font-serif text-lg font-medium text-shas-burgundy">14k Gold Vermeil</h3>
                 <p className="text-xs text-shas-secondary font-sans leading-relaxed">
                   Our vermeil pieces feature a thick coating of 14k solid gold—at least 2.5 microns thick—electroplated over premium 925 sterling silver. This standard is five times thicker than typical gold plating, providing lasting brilliance and weight.
                 </p>
@@ -80,12 +80,12 @@ export function AboutPage() {
             </div>
 
             {/* Pillar 2 */}
-            <div className="border border-shas-border/80 bg-shas-bg/30 p-8 space-y-4 hover:border-shas-brand transition-colors text-left flex flex-col justify-between">
+            <div className="border border-[#EFE3D6] bg-shas-bg/30 p-8 space-y-4 hover:border-shas-gold transition-colors text-left flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-10 h-10 border border-shas-accent/40 rounded-full flex items-center justify-center text-shas-brand">
+                <div className="w-10 h-10 border border-shas-gold/40 rounded-full flex items-center justify-center text-shas-gold">
                   <Compass className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-lg font-medium text-shas-heading">Ethically Harvested</h3>
+                <h3 className="font-serif text-lg font-medium text-shas-burgundy">Ethically Harvested</h3>
                 <p className="text-xs text-shas-secondary font-sans leading-relaxed">
                   Every baroque pearl, diamond, and gemstone we select is ethically sourced from suppliers complying with the Kimberly Process. We celebrate organic variations: no two pearls are identical, reflecting your unique story.
                 </p>
@@ -94,12 +94,12 @@ export function AboutPage() {
             </div>
 
             {/* Pillar 3 */}
-            <div className="border border-shas-border/80 bg-shas-bg/30 p-8 space-y-4 hover:border-shas-brand transition-colors text-left flex flex-col justify-between">
+            <div className="border border-[#EFE3D6] bg-shas-bg/30 p-8 space-y-4 hover:border-shas-gold transition-colors text-left flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-10 h-10 border border-shas-accent/40 rounded-full flex items-center justify-center text-shas-brand">
+                <div className="w-10 h-10 border border-shas-gold/40 rounded-full flex items-center justify-center text-shas-gold">
                   <Sparkles className="w-5 h-5" />
                 </div>
-                <h3 className="font-serif text-lg font-medium text-shas-heading">Artisanal Timelines</h3>
+                <h3 className="font-serif text-lg font-medium text-shas-burgundy">Artisanal Timelines</h3>
                 <p className="text-xs text-shas-secondary font-sans leading-relaxed">
                   We reject rushed timelines and mass factory production. Our jewelry is hand-forged by skilled artisans in limited micro-batches, taking the required hours to ensure perfect bezel finishes and clasp security.
                 </p>
@@ -135,7 +135,7 @@ export function AboutPage() {
           <div className="pt-2 flex justify-center">
             <Link 
               to="/collections" 
-              className="px-8 py-3.5 bg-shas-burgundy text-shas-bg hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-xs tracking-widest uppercase font-semibold border border-shas-burgundy shadow-sm dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream flex items-center gap-2"
+              className="px-8 py-3.5 bg-shas-burgundy text-white hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all font-sans text-xs tracking-widest uppercase font-semibold border border-shas-burgundy shadow-sm dark:bg-shas-burgundy dark:border-shas-burgundy dark:text-white dark:hover:bg-shas-burgundy-hover dark:hover:border-shas-burgundy-hover flex items-center gap-2"
             >
               <span>Explore Curation</span>
               <ArrowRight className="w-4 h-4" />

@@ -188,8 +188,8 @@ export function CollectionsPage() {
                   onClick={() => navigate(cat === 'All' ? '/collections' : '/' + cat.toLowerCase())}
                   className={`px-3 py-1.5 text-[10px] uppercase tracking-wider font-semibold border transition-all duration-300 cursor-pointer ${
                     selectedCategory === cat
-                      ? 'bg-shas-burgundy border-shas-burgundy text-shas-bg dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg'
-                      : 'border-shas-border/60 hover:border-shas-brand text-shas-secondary hover:text-shas-heading'
+                      ? 'bg-shas-burgundy border-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold'
+                      : 'border-shas-border/60 hover:border-shas-gold text-shas-secondary hover:text-shas-burgundy'
                   }`}
                 >
                   {cat}
@@ -199,7 +199,7 @@ export function CollectionsPage() {
           ) : (
             /* On specific category pages, display a back to collections link */
             <div className="text-[10px] uppercase tracking-widest font-semibold text-shas-secondary">
-              <Link to="/collections" className="hover:text-shas-brand transition-colors flex items-center gap-1.5">
+              <Link to="/collections" className="hover:text-shas-burgundy transition-colors flex items-center gap-1.5">
                 ← View All Collections
               </Link>
             </div>
@@ -247,16 +247,16 @@ export function CollectionsPage() {
               {sortedProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="group flex flex-col h-full bg-transparent border border-shas-border/40 p-4 hover:shadow-md transition-all duration-300 relative text-left"
+                  className="group flex flex-col h-full bg-transparent border border-[#ECE3DA] hover:border-[#AE0B36] p-4 hover:shadow-sm transition-all duration-300 relative text-left"
                 >
                   {/* Category Flag badge */}
-                  <span className="absolute top-6 left-6 z-10 bg-shas-bg/95 border border-shas-border/60 text-shas-secondary text-[8px] uppercase tracking-widest font-semibold px-2 py-0.5 shadow-sm font-sans">
+                  <span className="absolute top-6 left-6 z-10 bg-shas-burgundy text-white hover:bg-shas-gold hover:text-black transition-colors duration-300 text-[8px] uppercase tracking-widest font-semibold px-2 py-0.5 shadow-sm font-sans">
                     {product.category}
                   </span>
 
                   {/* Image container & overlay */}
                   <div 
-                    className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-shas-brand" 
+                    className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-shas-burgundy" 
                     onClick={() => navigate(`/product/${product.id}`)}
                   >
                     <img
@@ -272,7 +272,7 @@ export function CollectionsPage() {
                           e.stopPropagation();
                           addItem(product);
                         }}
-                        className="w-full py-3 bg-shas-burgundy text-shas-bg border border-shas-burgundy hover:bg-shas-cream hover:text-shas-charcoal hover:border-shas-burgundy transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 group-focus-within:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
+                        className="w-full py-3 bg-shas-burgundy text-white border border-shas-burgundy hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 group-focus-within:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
                       >
                         Quick Add to Bag
                       </button>
@@ -282,13 +282,13 @@ export function CollectionsPage() {
                   {/* Product Details */}
                   <div className="mt-4 flex-1 flex flex-col justify-between text-left space-y-2">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-1 text-[9px] text-shas-accent">
+                      <div className="flex items-center gap-1 text-[9px] text-shas-gold">
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
                             className={`w-2.5 h-2.5 ${
                               i < Math.floor(product.rating)
-                                ? 'fill-shas-accent text-shas-accent'
+                                ? 'fill-shas-gold text-shas-gold'
                                 : 'text-shas-border'
                             }`}
                           />
@@ -304,12 +304,12 @@ export function CollectionsPage() {
                     </div>
 
                     <div className="flex justify-between items-center pt-2 border-t border-shas-border/30">
-                      <span className="font-serif text-sm font-semibold text-shas-brand dark:text-primary">
+                      <span className="font-serif text-sm font-semibold text-shas-burgundy">
                         ${product.price.toFixed(2)}
                       </span>
                       <Link
                         to={`/product/${product.id}`}
-                        className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-brand transition-colors flex items-center gap-1 font-sans cursor-pointer"
+                        className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-burgundy transition-colors flex items-center gap-1 font-sans cursor-pointer"
                       >
                         <span>View Details</span>
                         <ArrowRight className="w-3.5 h-3.5" />
