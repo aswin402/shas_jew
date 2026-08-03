@@ -381,7 +381,7 @@ export function HomePage() {
         </div>
 
         {/* Floating caption overlay on the background image */}
-        <div className="absolute bottom-8 right-6 md:right-16 z-10 bg-shas-bg/90 dark:bg-card/90 px-3 py-1.5 border border-shas-border/60 text-[9px] uppercase tracking-widest font-sans text-shas-secondary font-medium">
+        <div className="absolute bottom-8 right-6 md:right-16 z-10 bg-[#fbc724] text-black px-3.5 py-1.5 border border-black/20 text-[9px] uppercase tracking-widest font-sans font-bold shadow-md">
           Style Study No. 04 / Plinths
         </div>
 
