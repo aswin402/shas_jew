@@ -54,8 +54,8 @@
     /* Constant Brand Colors */
     --shas-burgundy: #AE0B36;
     --shas-burgundy-hover: #8A0A2B;
-    --shas-gold: #D99E18;
-    --shas-gold-hover: #C58B12;
+    --shas-gold: #fbc724;
+    --shas-gold-hover: #e5b31c;
     --shas-cream: #F8F4EE;
     --shas-charcoal: #111111;
     --shas-charcoal-secondary: #5E5E5E;
@@ -64,7 +64,7 @@
     /* 1. Dynamic Brand Tokens (Light Mode - Thicker High Contrast) */
     --shas-bg: #F8F4EE;
     --shas-brand: #AE0B36;
-    --shas-accent: #D99E18;
+    --shas-accent: #fbc724;
     --shas-heading: #111111; /* Deep charcoal for sharp, bold headings */
     --shas-secondary: #5E5E5E; /* Darker plum-slate for thicker secondary text */
     --shas-border: #E9DED4;
@@ -82,7 +82,7 @@
     --secondary-foreground: #FFFFFF;
     --muted: #FAF6F2;
     --muted-foreground: #5E5E5E;
-    --accent: #D99E18;
+    --accent: #fbc724;
     --accent-foreground: #111111;
     --destructive: #AE0B36;
     --border: #E9DED4;
@@ -95,8 +95,8 @@
     /* Constant Brand Colors */
     --shas-burgundy: #AE0B36;
     --shas-burgundy-hover: #8A0A2B;
-    --shas-gold: #D99E18;
-    --shas-gold-hover: #C58B12;
+    --shas-gold: #fbc724;
+    --shas-gold-hover: #e5b31c;
     --shas-cream: #F8F4EE;
     --shas-charcoal: #111111;
     --shas-charcoal-secondary: #5E5E5E;
@@ -104,7 +104,7 @@
 
     /* 1. Dynamic Brand Tokens (Dark Mode - High Contrast White & Gold) */
     --shas-bg: #141217; /* Rich deep charcoal slate */
-    --shas-brand: #F2B82E; /* Vibrant gold for dark mode brand elements */
+    --shas-brand: #fbc724; /* Vibrant gold for dark mode brand elements */
     --shas-accent: #C42338; /* Crisp burgundy highlight */
     --shas-heading: #FFFFFF; /* Pure bold white for maximum contrast */
     --shas-secondary: #E4D9E0; /* Bright silver-rose text for thick legibility */
@@ -117,7 +117,7 @@
     --card-foreground: #FFFFFF;
     --popover: #1D1922;
     --popover-foreground: #FFFFFF;
-    --primary: #F2B82E;
+    --primary: #fbc724;
     --primary-foreground: #141217;
     --secondary: #E4D9E0;
     --secondary-foreground: #141217;
@@ -128,7 +128,7 @@
     --destructive: #C42338;
     --border: #423846;
     --input: #423846;
-    --ring: #F2B82E;
+    --ring: #fbc724;
   }
 
   * {
