@@ -124,22 +124,6 @@ export function CollectionsPage() {
     fetchData();
   }, []);
 
-  // progressive card reveal for collections page
-  useEffect(() => {
-    if (!isLoading && sortedProducts.length > 0) {
-      setVisibleCount(0);
-      const timer = setInterval(() => {
-        setVisibleCount((prev) => {
-          if (prev >= sortedProducts.length) {
-            clearInterval(timer);
-            return prev;
-          }
-          return prev + 1;
-        });
-      }, 70);
-      return () => clearInterval(timer);
-    }
-  }, [sortedProducts, isLoading]);
 
   // Resolve category filter on path changes helper
   const getCategoryFromPath = (path: string) => {
@@ -177,6 +161,23 @@ export function CollectionsPage() {
       return 0; // Featured (Default order)
     });
   }, [products, selectedCategory, selectedSort]);
+
+  // progressive card reveal for collections page
+  useEffect(() => {
+    if (!isLoading && sortedProducts.length > 0) {
+      setVisibleCount(0);
+      const timer = setInterval(() => {
+        setVisibleCount((prev) => {
+          if (prev >= sortedProducts.length) {
+            clearInterval(timer);
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 70);
+      return () => clearInterval(timer);
+    }
+  }, [sortedProducts, isLoading]);
 
   return (
     <main className="pt-32 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300 relative">
