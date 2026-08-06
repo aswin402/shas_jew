@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Star } from 'lucide-react';
-import { PRODUCTS } from '@/data/products';
+import { PRODUCTS, getProductImage } from '@/data/products';
 import { supabase } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 import { useCartStore } from '@/store/useCartStore';
@@ -90,7 +90,7 @@ export function CollectionsPage() {
             id: row.id,
             title: row.title,
             price: Number(row.price),
-            imageUrl: row.image_url || row.imageUrl || '',
+            imageUrl: getProductImage(row.id),
             category: row.category_name || row.category || 'Necklaces',
             material: row.material || '',
             rating: Number(row.rating ?? 5.0),

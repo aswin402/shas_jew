@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ShoppingBag, Star, ShieldCheck, Truck, RefreshCw, ArrowRight, Package } from 'lucide-react';
-import { PRODUCTS } from '@/data/products';
+import { PRODUCTS, getProductImage } from '@/data/products';
 import { supabase } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 import { useCartStore } from '@/store/useCartStore';
@@ -44,7 +44,7 @@ export function ProductDetailsPage() {
             id: prodData.id,
             title: prodData.title,
             price: Number(prodData.price),
-            imageUrl: prodData.image_url || prodData.imageUrl || '',
+            imageUrl: getProductImage(prodData.id),
             category: prodData.category_name || prodData.category || 'Necklaces',
             material: prodData.material || '',
             rating: Number(prodData.rating ?? 5.0),
@@ -74,7 +74,7 @@ export function ProductDetailsPage() {
             id: row.id,
             title: row.title,
             price: Number(row.price),
-            imageUrl: row.image_url || row.imageUrl || '',
+            imageUrl: getProductImage(row.id),
             category: row.category_name || row.category || 'Necklaces',
             material: row.material || '',
             rating: Number(row.rating ?? 5.0),
