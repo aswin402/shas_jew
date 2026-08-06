@@ -5,10 +5,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ShoppingBag, Star, ArrowRight, Sparkles, ChevronDown } from 'lucide-react';
 import { useCartStore } from '../store/useCartStore';
-import backgroundDesktop from '../assets/shashdesktop.png';
-import backgroundMobile from '../assets/shashmob.png';
-import backgroundDesktopDark from '../assets/shashdesktopdark.png';
-import backgroundMobileDark from '../assets/shashmobdark.png';
+import backgroundDesktop from '../assets/shashdesktop.webp';
+import backgroundMobile from '../assets/shashmob.webp';
 import { useThemeStore } from '../store/useThemeStore';
 import { PRODUCTS, getProductImage } from '@/data/products';
 import { supabase } from '@/lib/supabase';
@@ -82,10 +80,8 @@ export function HomePage() {
   const storyImageRef = useRef<HTMLImageElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const { theme } = useThemeStore();
-  const isDark = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  const desktopBg = isDark ? backgroundDesktopDark : backgroundDesktop;
-  const mobileBg = isDark ? backgroundMobileDark : backgroundMobile;
+  const desktopBg = backgroundDesktop;
+  const mobileBg = backgroundMobile;
 
   // Fetch products from Supabase
   useEffect(() => {
