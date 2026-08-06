@@ -160,20 +160,6 @@ export function CollectionsPage() {
       {/* Background dynamic glow */}
       <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-[120px] pointer-events-none transition-all duration-500 ${style.bgGlow}`} />
 
-      {/* Editorial Hero Header */}
-      <section className="py-6 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className={`border p-8 md:p-12 text-center space-y-4 shadow-sm transition-all duration-500 ${style.bannerClass}`}>
-          <span className={`text-[10px] uppercase tracking-[0.25em] font-semibold font-sans transition-colors duration-500 ${style.accentText}`}>
-            {style.tagline}
-          </span>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-wide">
-            {style.title}
-          </h1>
-          <p className="max-w-xl mx-auto text-xs md:text-sm text-shas-secondary font-sans leading-relaxed">
-            {style.description}
-          </p>
-        </div>
-      </section>
 
       {/* Filter & Sort Bar */}
       <section className="border-t border-b border-shas-border bg-shas-bg/50 backdrop-blur-md sticky top-24 z-20 px-6 md:px-12 py-4">
