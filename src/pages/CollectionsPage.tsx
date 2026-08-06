@@ -3,7 +3,7 @@ import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Star } from 'lucide-react';
 import { PRODUCTS, getProductImage } from '@/data/products';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 import { useCartStore } from '@/store/useCartStore';
 
@@ -74,10 +74,16 @@ export function CollectionsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>(['All', 'Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts']);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [visibleCount, setVisibleCount] = useState(0);
 
   // Fetch products and categories from Supabase
   useEffect(() => {
     async function fetchData() {
+      if (!isSupabaseConfigured) {
+        setProducts(PRODUCTS);
+        setIsLoading(false);
+        return;
+      }
       setIsLoading(true);
       try {
         const [productsRes, categoriesRes] = await Promise.all([
@@ -117,6 +123,23 @@ export function CollectionsPage() {
     }
     fetchData();
   }, []);
+
+  // progressive card reveal for collections page
+  useEffect(() => {
+    if (!isLoading && sortedProducts.length > 0) {
+      setVisibleCount(0);
+      const timer = setInterval(() => {
+        setVisibleCount((prev) => {
+          if (prev >= sortedProducts.length) {
+            clearInterval(timer);
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 70);
+      return () => clearInterval(timer);
+    }
+  }, [sortedProducts, isLoading]);
 
   // Resolve category filter on path changes helper
   const getCategoryFromPath = (path: string) => {
@@ -230,80 +253,96 @@ export function CollectionsPage() {
                 transition={{ duration: 0.35, ease: 'easeInOut' }}
                 className="col-span-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
               >
-              {sortedProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="group flex flex-col h-full bg-transparent border border-[#ECE3DA] hover:border-[#AE0B36] p-4 hover:shadow-sm transition-all duration-300 relative text-left"
-                >
-                  {/* Category Flag badge */}
-                  <span className="absolute top-6 left-6 z-10 bg-shas-burgundy text-white hover:bg-shas-gold hover:text-black transition-colors duration-300 text-[8px] uppercase tracking-widest font-semibold px-2 py-0.5 shadow-sm font-sans">
-                    {product.category}
-                  </span>
+              {sortedProducts.map((product, i) => {
+                if (visibleCount <= i) {
+                  return (
+                    <div key={i} className="animate-pulse border border-shas-border/40 p-4 space-y-4">
+                      <div className="aspect-square bg-stone-200 dark:bg-stone-800 w-full" />
+                      <div className="h-4 bg-stone-200 dark:bg-stone-800 w-3/4" />
+                      <div className="h-3 bg-stone-200 dark:bg-stone-800 w-1/2" />
+                      <div className="h-4 bg-stone-200 dark:bg-stone-800 w-1/3" />
+                    </div>
+                  );
+                }
 
-                  {/* Image container & overlay */}
-                  <div 
-                    className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-shas-burgundy" 
-                    onClick={() => navigate(`/product/${product.id}`)}
+                return (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="group flex flex-col h-full bg-transparent border border-[#ECE3DA] hover:border-[#AE0B36] p-4 hover:shadow-sm transition-all duration-300 relative text-left"
                   >
-                    <img
-                      src={product.imageUrl}
-                      alt={product.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {/* Category Flag badge */}
+                    <span className="absolute top-6 left-6 z-10 bg-shas-burgundy text-white hover:bg-shas-gold hover:text-black transition-colors duration-300 text-[8px] uppercase tracking-widest font-semibold px-2 py-0.5 shadow-sm font-sans">
+                      {product.category}
+                    </span>
 
-                    {/* Quick Add Overlay */}
-                    <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          addItem(product);
-                        }}
-                        className="w-full py-3 bg-shas-burgundy text-white border border-shas-burgundy hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 group-focus-within:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
-                      >
-                        Quick Add to Bag
-                      </button>
-                    </div>
-                  </div>
+                    {/* Image container & overlay */}
+                    <div 
+                      className="relative aspect-square w-full overflow-hidden bg-stone-50 border border-shas-border/40 p-2 cursor-pointer focus:outline-none focus:ring-1 focus:ring-shas-burgundy" 
+                      onClick={() => navigate(`/product/${product.id}`)}
+                    >
+                      <img
+                        src={product.imageUrl}
+                        alt={product.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
 
-                  {/* Product Details */}
-                  <div className="mt-4 flex-1 flex flex-col justify-between text-left space-y-2">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-1 text-[9px] text-shas-gold">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-2.5 h-2.5 ${
-                              i < Math.floor(product.rating)
-                                ? 'fill-shas-gold text-shas-gold'
-                                : 'text-shas-border'
-                            }`}
-                          />
-                        ))}
-                        <span className="text-shas-secondary ml-1">({product.reviews})</span>
+                      {/* Quick Add Overlay */}
+                      <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            addItem(product);
+                          }}
+                          className="w-full py-3 bg-shas-burgundy text-white border border-shas-burgundy hover:bg-shas-burgundy-hover hover:border-shas-burgundy-hover transition-all font-sans text-[10px] tracking-widest uppercase font-bold shadow-md translate-y-3 group-hover:translate-y-0 group-focus-within:translate-y-0 duration-350 ease-out dark:bg-shas-brand dark:border-shas-brand dark:text-shas-bg dark:hover:bg-shas-bg dark:hover:border-shas-brand dark:hover:text-shas-cream"
+                        >
+                          Quick Add to Bag
+                        </button>
                       </div>
-                      <h3 className="font-serif text-sm font-medium text-shas-heading dark:text-foreground">
-                        {product.title}
-                      </h3>
-                      <p className="text-[10px] text-shas-secondary font-sans font-normal italic leading-tight">
-                        {product.material}
-                      </p>
                     </div>
 
-                    <div className="flex justify-between items-center pt-2 border-t border-shas-border/30">
-                      <span className="font-serif text-sm font-semibold text-shas-burgundy">
-                        ${product.price.toFixed(2)}
-                      </span>
-                      <Link
-                        to={`/product/${product.id}`}
-                        className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-burgundy transition-colors flex items-center gap-1 font-sans cursor-pointer"
-                      >
-                        <span>View Details</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
+                    {/* Product Details */}
+                    <div className="mt-4 flex-1 flex flex-col justify-between text-left space-y-2">
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-1 text-[9px] text-shas-gold">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-2.5 h-2.5 ${
+                                i < Math.floor(product.rating)
+                                  ? 'fill-shas-gold text-shas-gold'
+                                  : 'text-shas-border'
+                              }`}
+                            />
+                          ))}
+                          <span className="text-shas-secondary ml-1">({product.reviews})</span>
+                        </div>
+                        <h3 className="font-serif text-sm font-medium text-shas-heading dark:text-foreground">
+                          {product.title}
+                        </h3>
+                        <p className="text-[10px] text-shas-secondary font-sans font-normal italic leading-tight">
+                          {product.material}
+                        </p>
+                      </div>
+
+                      <div className="flex justify-between items-center pt-2 border-t border-shas-border/30">
+                        <span className="font-serif text-sm font-semibold text-shas-burgundy">
+                          ${product.price.toFixed(2)}
+                        </span>
+                        <Link
+                          to={`/product/${product.id}`}
+                          className="text-[9px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-burgundy transition-colors flex items-center gap-1 font-sans cursor-pointer"
+                        >
+                          <span>View Details</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </motion.div>
           </AnimatePresence>
           )}

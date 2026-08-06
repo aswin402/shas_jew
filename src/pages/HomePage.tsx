@@ -9,7 +9,7 @@ import backgroundDesktop from '../assets/shashdesktop.jpg';
 import backgroundMobile from '../assets/shashmob.jpg';
 import { useThemeStore } from '../store/useThemeStore';
 import { PRODUCTS, getProductImage } from '@/data/products';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 
 // Register ScrollTrigger
@@ -70,6 +70,7 @@ export function HomePage() {
   const { addItem } = useCartStore();
   const [products, setProducts] = useState<Product[]>(PRODUCTS);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [visibleCount, setVisibleCount] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -86,6 +87,11 @@ export function HomePage() {
   // Fetch products from Supabase
   useEffect(() => {
     async function fetchProducts() {
+      if (!isSupabaseConfigured) {
+        setProducts(PRODUCTS);
+        setIsLoading(false);
+        return;
+      }
       setIsLoading(true);
       try {
         const { data, error } = await supabase.from('products').select('*');
@@ -120,6 +126,23 @@ export function HomePage() {
     }
     fetchProducts();
   }, []);
+
+  // progressive card reveal
+  useEffect(() => {
+    if (!isLoading && products.length > 0) {
+      setVisibleCount(0);
+      const timer = setInterval(() => {
+        setVisibleCount((prev) => {
+          if (prev >= 4) {
+            clearInterval(timer);
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 150);
+      return () => clearInterval(timer);
+    }
+  }, [products, isLoading]);
 
   // Check accessibility reduced-motion preference
   useEffect(() => {
@@ -563,22 +586,26 @@ export function HomePage() {
           </div>
 
           {/* Grid Layout */}
-          {isLoading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="animate-pulse border border-shas-border/40 p-4 space-y-4">
-                  <div className="aspect-square bg-stone-200 dark:bg-stone-800 w-full" />
-                  <div className="h-4 bg-stone-200 dark:bg-stone-800 w-3/4" />
-                  <div className="h-3 bg-stone-200 dark:bg-stone-800 w-1/2" />
-                  <div className="h-4 bg-stone-200 dark:bg-stone-800 w-1/3" />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products.slice(0, 4).map((product: Product) => (
-                <div
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[...Array(4)].map((_, i) => {
+              const product = products[i];
+              if (isLoading || !product || visibleCount <= i) {
+                return (
+                  <div key={i} className="animate-pulse border border-shas-border/40 p-4 space-y-4">
+                    <div className="aspect-square bg-stone-200 dark:bg-stone-800 w-full" />
+                    <div className="h-4 bg-stone-200 dark:bg-stone-800 w-3/4" />
+                    <div className="h-3 bg-stone-200 dark:bg-stone-800 w-1/2" />
+                    <div className="h-4 bg-stone-200 dark:bg-stone-800 w-1/3" />
+                  </div>
+                );
+              }
+
+              return (
+                <motion.div
                   key={product.id}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
                   className="product-card-reveal group border border-[#ECE3DA] hover:border-[#AE0B36] bg-shas-bg p-4 transition-all duration-300 hover:shadow-sm flex flex-col justify-between"
                 >
                   <Link
@@ -635,10 +662,10 @@ export function HomePage() {
                       </Link>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
+                </motion.div>
+              );
+            })}
+          </div>
 
         </div>
       </section>

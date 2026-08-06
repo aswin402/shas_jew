@@ -11,5 +11,13 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.warn('Supabase URL or Anon Key is missing in environment variables. Falling back to local catalog mode.');
 }
 
+export const isSupabaseConfigured = 
+  !!supabaseUrl && 
+  supabaseUrl.trim() !== '' && 
+  !supabaseUrl.includes('your-project-id') && 
+  !!supabaseAnonKey && 
+  supabaseAnonKey.trim() !== '' && 
+  supabaseAnonKey !== 'your-anon-key';
+
 export const supabase = createClient(validUrl, validKey);
 
