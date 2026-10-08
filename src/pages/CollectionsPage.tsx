@@ -55,6 +55,22 @@ const CATEGORY_STYLES: Record<string, {
     accentText: "text-shas-burgundy",
     title: "Bracelets"
   },
+  Kadas: {
+    tagline: "Royal Heritage Temple Kadas",
+    description: "Solid 22k antique gold kadas, intricate nakshi repoussé work, screw clasps, and royal filigree crafted by master jewelers.",
+    bannerClass: "border-amber-700/30 bg-amber-700/[0.02]",
+    bgGlow: "bg-amber-600/10",
+    accentText: "text-amber-800 dark:text-amber-400",
+    title: "Kadas Collection"
+  },
+  Bangles: {
+    tagline: "Handcrafted Heirloom Bangles",
+    description: "Sets of 2, 4, and 6 daily wear and bridal gold bangles finished with timeless floral, geometric, and embossed motifs.",
+    bannerClass: "border-shas-gold/30 bg-shas-gold/[0.02]",
+    bgGlow: "bg-shas-gold/10",
+    accentText: "text-shas-gold",
+    title: "Bangles Collection"
+  },
   Gifts: {
     tagline: "Mindful Offerings Under $100",
     description: "Curated essential keepsakes packaged in our signature velvet-lined linen boxes, perfect for celebrating special moments.",
@@ -72,9 +88,11 @@ export function CollectionsPage() {
   
   // State for dynamic products & categories from Supabase
   const [products, setProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<string[]>(['All', 'Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts']);
+  const [categories, setCategories] = useState<string[]>([
+    'All', 'Necklaces', 'Kadas', 'Bangles', 'Bracelets', 'Earrings', 'Rings', 'Gifts'
+  ]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [visibleCount, setVisibleCount] = useState(0);
+  const [displayCount, setDisplayCount] = useState<number>(24);
 
   // Fetch products and categories from Supabase
   useEffect(() => {
@@ -96,13 +114,16 @@ export function CollectionsPage() {
             id: row.id,
             title: row.title,
             price: Number(row.price),
-            imageUrl: getProductImage(row.id),
+            imageUrl: row.image_url || row.imageUrl || getProductImage(row.id),
             category: row.category_name || row.category || 'Necklaces',
             material: row.material || '',
             rating: Number(row.rating ?? 5.0),
             reviews: Number(row.reviews ?? 0),
             description: row.description || '',
-            stock: row.stock ?? 0
+            stock: row.stock ?? 0,
+            tagNo: row.tag_no || row.tagNo,
+            grossWeight: row.gross_weight || row.grossWeight,
+            netWeight: row.net_weight || row.netWeight,
           }));
           setProducts(mappedProducts);
         } else {
@@ -111,7 +132,7 @@ export function CollectionsPage() {
 
         if (categoriesRes.data && categoriesRes.data.length > 0) {
           const fetchedCatNames = categoriesRes.data.map((c: any) => c.name);
-          const uniqueCats = Array.from(new Set(['All', ...fetchedCatNames, 'Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts']));
+          const uniqueCats = Array.from(new Set(['All', ...fetchedCatNames, 'Necklaces', 'Kadas', 'Bangles', 'Bracelets', 'Earrings', 'Rings', 'Gifts']));
           setCategories(uniqueCats);
         }
       } catch (err) {
@@ -124,11 +145,20 @@ export function CollectionsPage() {
     fetchData();
   }, []);
 
-
-  // Resolve category filter on path changes helper
-  const getCategoryFromPath = (path: string) => {
-    const lowercase = path.toLowerCase();
+  // Resolve category filter from path or search query param
+  const getCategoryFromLocation = (pathname: string, search: string) => {
+    const params = new URLSearchParams(search);
+    const catParam = params.get('category');
+    if (catParam) {
+      const match = ['Necklaces', 'Kadas', 'Bangles', 'Bracelets', 'Earrings', 'Rings', 'Gifts'].find(
+        (c) => c.toLowerCase() === catParam.toLowerCase()
+      );
+      if (match) return match;
+    }
+    const lowercase = pathname.toLowerCase();
     if (lowercase.includes('necklaces')) return 'Necklaces';
+    if (lowercase.includes('kadas')) return 'Kadas';
+    if (lowercase.includes('bangles')) return 'Bangles';
     if (lowercase.includes('earrings')) return 'Earrings';
     if (lowercase.includes('rings')) return 'Rings';
     if (lowercase.includes('bracelets')) return 'Bracelets';
@@ -136,11 +166,16 @@ export function CollectionsPage() {
     return 'All';
   };
 
-  const selectedCategory = getCategoryFromPath(location.pathname);
+  const selectedCategory = getCategoryFromLocation(location.pathname, location.search);
   const style = CATEGORY_STYLES[selectedCategory] || CATEGORY_STYLES.All;
 
   // Sort & modal states
   const [selectedSort, setSelectedSort] = useState<string>('Featured');
+
+  // Reset pagination displayCount when category or sort changes
+  useEffect(() => {
+    setDisplayCount(24);
+  }, [selectedCategory, selectedSort]);
 
   // Handle filtering & sorting (Memoized)
   const sortedProducts = useMemo(() => {
@@ -162,22 +197,10 @@ export function CollectionsPage() {
     });
   }, [products, selectedCategory, selectedSort]);
 
-  // progressive card reveal for collections page
-  useEffect(() => {
-    if (!isLoading && sortedProducts.length > 0) {
-      setVisibleCount(0);
-      const timer = setInterval(() => {
-        setVisibleCount((prev) => {
-          if (prev >= sortedProducts.length) {
-            clearInterval(timer);
-            return prev;
-          }
-          return prev + 1;
-        });
-      }, 70);
-      return () => clearInterval(timer);
-    }
-  }, [sortedProducts, isLoading]);
+  // Paginated visible products for butter-smooth rendering
+  const visibleProducts = useMemo(() => {
+    return sortedProducts.slice(0, displayCount);
+  }, [sortedProducts, displayCount]);
 
   return (
     <main className="pt-32 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300 relative">
@@ -189,31 +212,22 @@ export function CollectionsPage() {
       <section className="border-t border-b border-shas-border bg-shas-bg/50 backdrop-blur-md sticky top-24 z-20 px-6 md:px-12 py-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between font-sans">
           
-          {/* Category tabs - Only show on main Collections page */}
-          {selectedCategory === 'All' ? (
-            <div className="flex flex-wrap gap-2 justify-center">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => navigate(cat === 'All' ? '/collections' : '/' + cat.toLowerCase())}
-                  className={`px-3 py-1.5 text-[10px] uppercase tracking-wider font-semibold border transition-all duration-300 cursor-pointer ${
-                    selectedCategory === cat
-                      ? 'bg-shas-burgundy border-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold'
-                      : 'border-shas-border/60 hover:border-shas-gold text-shas-secondary hover:text-shas-burgundy'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          ) : (
-            /* On specific category pages, display a back to collections link */
-            <div className="text-[10px] uppercase tracking-widest font-semibold text-shas-secondary">
-              <Link to="/collections" className="hover:text-shas-burgundy transition-colors flex items-center gap-1.5">
-                ← View All Collections
-              </Link>
-            </div>
-          )}
+          {/* Category tabs - Visible on all collection views for instant switching */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => navigate(cat === 'All' ? '/collections' : '/' + cat.toLowerCase())}
+                className={`px-3 py-1.5 text-[10px] uppercase tracking-wider font-semibold border transition-all duration-300 cursor-pointer ${
+                  selectedCategory.toLowerCase() === cat.toLowerCase()
+                    ? 'bg-shas-burgundy border-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold shadow-sm'
+                    : 'border-shas-border/60 hover:border-shas-gold text-shas-secondary hover:text-shas-burgundy'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
 
           {/* Sort selector */}
           <div className="flex items-center gap-2">
@@ -251,27 +265,13 @@ export function CollectionsPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
                 className="col-span-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
               >
-              {sortedProducts.map((product, i) => {
-                if (visibleCount <= i) {
-                  return (
-                    <div key={i} className="animate-pulse border border-shas-border/40 p-4 space-y-4">
-                      <div className="aspect-square bg-stone-200 dark:bg-stone-800 w-full" />
-                      <div className="h-4 bg-stone-200 dark:bg-stone-800 w-3/4" />
-                      <div className="h-3 bg-stone-200 dark:bg-stone-800 w-1/2" />
-                      <div className="h-4 bg-stone-200 dark:bg-stone-800 w-1/3" />
-                    </div>
-                  );
-                }
-
+              {visibleProducts.map((product) => {
                 return (
-                  <motion.div
+                  <div
                     key={product.id}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35 }}
                     className="group flex flex-col h-full bg-transparent border border-[#ECE3DA] hover:border-[#AE0B36] p-4 hover:shadow-sm transition-all duration-300 relative text-left"
                   >
                     {/* Category Flag badge */}
@@ -287,6 +287,8 @@ export function CollectionsPage() {
                       <img
                         src={product.imageUrl}
                         alt={product.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
 
@@ -305,7 +307,7 @@ export function CollectionsPage() {
                     </div>
 
                     {/* Product Details */}
-                    <div className="mt-4 flex-1 flex flex-col justify-between text-left space-y-2">
+                    <div className="mt-4 flex-1 flex flex-col justify-between text-left space-y-2 font-sans">
                       <div className="space-y-1">
                         <div className="flex items-center gap-1 text-[9px] text-shas-gold">
                           {[...Array(5)].map((_, i) => (
@@ -341,9 +343,24 @@ export function CollectionsPage() {
                         </Link>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
+
+              {/* Pagination / Load More Bar */}
+              {displayCount < sortedProducts.length && (
+                <div className="col-span-full flex flex-col items-center justify-center pt-10 pb-6 space-y-3 font-sans">
+                  <span className="text-[10px] uppercase tracking-widest text-shas-secondary font-medium">
+                    Showing {Math.min(displayCount, sortedProducts.length)} of {sortedProducts.length} items
+                  </span>
+                  <button
+                    onClick={() => setDisplayCount((prev) => prev + 24)}
+                    className="px-8 py-3.5 bg-shas-burgundy text-white hover:bg-shas-gold hover:text-black transition-all font-sans text-xs uppercase tracking-widest font-semibold border border-shas-burgundy shadow-sm hover:shadow-md cursor-pointer"
+                  >
+                    Load More Products
+                  </button>
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
           )}

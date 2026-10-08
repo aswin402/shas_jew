@@ -37,3 +37,5 @@ dist-ssr/
 # SDD tracking files
 .superpowers/
 
+# Large raw archive data
+data/*.zip

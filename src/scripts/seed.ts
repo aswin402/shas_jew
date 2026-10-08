@@ -7,9 +7,10 @@ declare const process: any;
 const supabaseUrl = process.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY || '';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY is not defined in environment.');
-  process.exit(1);
+if (!supabaseUrl || !supabaseAnonKey || supabaseUrl.includes('your-project-id')) {
+  console.warn('⚠️ Notice: VITE_SUPABASE_URL contains placeholder values.');
+  console.warn('To seed your remote database, update .env with your real Supabase URL and Anon Key, then run: bun run seed');
+  process.exit(0);
 }
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
@@ -54,11 +55,15 @@ async function seed() {
           description: product.description,
           material: product.material,
           image_url: product.imageUrl,
+          gallery_images: product.galleryImages || [product.imageUrl],
           category_id: categoryId,
           category_name: product.category,
           rating: product.rating,
           reviews: product.reviews,
-          stock: Math.floor(Math.random() * 20) + 1 // Add random stock level 1-20
+          stock: product.stock ?? Math.floor(Math.random() * 20) + 1,
+          tag_no: product.tagNo,
+          gross_weight: product.grossWeight,
+          net_weight: product.netWeight
         }, { onConflict: 'id' });
 
       if (error) {

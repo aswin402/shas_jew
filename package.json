@@ -47,7 +47,8 @@
     "build": "tsc -b && vite build",
     "dev": "vite",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "seed": "bun run src/scripts/seed.ts"
   },
   "type": "module",
   "version": "0.0.0"

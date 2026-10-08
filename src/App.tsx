@@ -53,6 +53,14 @@ const router = createBrowserRouter([
         element: <CollectionsPage />,
       },
       {
+        path: 'kadas',
+        element: <CollectionsPage />,
+      },
+      {
+        path: 'bangles',
+        element: <CollectionsPage />,
+      },
+      {
         path: 'gifts',
         element: <CollectionsPage />,
       },

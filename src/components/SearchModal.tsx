@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Search, ArrowRight, Sparkles, Loader2 } from 'lucide-react';
 import { PRODUCTS, getProductImage } from '@/data/products';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 
 interface SearchModalProps {
@@ -11,7 +11,7 @@ interface SearchModalProps {
   onClose: () => void;
 }
 
-const TRENDING_SEARCHES = ['Pearl', 'Necklace', 'Rings', 'Vermeil', 'Aurelia', 'Gold'];
+const TRENDING_SEARCHES = ['Kada', 'Necklace', 'Bangle', 'Earrings', 'Rings', 'Bridal', 'Gold'];
 
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState('');
@@ -65,6 +65,21 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
         setIsSearching(false);
         return;
       }
+      if (!isSupabaseConfigured) {
+        const q = sanitized.toLowerCase();
+        const local = PRODUCTS.filter((product) => {
+          return (
+            product.title.toLowerCase().includes(q) ||
+            product.material.toLowerCase().includes(q) ||
+            product.category.toLowerCase().includes(q) ||
+            (product.tagNo && product.tagNo.toLowerCase().includes(q))
+          );
+        });
+        setFilteredProducts(local);
+        setIsSearching(false);
+        return;
+      }
+
       try {
         const { data, error } = await supabase
           .from('products')
@@ -73,11 +88,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
         if (error) {
           console.error('Supabase search error:', error);
+          const q = sanitized.toLowerCase();
           const local = PRODUCTS.filter((product) => {
-            const titleMatch = product.title.toLowerCase().includes(sanitized.toLowerCase());
-            const materialMatch = product.material.toLowerCase().includes(sanitized.toLowerCase());
-            const categoryMatch = product.category.toLowerCase().includes(sanitized.toLowerCase());
-            return titleMatch || materialMatch || categoryMatch;
+            return (
+              product.title.toLowerCase().includes(q) ||
+              product.material.toLowerCase().includes(q) ||
+              product.category.toLowerCase().includes(q) ||
+              (product.tagNo && product.tagNo.toLowerCase().includes(q))
+            );
           });
           setFilteredProducts(local);
         } else if (data && data.length > 0) {
@@ -85,13 +103,16 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
             id: row.id,
             title: row.title,
             price: Number(row.price),
-            imageUrl: getProductImage(row.id),
+            imageUrl: row.image_url || row.imageUrl || getProductImage(row.id),
             category: row.category_name || row.category || 'Necklaces',
             material: row.material || '',
             rating: Number(row.rating ?? 5.0),
             reviews: Number(row.reviews ?? 0),
             description: row.description || '',
             stock: row.stock ?? 0,
+            tagNo: row.tag_no || row.tagNo,
+            grossWeight: row.gross_weight || row.grossWeight,
+            netWeight: row.net_weight || row.netWeight,
           }));
           setFilteredProducts(mapped);
         } else {
@@ -227,6 +248,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                               <img
                                 src={product.imageUrl}
                                 alt={product.title}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
                               />
                             </div>

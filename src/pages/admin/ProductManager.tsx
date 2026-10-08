@@ -159,7 +159,7 @@ export const ProductManager: React.FC = () => {
             description: c.description,
           }));
         } else {
-          const defaultNames = ['Necklaces', 'Earrings', 'Rings', 'Bracelets', 'Gifts'];
+          const defaultNames = ['Necklaces', 'Kadas', 'Bangles', 'Bracelets', 'Earrings', 'Rings', 'Gifts'];
           loadedCategories = defaultNames.map((name, i) => ({
             id: `cat-${i + 1}`,
             name,

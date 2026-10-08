@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ShoppingBag, Star, ShieldCheck, Truck, RefreshCw, ArrowRight, Package } from 'lucide-react';
 import { PRODUCTS, getProductImage } from '@/data/products';
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 import { useCartStore } from '@/store/useCartStore';
 import {
@@ -20,6 +20,7 @@ export function ProductDetailsPage() {
   const [product, setProduct] = useState<Product | null>(null);
   const [recommendations, setRecommendations] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Option state (size or length)
   const [selectedOption, setSelectedOption] = useState<string>('Standard');
@@ -27,10 +28,27 @@ export function ProductDetailsPage() {
   // Scroll to top on load/change and fetch product data
   useEffect(() => {
     window.scrollTo(0, 0);
+    setSelectedImage(null);
     
     async function fetchProductData() {
       if (!id) return;
       setIsLoading(true);
+
+      if (!isSupabaseConfigured) {
+        const staticMatch = PRODUCTS.find((p) => p.id === id);
+        setProduct(staticMatch || null);
+        if (staticMatch) {
+          setSelectedImage(staticMatch.imageUrl);
+          setSelectedOption(
+            staticMatch.category === 'Rings' ? '7' : staticMatch.category === 'Necklaces' ? '18"' : 'Standard'
+          );
+          const localRecs = PRODUCTS.filter((p) => p.id !== id && p.category === staticMatch.category).slice(0, 4);
+          setRecommendations(localRecs.length > 0 ? localRecs : PRODUCTS.filter((p) => p.id !== id).slice(0, 4));
+        }
+        setIsLoading(false);
+        return;
+      }
+
       try {
         const { data: prodData, error: prodError } = await supabase
           .from('products')
@@ -39,21 +57,27 @@ export function ProductDetailsPage() {
           .single();
 
         let currentProduct: Product | null = null;
+        const staticMatch = PRODUCTS.find((p) => p.id === id);
+
         if (prodData && !prodError) {
+          const primImg = prodData.image_url || prodData.imageUrl || getProductImage(prodData.id);
           currentProduct = {
             id: prodData.id,
             title: prodData.title,
             price: Number(prodData.price),
-            imageUrl: getProductImage(prodData.id),
+            imageUrl: primImg,
+            galleryImages: prodData.gallery_images || prodData.galleryImages || staticMatch?.galleryImages || [primImg],
             category: prodData.category_name || prodData.category || 'Necklaces',
             material: prodData.material || '',
             rating: Number(prodData.rating ?? 5.0),
             reviews: Number(prodData.reviews ?? 0),
             description: prodData.description || '',
             stock: prodData.stock ?? 12,
+            tagNo: prodData.tag_no || prodData.tagNo,
+            grossWeight: prodData.gross_weight || prodData.grossWeight,
+            netWeight: prodData.net_weight || prodData.netWeight,
           };
         } else {
-          const staticMatch = PRODUCTS.find((p) => p.id === id);
           if (staticMatch) {
             currentProduct = { ...staticMatch, stock: 15 };
           }
@@ -61,6 +85,7 @@ export function ProductDetailsPage() {
 
         setProduct(currentProduct);
         if (currentProduct) {
+          setSelectedImage(currentProduct.imageUrl);
           setSelectedOption(
             currentProduct.category === 'Rings' ? '7' : currentProduct.category === 'Necklaces' ? '18"' : 'Standard'
           );
@@ -74,33 +99,32 @@ export function ProductDetailsPage() {
             id: row.id,
             title: row.title,
             price: Number(row.price),
-            imageUrl: getProductImage(row.id),
+            imageUrl: row.image_url || row.imageUrl || getProductImage(row.id),
             category: row.category_name || row.category || 'Necklaces',
             material: row.material || '',
             rating: Number(row.rating ?? 5.0),
             reviews: Number(row.reviews ?? 0),
             description: row.description || '',
             stock: row.stock ?? 0,
+            tagNo: row.tag_no || row.tagNo,
+            grossWeight: row.gross_weight || row.grossWeight,
+            netWeight: row.net_weight || row.netWeight,
           }));
         } else {
           allProducts = PRODUCTS;
         }
 
         if (currentProduct) {
-          const sameCategory = allProducts.filter(
-            (p) => p.category === currentProduct!.category && p.id !== currentProduct!.id
-          );
-          const otherCategories = allProducts.filter(
-            (p) => p.category !== currentProduct!.category && p.id !== currentProduct!.id
-          );
-          setRecommendations([...sameCategory, ...otherCategories].slice(0, 4));
+          const related = allProducts
+            .filter((p) => p.category === currentProduct?.category && p.id !== currentProduct.id)
+            .slice(0, 4);
+          setRecommendations(related.length > 0 ? related : allProducts.filter((p) => p.id !== currentProduct?.id).slice(0, 4));
         }
       } catch (err) {
-        console.error('Error fetching product details from Supabase:', err);
+        console.error('Failed to load product from Supabase:', err);
         const staticMatch = PRODUCTS.find((p) => p.id === id);
-        if (staticMatch) {
-          setProduct({ ...staticMatch, stock: 15 });
-        }
+        setProduct(staticMatch || null);
+        setRecommendations(PRODUCTS.filter((p) => p.id !== id).slice(0, 4));
       } finally {
         setIsLoading(false);
       }
@@ -156,20 +180,67 @@ export function ProductDetailsPage() {
 
         {/* Product Detail Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
-          {/* Left side: High-Res Image Card */}
+          {/* Left side: High-Res Image Card & Multi-Angle Gallery */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-6 w-full flex justify-center"
+            className="lg:col-span-6 w-full flex flex-col items-center"
           >
             <div className="relative w-full aspect-square overflow-hidden bg-stone-50 border border-shas-border shadow-md p-4">
               <img
-                src={product.imageUrl}
+                src={selectedImage || product.imageUrl}
                 alt={product.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-all duration-300"
               />
             </div>
+
+            {/* Multi-angle & Model Shoot Gallery Thumbnails */}
+            {product.galleryImages && product.galleryImages.length > 1 && (
+              <div className="w-full mt-4">
+                <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin">
+                  {product.galleryImages.map((imgUrl, idx) => {
+                    const isSelected = (selectedImage || product.imageUrl) === imgUrl;
+                    const isModel = imgUrl.includes('model-shoot');
+                    const isBridal = imgUrl.includes('bride-day');
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setSelectedImage(imgUrl)}
+                        className={`relative w-20 h-20 flex-shrink-0 border-2 transition-all p-1 bg-stone-50 overflow-hidden cursor-pointer ${
+                          isSelected
+                            ? 'border-shas-burgundy ring-2 ring-shas-burgundy/30'
+                            : 'border-shas-border opacity-70 hover:opacity-100 hover:border-shas-secondary'
+                        }`}
+                        title={`View ${idx === 0 ? 'Front View' : isModel ? 'On-Model Styling' : isBridal ? 'Bridal Editorial' : `Angle View ${idx}`}`}
+                      >
+                        <img
+                          src={imgUrl}
+                          alt={`${product.title} view ${idx + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                        {isModel && (
+                          <span className="absolute bottom-1 right-1 bg-shas-burgundy text-white text-[7px] uppercase font-bold px-1 py-0.5 rounded shadow-sm">
+                            Model
+                          </span>
+                        )}
+                        {isBridal && (
+                          <span className="absolute bottom-1 right-1 bg-amber-800 text-white text-[7px] uppercase font-bold px-1 py-0.5 rounded shadow-sm">
+                            Bridal
+                          </span>
+                        )}
+                        {!isModel && !isBridal && idx > 0 && (
+                          <span className="absolute bottom-1 right-1 bg-stone-800/80 text-white text-[7px] uppercase font-medium px-1 py-0.5 rounded">
+                            Side
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </motion.div>
 
           {/* Right side: Detailed Information Column */}
@@ -209,6 +280,31 @@ export function ProductDetailsPage() {
                   {product.material}
                 </p>
               </div>
+
+              {/* Artisanal Gold Weight & Tag Details */}
+              {(product.grossWeight || product.netWeight || product.tagNo) && (
+                <div className="grid grid-cols-3 gap-3 p-3 bg-shas-border/20 border border-shas-border/60 text-center font-sans">
+                  {product.grossWeight && (
+                    <div>
+                      <span className="block text-[8px] uppercase tracking-widest text-shas-secondary font-semibold">Gross Wt</span>
+                      <span className="text-xs font-bold text-shas-heading">{product.grossWeight}</span>
+                    </div>
+                  )}
+                  {product.netWeight && (
+                    <div>
+                      <span className="block text-[8px] uppercase tracking-widest text-shas-burgundy font-semibold">Net Gold Wt</span>
+                      <span className="text-xs font-bold text-shas-burgundy">{product.netWeight}</span>
+                    </div>
+                  )}
+                  {product.tagNo && (
+                    <div>
+                      <span className="block text-[8px] uppercase tracking-widest text-shas-secondary font-semibold">Tag ID</span>
+                      <span className="text-xs font-bold text-shas-heading">{product.tagNo}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="space-y-1">
                 <h4 className="text-[10px] uppercase tracking-widest font-bold text-shas-secondary">The Story</h4>
                 <p className="text-xs md:text-sm text-shas-secondary leading-relaxed whitespace-pre-line">

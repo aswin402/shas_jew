@@ -33,9 +33,11 @@ export function Navbar() {
   const collectionSubCategories = [
     { label: 'All Collections', path: '/collections', desc: 'Browse full signature catalog' },
     { label: 'Necklaces', path: '/necklaces', desc: 'Chains & freshwater pearls' },
+    { label: 'Kadas', path: '/kadas', desc: 'Royal & antique temple kadas' },
+    { label: 'Bangles', path: '/bangles', desc: 'Handcrafted gold bangles' },
+    { label: 'Bracelets', path: '/bracelets', desc: 'Minimal links & cuffs' },
     { label: 'Earrings', path: '/earrings', desc: 'Baroque drops & studs' },
     { label: 'Rings', path: '/rings', desc: 'Rope & stacking bands' },
-    { label: 'Bracelets', path: '/bracelets', desc: 'Minimal links & cuffs' },
     { label: 'Gifts', path: '/gifts', desc: 'Offerings under $100' },
   ];
 

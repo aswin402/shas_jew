@@ -11,7 +11,7 @@ const STORIES = [
     tags: ["designerjewellery", "blushpink", "pearljewellery", "luxuryjewellery", "erode"],
     date: "July 18, 2026",
     author: "Deepa Sakthi",
-    imageUrl: "/images/shas_hero_luxury.jpg",
+    imageUrl: "/images/model-shoot/dsc09409.jpg",
     readTime: "3 min read"
   },
   {
@@ -22,7 +22,7 @@ const STORIES = [
     tags: ["jewellerystyling", "stylingtips", "traditionaljewellery", "goldjewellery"],
     date: "July 12, 2026",
     author: "Deepa Sakthi",
-    imageUrl: "/images/shas_product_necklace.jpg",
+    imageUrl: "/images/model-shoot/dsc09348.jpg",
     readTime: "2 min read"
   },
   {
@@ -33,7 +33,7 @@ const STORIES = [
     tags: ["bridalshow", "bridaljewellery", "customizedjewellery", "weddingjewellery"],
     date: "July 05, 2026",
     author: "SHAS Atelier",
-    imageUrl: "/images/shas_story_macro.jpg",
+    imageUrl: "/images/bride-day/dsc09473.jpg",
     readTime: "4 min read"
   },
   {
@@ -44,19 +44,30 @@ const STORIES = [
     tags: ["entrepreneurship", "founderjourney", "businessgrowth", "consistency"],
     date: "June 28, 2026",
     author: "Deepa Sakthi",
-    imageUrl: "/images/shas_product_ring.jpg",
+    imageUrl: "/images/bride-day/dsc09141.jpg",
     readTime: "3 min read"
   },
   {
-    id: 'natural-light-trust',
-    title: "Natural Light & Trust",
-    quote: "What you see is what you get ✨",
-    body: "At Shas Jewellers, we believe true beauty needs no filters. That’s why every piece is photographed in natural light, allowing its colours, craftsmanship, and brilliance to shine exactly as they do in real life 🧡\n\nFrom the soft glow of pearls to the rich sparkle of rubies, every detail is captured with honesty so when your jewellery reaches you, it feels just as beautiful as the moment you first saw it ✨\n\nBecause at Shas, trust is as important as craftsmanship, and elegance is best experienced in its truest form ❤️",
-    tags: ["ShasJewellers", "RealBeauty", "NaturalLight", "TimelessElegance"],
-    date: "June 15, 2026",
-    author: "SHAS Atelier",
-    imageUrl: "/images/shas_product_earrings.jpg",
+    id: 'founders-grwm-styling',
+    title: "Founder's GRWM Styling",
+    quote: "Getting ready is never just about what you wear, it’s about how you feel. ✨",
+    body: "Join Deepa Akka, Founder of SHAS, as she styles some of her favorite jewellery pieces.\n\nFrom timeless classics to statement pieces, every choice tells a story and celebrates individuality.\n\nWhich look is your favorite? Tell us in the comments below. ✨",
+    tags: ["getreadywithme", "grwm", "jewellerystyling", "bridaljewellery"],
+    date: "June 22, 2026",
+    author: "Deepa Sakthi",
+    imageUrl: "/images/model-shoot/dsc09355.jpg",
     readTime: "3 min read"
+  },
+  {
+    id: 'details-of-ruby',
+    title: "Details of Ruby",
+    quote: "Every piece of jewellery tells a story, but it’s the details that make it unforgettable. ❤️✨",
+    body: "The rich ruby at the heart of this design isn’t just a gemstone, it’s the soul of the piece. Its vibrant brilliance adds depth, elegance, and a timeless charm that makes every look feel extraordinary.\n\nWhether you’re the bride or someone celebrating alongside her, this collection is designed to make you feel like the center of every beautiful moment.\n\nDiscover the Ruby Collection at SHAS and find the piece that’s made to shine with you. ❤️",
+    tags: ["rubyjewellery", "bridaljewellery", "luxuryjewellery", "erode"],
+    date: "June 18, 2026",
+    author: "SHAS Atelier",
+    imageUrl: "/images/model-shoot/dsc09445.jpg",
+    readTime: "2 min read"
   },
   {
     id: 'artisanal-perfection',
@@ -65,9 +76,20 @@ const STORIES = [
     body: "We don’t believe in rushed timelines or false promises. Every piece at SHAS is handcrafted by artisans who take the time they need to ensure absolute perfection.\n\nBecause when it comes to your special moments, you deserve nothing less than a masterpiece. 💕",
     tags: ["HandmadeWithLove", "JewelleryDesign", "ArtisanCrafted", "Craftsmanship"],
     date: "June 08, 2026",
+    author: "SHAS Atelier",
+    imageUrl: "/images/shas_story_macro.jpg",
+    readTime: "3 min read"
+  },
+  {
+    id: 'natural-light-trust',
+    title: "Natural Light & Trust",
+    quote: "What you see is what you get ✨",
+    body: "At Shas Jewellers, we believe true beauty needs no filters. That’s why every piece is photographed in natural light, allowing its colours, craftsmanship, and brilliance to shine exactly as they do in real life 🧡\n\nFrom the soft glow of pearls to the rich sparkle of rubies, every detail is captured with honesty so when your jewellery reaches you, it feels just as beautiful as the moment you first saw it ✨\n\nBecause at Shas, trust is as important as craftsmanship, and elegance is best experienced in its truest form ❤️",
+    tags: ["ShasJewellers", "RealBeauty", "NaturalLight", "TimelessElegance"],
+    date: "May 29, 2026",
     author: "Deepa Sakthi",
-    imageUrl: "/images/shas_product_bracelet.jpg",
-    readTime: "2 min read"
+    imageUrl: "/images/model-shoot/dsc09376.jpg",
+    readTime: "3 min read"
   }
 ];
 

@@ -3,6 +3,7 @@ export interface Product {
   title: string;
   price: number;
   imageUrl: string;
+  galleryImages?: string[];
   category: string;
   category_id?: string;
   material: string;
@@ -10,5 +11,8 @@ export interface Product {
   reviews: number;
   description: string;
   stock?: number;
+  tagNo?: string;
+  grossWeight?: string;
+  netWeight?: string;
 }
 
