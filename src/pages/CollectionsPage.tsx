@@ -331,7 +331,7 @@ export function CollectionsPage() {
                       </div>
 
                       <div className="flex justify-between items-center pt-2 border-t border-shas-border/30">
-                        <span className="font-serif text-sm font-semibold text-shas-burgundy">
+                        <span className="text-sm font-semibold text-shas-burgundy font-mono">
                           ${product.price.toFixed(2)}
                         </span>
                         <Link

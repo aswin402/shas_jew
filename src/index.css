@@ -170,14 +170,15 @@
   /* Custom scrollbar helper class */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: var(--shas-brand) transparent;
+    scrollbar-color: var(--shas-brand) rgba(0, 0, 0, 0.08);
   }
   .custom-scrollbar::-webkit-scrollbar {
-    width: 6px !important;
-    height: 6px !important;
+    width: 8px !important;
+    height: 8px !important;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent !important;
+    background: rgba(0, 0, 0, 0.06) !important;
+    border-radius: 4px !important;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background: var(--shas-brand) !important;
@@ -185,5 +186,12 @@
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: var(--shas-secondary) !important;
+  }
+
+  .dark .custom-scrollbar {
+    scrollbar-color: var(--shas-brand) rgba(255, 255, 255, 0.08);
+  }
+  .dark .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06) !important;
   }
 }

@@ -191,7 +191,12 @@ export function Navbar() {
 
       {/* Mobile Slide-Down Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-24 z-30 bg-shas-bg/98 dark:bg-card/98 backdrop-blur-md flex flex-col p-8 space-y-6 md:hidden animate-fade-in border-b border-shas-border overflow-y-auto">
+        <div 
+          data-lenis-prevent="true"
+          data-lenis-prevent-wheel="true"
+          data-lenis-prevent-touch="true"
+          className="fixed inset-0 top-24 z-30 bg-shas-bg/98 dark:bg-card/98 backdrop-blur-md flex flex-col p-8 space-y-6 md:hidden animate-fade-in border-b border-shas-border overflow-y-auto custom-scrollbar"
+        >
           <div className="flex flex-col space-y-3 text-left">
             <Link
               to="/"

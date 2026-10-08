@@ -605,7 +605,7 @@ export const AdminOverview: React.FC = () => {
                           {product.category}
                         </span>
                       </td>
-                      <td className="py-3 px-4 font-serif font-bold text-amber-400 text-sm">
+                      <td className="py-3 px-4 font-mono font-bold text-amber-400 text-sm">
                         ${product.price.toFixed(2)}
                       </td>
                       <td className="py-3 px-4">

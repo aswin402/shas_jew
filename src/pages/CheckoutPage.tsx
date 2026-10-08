@@ -321,7 +321,7 @@ export function CheckoutPage() {
                     ) : (
                       <>
                         <Lock className="w-3.5 h-3.5" />
-                        <span>Authorize Payment • ${total.toFixed(2)}</span>
+                        <span>Authorize Payment • <span className="font-mono">${total.toFixed(2)}</span></span>
                       </>
                     )}
                   </button>
@@ -361,19 +361,19 @@ export function CheckoutPage() {
                 <div className="pt-4 border-t border-shas-border space-y-2 font-sans text-xs">
                   <div className="flex justify-between text-shas-secondary">
                     <span>Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span className="font-mono">${subtotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-shas-secondary">
                     <span>Shipping & Secure Delivery</span>
-                    <span>{shipping === 0 ? 'Complimentary' : `$${shipping.toFixed(2)}`}</span>
+                    <span>{shipping === 0 ? 'Complimentary' : <span className="font-mono">${shipping.toFixed(2)}</span>}</span>
                   </div>
                   <div className="flex justify-between text-shas-secondary">
                     <span>Simulated Tax (8%)</span>
-                    <span>${tax.toFixed(2)}</span>
+                    <span className="font-mono">${tax.toFixed(2)}</span>
                   </div>
                   <div className="pt-3 border-t border-shas-border flex justify-between font-serif text-base font-bold text-shas-heading">
                     <span>Selection Total</span>
-                    <span className="text-shas-brand">${total.toFixed(2)}</span>
+                    <span className="text-shas-brand font-mono">${total.toFixed(2)}</span>
                   </div>
                 </div>
 

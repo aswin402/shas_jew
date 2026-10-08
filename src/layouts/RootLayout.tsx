@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { CartDrawer } from '@/components/CartDrawer';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { useCartStore } from '@/store/useCartStore';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -13,12 +14,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function RootLayout() {
   const { pathname } = useLocation();
+  const { isCartOpen } = useCartStore();
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
-      autoRaf: true, 
+      autoRaf: true,
+      allowNestedScroll: true,
+      prevent: (node) => {
+        if (!node || !(node instanceof HTMLElement)) return false;
+        return (
+          node.hasAttribute('data-lenis-prevent') ||
+          Boolean(node.closest('[data-lenis-prevent]')) ||
+          Boolean(node.closest('#cart-drawer')) ||
+          Boolean(node.closest('#search-modal'))
+        );
+      },
     });
 
     lenisRef.current = lenis;
@@ -31,6 +43,17 @@ export function RootLayout() {
       lenisRef.current = null;
     };
   }, []);
+
+  // Pause Lenis whenever cart drawer is open so nested scroll is 100% native
+  useEffect(() => {
+    if (lenisRef.current) {
+      if (isCartOpen) {
+        lenisRef.current.stop();
+      } else {
+        lenisRef.current.start();
+      }
+    }
+  }, [isCartOpen]);
 
   // Scroll to top instantly on every route change
   useEffect(() => {

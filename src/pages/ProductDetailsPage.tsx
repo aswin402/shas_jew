@@ -259,7 +259,7 @@ export function ProductDetailsPage() {
                 {product.title}
               </h1>
               <div className="flex items-center gap-4 pt-1">
-                <span className="font-serif text-2xl font-semibold text-shas-burgundy">
+                <span className="font-mono text-2xl font-semibold text-shas-burgundy">
                   ${product.price.toFixed(2)}
                 </span>
                 <div className="flex items-center gap-1 text-xs text-shas-gold border-l border-shas-border/60 pl-4 font-sans">
@@ -475,7 +475,7 @@ export function ProductDetailsPage() {
                     </p>
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-shas-border/30">
-                    <span className="font-serif text-xs font-semibold text-shas-brand dark:text-primary">
+                    <span className="font-mono text-xs font-semibold text-shas-brand dark:text-primary">
                       ${rec.price.toFixed(2)}
                     </span>
                     <span className="text-[8px] uppercase tracking-widest font-bold text-shas-heading hover:text-shas-brand transition-colors flex items-center gap-1">

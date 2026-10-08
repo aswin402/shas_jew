@@ -167,6 +167,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           {/* Search Box Modal */}
           <motion.div
+            id="search-modal"
+            data-lenis-prevent="true"
+            data-lenis-prevent-wheel="true"
+            data-lenis-prevent-touch="true"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -237,7 +241,12 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         No creations found matching "{query}". Try searching for "pearl" or "necklace".
                       </p>
                     ) : (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[360px] overflow-y-auto pr-1">
+                      <div 
+                        data-lenis-prevent="true"
+                        data-lenis-prevent-wheel="true"
+                        data-lenis-prevent-touch="true"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[360px] overflow-y-auto pr-1 custom-scrollbar"
+                      >
                         {filteredProducts.map((product) => (
                           <div
                             key={product.id}

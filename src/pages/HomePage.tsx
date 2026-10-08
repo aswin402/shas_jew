@@ -489,7 +489,7 @@ export function HomePage() {
                             <h4 className="font-serif text-xs font-semibold text-shas-heading mt-0.5">{product.title}</h4>
                             <p className="text-xxs text-shas-secondary mt-1 line-clamp-2">{product.description}</p>
                             <div className="flex justify-between items-center mt-3 pt-2 border-t border-shas-border/60">
-                              <span className="text-xs font-bold text-shas-brand">${product.price.toFixed(2)}</span>
+                              <span className="text-xs font-bold text-shas-brand font-mono">${product.price.toFixed(2)}</span>
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
@@ -535,7 +535,7 @@ export function HomePage() {
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
-                        <span className="text-xs font-semibold text-shas-brand">${product.price.toFixed(2)}</span>
+                        <span className="text-xs font-semibold text-shas-brand font-mono">${product.price.toFixed(2)}</span>
                         <button
                           onClick={() => addItem(product)}
                           className="p-1.5 border border-shas-border text-shas-heading hover:border-shas-brand hover:text-shas-brand transition-all bg-shas-bg cursor-pointer"
@@ -552,7 +552,7 @@ export function HomePage() {
               <div className="pt-4 border-t border-shas-gold space-y-4">
                 <div className="flex justify-between text-xs font-semibold">
                   <span className="text-shas-burgundy uppercase tracking-wider">Set Total AOV</span>
-                  <span className="text-shas-brand font-bold text-sm">
+                  <span className="text-shas-brand font-bold text-sm font-mono">
                     ${hotspots.reduce((sum, spot) => {
                       const p = products.find((prod) => prod.id === spot.productId) || PRODUCTS.find((prod) => prod.id === spot.productId);
                       return sum + (p ? p.price : 0);
