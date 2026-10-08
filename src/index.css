@@ -173,16 +173,17 @@
     scrollbar-color: var(--shas-brand) rgba(0, 0, 0, 0.08);
   }
   .custom-scrollbar::-webkit-scrollbar {
-    width: 8px !important;
-    height: 8px !important;
+    width: 5px !important;
+    height: 5px !important;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.06) !important;
-    border-radius: 4px !important;
+    background: rgba(0, 0, 0, 0.04) !important;
+    border-radius: 9999px !important;
+    margin: 4px 0 !important;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background: var(--shas-brand) !important;
-    border-radius: 4px !important;
+    border-radius: 9999px !important;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: var(--shas-secondary) !important;
@@ -192,6 +193,40 @@
     scrollbar-color: var(--shas-brand) rgba(255, 255, 255, 0.08);
   }
   .dark .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.06) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
   }
+
+}
+
+/* Completely hide vertical scrollbar for dropdowns and compact menus */
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+@utility dropdown-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+
+.no-scrollbar,
+.dropdown-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+.no-scrollbar::-webkit-scrollbar,
+.dropdown-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }

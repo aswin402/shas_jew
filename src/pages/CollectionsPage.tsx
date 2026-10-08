@@ -1,7 +1,7 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, ChevronDown, Check } from 'lucide-react';
 import { PRODUCTS, getProductImage } from '@/data/products';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import type { Product } from '@/types/product';
@@ -80,6 +80,13 @@ const CATEGORY_STYLES: Record<string, {
     title: "Gifts Selection"
   }
 };
+
+const SORT_OPTIONS = [
+  { value: 'Featured', label: 'Featured' },
+  { value: 'Price: Low to High', label: 'Price: Low to High' },
+  { value: 'Price: High to Low', label: 'Price: High to Low' },
+  { value: 'Rating', label: 'Top Rated' },
+];
 
 export function CollectionsPage() {
   const { addItem } = useCartStore();
@@ -169,8 +176,40 @@ export function CollectionsPage() {
   const selectedCategory = getCategoryFromLocation(location.pathname, location.search);
   const style = CATEGORY_STYLES[selectedCategory] || CATEGORY_STYLES.All;
 
-  // Sort & modal states
+  // Sort & custom dropdown states
   const [selectedSort, setSelectedSort] = useState<string>('Featured');
+  const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
+  const [isSortMenuOpen, setIsSortMenuOpen] = useState(false);
+  const categoryMenuRef = useRef<HTMLDivElement>(null);
+  const mobileSortMenuRef = useRef<HTMLDivElement>(null);
+  const desktopSortMenuRef = useRef<HTMLDivElement>(null);
+
+  // Close custom dropdowns on outside click or Escape key
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (categoryMenuRef.current && !categoryMenuRef.current.contains(target)) {
+        setIsCategoryMenuOpen(false);
+      }
+      const isInsideMobileSort = mobileSortMenuRef.current?.contains(target);
+      const isInsideDesktopSort = desktopSortMenuRef.current?.contains(target);
+      if (!isInsideMobileSort && !isInsideDesktopSort) {
+        setIsSortMenuOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsCategoryMenuOpen(false);
+        setIsSortMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   // Reset pagination displayCount when category or sort changes
   useEffect(() => {
@@ -203,49 +242,215 @@ export function CollectionsPage() {
   }, [sortedProducts, displayCount]);
 
   return (
-    <main className="pt-32 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300 relative">
+    <main className="pt-24 min-h-screen bg-shas-bg text-shas-heading transition-colors duration-300 relative">
       {/* Background dynamic glow */}
       <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-[120px] pointer-events-none transition-all duration-500 ${style.bgGlow}`} />
 
-
-      {/* Filter & Sort Bar */}
-      <section className="border-t border-b border-shas-border bg-shas-bg/50 backdrop-blur-md sticky top-24 z-20 px-6 md:px-12 py-4">
+      {/* Filter & Sort Bar - Flush beneath navbar with zero gap */}
+      <section className="border-b border-shas-border bg-shas-bg/95 dark:bg-background/95 backdrop-blur-md sticky top-24 z-20 px-4 md:px-12 py-2.5 md:py-3 transition-colors">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between font-sans">
           
-          {/* Category tabs - Visible on all collection views for instant switching */}
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((cat) => (
+          {/* Mobile Filter & Sort (md:hidden): Custom theme-styled single-row dropdowns */}
+          <div className="flex md:hidden items-center gap-2.5 w-full">
+            {/* Custom Category Dropdown */}
+            <div ref={categoryMenuRef} className="relative flex-1">
               <button
-                key={cat}
-                onClick={() => navigate(cat === 'All' ? '/collections' : '/' + cat.toLowerCase())}
-                className={`px-3 py-1.5 text-[10px] uppercase tracking-wider font-semibold border transition-all duration-300 cursor-pointer ${
-                  selectedCategory.toLowerCase() === cat.toLowerCase()
-                    ? 'bg-shas-burgundy border-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold shadow-sm'
-                    : 'border-shas-border/60 hover:border-shas-gold text-shas-secondary hover:text-shas-burgundy'
+                type="button"
+                onClick={() => {
+                  setIsCategoryMenuOpen((prev) => !prev);
+                  setIsSortMenuOpen(false);
+                }}
+                className={`w-full flex items-center justify-between bg-shas-bg dark:bg-card border py-2 px-3 text-[10px] uppercase tracking-wider font-semibold text-shas-heading focus:outline-none transition-all cursor-pointer rounded-none shadow-xs ${
+                  isCategoryMenuOpen ? 'border-shas-burgundy ring-1 ring-shas-burgundy/30' : 'border-shas-border hover:border-shas-brand'
                 }`}
+                aria-haspopup="listbox"
+                aria-expanded={isCategoryMenuOpen}
               >
-                {cat}
+                <span className="truncate">
+                  {selectedCategory === 'All' ? 'Collection: All' : `Collection: ${selectedCategory}`}
+                </span>
+                <ChevronDown className={`w-3.5 h-3.5 text-shas-secondary transition-transform duration-200 ml-1.5 flex-shrink-0 ${isCategoryMenuOpen ? 'rotate-180 text-shas-burgundy' : ''}`} />
               </button>
-            ))}
+
+              <AnimatePresence>
+                {isCategoryMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-0 right-0 mt-1.5 bg-shas-bg dark:bg-card border border-shas-border shadow-2xl z-50 py-1.5 max-h-80 overflow-y-auto no-scrollbar dropdown-scrollbar"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    role="listbox"
+                  >
+                    {categories.map((cat) => {
+                      const isSelected = selectedCategory.toLowerCase() === cat.toLowerCase();
+                      return (
+                        <button
+                          key={cat}
+                          type="button"
+                          onClick={() => {
+                            setIsCategoryMenuOpen(false);
+                            navigate(cat === 'All' ? '/collections' : '/' + cat.toLowerCase());
+                          }}
+                          className={`w-full flex items-center justify-between px-3.5 py-2 text-[10px] uppercase tracking-wider font-semibold text-left transition-colors cursor-pointer ${
+                            isSelected
+                              ? 'bg-shas-burgundy text-white font-bold'
+                              : 'text-shas-heading hover:bg-shas-burgundy/10 hover:text-shas-burgundy dark:hover:bg-shas-burgundy/20'
+                          }`}
+                          role="option"
+                          aria-selected={isSelected}
+                        >
+                          <span>{cat === 'All' ? 'All Collections' : cat}</span>
+                          {isSelected && <Check className="w-3.5 h-3.5 text-white flex-shrink-0" />}
+                        </button>
+                      );
+                    })}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Custom Sort Dropdown */}
+            <div ref={mobileSortMenuRef} className="relative flex-1">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSortMenuOpen((prev) => !prev);
+                  setIsCategoryMenuOpen(false);
+                }}
+                className={`w-full flex items-center justify-between bg-shas-bg dark:bg-card border py-2 px-3 text-[10px] uppercase tracking-wider font-semibold text-shas-heading focus:outline-none transition-all cursor-pointer rounded-none shadow-xs ${
+                  isSortMenuOpen ? 'border-shas-burgundy ring-1 ring-shas-burgundy/30' : 'border-shas-border hover:border-shas-brand'
+                }`}
+                aria-haspopup="listbox"
+                aria-expanded={isSortMenuOpen}
+              >
+                <span className="truncate">
+                  Sort: {SORT_OPTIONS.find((s) => s.value === selectedSort)?.label || selectedSort}
+                </span>
+                <ChevronDown className={`w-3.5 h-3.5 text-shas-secondary transition-transform duration-200 ml-1.5 flex-shrink-0 ${isSortMenuOpen ? 'rotate-180 text-shas-burgundy' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {isSortMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-0 right-0 mt-1.5 bg-shas-bg dark:bg-card border border-shas-border shadow-2xl z-50 py-1.5 overflow-hidden"
+                    role="listbox"
+                  >
+                    {SORT_OPTIONS.map((opt) => {
+                      const isSelected = selectedSort === opt.value;
+                      return (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onClick={() => {
+                            setSelectedSort(opt.value);
+                            setIsSortMenuOpen(false);
+                          }}
+                          className={`w-full flex items-center justify-between px-3.5 py-2 text-[10px] uppercase tracking-wider font-semibold text-left transition-colors cursor-pointer ${
+                            isSelected
+                              ? 'bg-shas-burgundy text-white font-bold'
+                              : 'text-shas-heading hover:bg-shas-burgundy/10 hover:text-shas-burgundy dark:hover:bg-shas-burgundy/20'
+                          }`}
+                          role="option"
+                          aria-selected={isSelected}
+                        >
+                          <span>{opt.label}</span>
+                          {isSelected && <Check className="w-3.5 h-3.5 text-white flex-shrink-0" />}
+                        </button>
+                      );
+                    })}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
-          {/* Sort selector */}
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] uppercase tracking-widest text-shas-secondary font-medium">Sort By:</span>
-            <select
-              value={selectedSort}
-              onChange={(e) => setSelectedSort(e.target.value)}
-              className="bg-transparent border border-shas-border/60 px-3 py-1.5 text-[10px] uppercase tracking-wider font-semibold focus:outline-none cursor-pointer"
-            >
-              <option value="Featured">Featured</option>
-              <option value="Price: Low to High">Price: Low to High</option>
-              <option value="Price: High to Low">Price: High to Low</option>
-              <option value="Rating">Top Rated</option>
-            </select>
+          {/* Desktop Filter & Sort (hidden md:flex) */}
+          <div className="hidden md:flex items-center justify-between w-full">
+            {/* Category tabs */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => navigate(cat === 'All' ? '/collections' : '/' + cat.toLowerCase())}
+                  className={`px-3.5 py-1.5 text-[10px] uppercase tracking-wider font-semibold border transition-all duration-300 cursor-pointer ${
+                    selectedCategory.toLowerCase() === cat.toLowerCase()
+                      ? 'bg-shas-burgundy border-shas-burgundy text-white hover:bg-shas-gold hover:text-black hover:border-shas-gold shadow-sm'
+                      : 'border-shas-border/60 hover:border-shas-gold text-shas-secondary hover:text-shas-burgundy'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Desktop Custom Sort Dropdown */}
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] uppercase tracking-widest text-shas-secondary font-medium">Sort By:</span>
+              <div ref={desktopSortMenuRef} className="relative min-w-[170px]">
+                <button
+                  type="button"
+                  onClick={() => setIsSortMenuOpen((prev) => !prev)}
+                  className={`w-full flex items-center justify-between bg-shas-bg dark:bg-card border px-3 py-1.5 text-[10px] uppercase tracking-wider font-semibold text-shas-heading focus:outline-none transition-all cursor-pointer shadow-xs ${
+                    isSortMenuOpen ? 'border-shas-burgundy ring-1 ring-shas-burgundy/30' : 'border-shas-border/60 hover:border-shas-brand'
+                  }`}
+                  aria-haspopup="listbox"
+                  aria-expanded={isSortMenuOpen}
+                >
+                  <span>{SORT_OPTIONS.find((s) => s.value === selectedSort)?.label || selectedSort}</span>
+                  <ChevronDown className={`w-3.5 h-3.5 text-shas-secondary transition-transform duration-200 ml-2 ${isSortMenuOpen ? 'rotate-180 text-shas-burgundy' : ''}`} />
+                </button>
+
+                <AnimatePresence>
+                  {isSortMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 4, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full right-0 mt-1.5 w-48 bg-shas-bg dark:bg-card border border-shas-border shadow-2xl z-50 py-1.5"
+                      role="listbox"
+                    >
+                      {SORT_OPTIONS.map((opt) => {
+                        const isSelected = selectedSort === opt.value;
+                        return (
+                          <button
+                            key={opt.value}
+                            type="button"
+                            onClick={() => {
+                              setSelectedSort(opt.value);
+                              setIsSortMenuOpen(false);
+                            }}
+                            className={`w-full flex items-center justify-between px-3.5 py-2 text-[10px] uppercase tracking-wider font-semibold text-left transition-colors cursor-pointer ${
+                              isSelected
+                                ? 'bg-shas-burgundy text-white font-bold'
+                                : 'text-shas-heading hover:bg-shas-burgundy/10 hover:text-shas-burgundy dark:hover:bg-shas-burgundy/20'
+                            }`}
+                            role="option"
+                            aria-selected={isSelected}
+                          >
+                            <span>{opt.label}</span>
+                            {isSelected && <Check className="w-3.5 h-3.5 text-white flex-shrink-0" />}
+                          </button>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
           </div>
+
         </div>
-      </section>      {/* Grid display */}
-      <section className="py-12 md:py-20 px-6 md:px-12 max-w-7xl mx-auto">
+      </section>
+
+      {/* Grid display */}
+      <section className="py-6 md:py-16 px-4 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {isLoading ? (
             <div className="col-span-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

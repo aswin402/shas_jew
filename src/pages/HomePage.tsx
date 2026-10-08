@@ -236,7 +236,7 @@ export function HomePage() {
         }
       );
 
-      // 4. Parallax scroll effect for Story Image
+      // 4. Parallax scroll effect for Story Image (Desktop)
       if (storyImageRef.current) {
         gsap.to(storyImageRef.current, {
           yPercent: 12,
@@ -249,6 +249,21 @@ export function HomePage() {
           }
         });
       }
+
+      // Mobile story images parallax scrub
+      const mobileImgs = containerRef.current?.querySelectorAll<HTMLImageElement>('.story-mobile-img');
+      mobileImgs?.forEach((img) => {
+        gsap.to(img, {
+          yPercent: 8,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: img.closest('.story-mobile-card'),
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
+      });
 
       // 5. Why SHAS grid items reveal
       gsap.fromTo('.value-card-reveal',
@@ -272,8 +287,10 @@ export function HomePage() {
     return () => ctx.revert();
   }, [reducedMotion]);
 
-  // 10-second automatic story rotation timer
+  // 10-second automatic story rotation timer (Desktop only - mobile is user scroll driven)
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) return;
+
     const interval = setInterval(() => {
       setActiveStoryIndex((prev) => (prev + 1) % NARRATIVES.length);
     }, 10000);
@@ -680,8 +697,100 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* 4. THE SHAS JOURNAL EDITORIAL */}
-      <section className="story-section py-20 md:py-28 px-6 md:px-16 border-t border-b border-shas-border bg-shas-bg text-shas-heading overflow-hidden">
+      {/* 4. THE SHAS JOURNAL EDITORIAL - MOBILE VIEW (STICKY CHAPTERS + PARALLAX SCROLL) */}
+      <section className="block lg:hidden border-t border-b border-shas-border bg-shas-bg text-shas-heading">
+        {/* Mobile Section Intro */}
+        <div className="px-5 pt-10 pb-6 border-b border-shas-border/70">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-shas-burgundy animate-pulse" />
+            <span className="text-[10px] uppercase tracking-[0.25em] text-shas-brand font-sans font-bold">Atelier Narrative</span>
+          </div>
+          <h2 className="font-serif text-3xl font-bold tracking-wide text-shas-heading dark:text-foreground">The SHAS Journal</h2>
+          <p className="text-xs text-shas-secondary font-sans leading-relaxed mt-2">
+            Discover stories of craft, milestones, and styling from the heart of our Erode studio.
+          </p>
+        </div>
+
+        {/* Sequential Story Chapters with Sticky Headers & Full Sized Content */}
+        <div className="divide-y divide-shas-border/60">
+          {NARRATIVES.map((narrative, index) => (
+            <div key={index} className="story-mobile-card relative pb-12">
+              {/* Sticky Story Header - Sticks to navbar when scrolled */}
+              <div className="sticky top-24 z-20 bg-shas-bg/95 dark:bg-card/95 backdrop-blur-md border-y border-shas-border px-5 py-3 shadow-xs">
+                <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-shas-burgundy text-white text-[9px] font-mono uppercase tracking-wider font-bold">
+                      Story 0{index + 1}
+                    </span>
+                    <span className="text-[10px] font-mono text-shas-secondary">
+                      0{index + 1} / 0{NARRATIVES.length}
+                    </span>
+                  </div>
+
+                  {/* 5-segment Progress bar */}
+                  <div className="flex items-center gap-1">
+                    {NARRATIVES.map((_, i) => (
+                      <span
+                        key={i}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          index === i
+                            ? 'w-5 bg-shas-burgundy'
+                            : i < index
+                            ? 'w-1.5 bg-shas-burgundy/40'
+                            : 'w-1.5 bg-shas-border'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <h3 className="font-serif text-xl font-bold text-shas-heading leading-tight">
+                  {narrative.title}
+                </h3>
+              </div>
+
+              {/* Story Details: Full Old Size & Uncut */}
+              <div className="px-5 pt-6 space-y-6 text-left">
+                {/* Quote - Old Size */}
+                <blockquote className="font-serif text-lg text-shas-heading italic leading-relaxed border-l-2 border-shas-burgundy pl-5 py-1">
+                  "{narrative.quote}"
+                </blockquote>
+
+                {/* Parallax Image - Old 4/5 Aspect Ratio */}
+                <div className="relative w-full aspect-[4/5] overflow-hidden bg-stone-100 border border-shas-border shadow-md p-3">
+                  <div className="w-full h-full overflow-hidden relative">
+                    <img
+                      src={narrative.image || "/images/shas_story_macro.jpg"}
+                      alt={narrative.title}
+                      className="story-mobile-img w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                    <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-xs text-[9px] font-mono text-white/90 px-2 py-0.5 uppercase tracking-wider">
+                      Atelier Archive
+                    </div>
+                  </div>
+                </div>
+
+                {/* Full Body Text - Old Size (text-xs sm:text-sm, whitespace-pre-line, NO clamp!) */}
+                <p className="text-xs sm:text-sm text-shas-secondary font-sans leading-relaxed whitespace-pre-line">
+                  {narrative.body}
+                </p>
+
+                {/* Full Tags - Old Size */}
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {narrative.tags.map((tag, i) => (
+                    <span key={i} className="text-[9px] font-mono text-shas-brand bg-shas-brand/5 px-2 py-0.5 border border-shas-brand/10">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. THE SHAS JOURNAL EDITORIAL - DESKTOP VIEW */}
+      <section className="hidden lg:block story-section py-20 md:py-28 px-6 md:px-16 border-t border-b border-shas-border bg-shas-bg text-shas-heading overflow-hidden">
         <div className="max-w-7xl mx-auto space-y-12">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-shas-border pb-6">
