@@ -1,4 +1,4 @@
-import type { Product } from "../types/product";
+import type { Product } from '@/types/product';
 
 export const PRODUCTS: Product[] = [
   {
@@ -8,7 +8,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01703.jpg",
     "galleryImages": [
       "/images/products/dsc01703.jpg",
-      "/images/model-shoot/dsc09342.jpg"
+      "/images/products/dsc09642.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -27,7 +27,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01618.jpg",
     "galleryImages": [
       "/images/products/dsc01618.jpg",
-      "/images/model-shoot/dsc09345.jpg"
+      "/images/products/dsc09643.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -46,7 +46,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01679.jpg",
     "galleryImages": [
       "/images/products/dsc01679.jpg",
-      "/images/model-shoot/dsc09348.jpg"
+      "/images/products/dsc09652.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -68,11 +68,11 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01644.jpg",
       "/images/products/dsc01646.jpg",
       "/images/products/dsc01647.jpg",
-      "/images/model-shoot/dsc09349.jpg"
+      "/images/products/dsc09664.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 21,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 71.660g | Net Weight: 41.510g | Inventory Tag: 3-2805.",
     "stock": 6,
@@ -88,7 +88,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc01630.jpg",
       "/images/products/dsc01629.jpg",
-      "/images/model-shoot/dsc09350.jpg"
+      "/images/products/dsc09667.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -108,7 +108,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc01515.jpg",
       "/images/products/dsc01513.jpg",
-      "/images/model-shoot/dsc09351.jpg"
+      "/images/products/dsc09674.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -147,11 +147,11 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02394.jpg",
       "/images/products/dsc02396.jpg",
-      "/images/model-shoot/dsc09355.jpg"
+      "/images/products/dsc09680.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 33,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 56.590g | Net Weight: 27.140g | Inventory Tag: 8-497.",
     "stock": 10,
@@ -168,7 +168,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02722.jpg",
       "/images/products/dsc02720.jpg",
       "/images/products/dsc02721.jpg",
-      "/images/model-shoot/dsc09360.jpg"
+      "/images/products/dsc09692.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -189,7 +189,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02407.jpg",
       "/images/products/dsc02406.jpg",
       "/images/products/dsc02408.jpg",
-      "/images/model-shoot/dsc09365.jpg"
+      "/images/products/dsc09705.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -208,7 +208,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc02441.jpg",
     "galleryImages": [
       "/images/products/dsc02441.jpg",
-      "/images/model-shoot/dsc09366.jpg"
+      "/images/products/dsc09734.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -229,11 +229,11 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02400.jpg",
       "/images/products/dsc02398.jpg",
       "/images/products/dsc02401.jpg",
-      "/images/model-shoot/dsc09371.jpg"
+      "/images/products/dsc09748.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 45,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 52.050g | Net Weight: 19.204g | Inventory Tag: 3-3812.",
     "stock": 4,
@@ -308,7 +308,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 12,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 3.550g | Net Weight: 3.378g | Inventory Tag: 12-3866.",
     "stock": 8,
@@ -361,7 +361,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02489.jpg",
       "/images/products/dsc02488.jpg",
-      "/images/model-shoot/dsc09399.jpg"
+      "/images/products/dsc09753.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -383,7 +383,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 24,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 6.360g | Net Weight: 6.100g | Inventory Tag: 4-3148.",
     "stock": 12,
@@ -458,11 +458,11 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc02452.jpg",
     "galleryImages": [
       "/images/products/dsc02452.jpg",
-      "/images/model-shoot/dsc09406.jpg"
+      "/images/products/dsc09787.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 36,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 16.160g | Net Weight: 14.460g | Inventory Tag: 3-3157.",
     "stock": 6,
@@ -478,7 +478,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02455.jpg",
       "/images/products/dsc02454.jpg",
-      "/images/model-shoot/dsc09409.jpg"
+      "/images/products/dsc09805.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -538,11 +538,11 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02512.jpg",
       "/images/products/dsc02511.jpg",
       "/images/products/dsc02513.jpg",
-      "/images/model-shoot/dsc09414.jpg"
+      "/images/products/dsc09822.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 48,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 16.690g | Net Weight: 14.268g | Inventory Tag: 3-3547.",
     "stock": 10,
@@ -614,11 +614,11 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02599.jpg",
       "/images/products/dsc02598.jpg",
-      "/images/model-shoot/dsc09434.jpg"
+      "/images/products/dsc09833.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 15,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 25.930g | Net Weight: 25.410g | Inventory Tag: 3-2354.",
     "stock": 4,
@@ -636,7 +636,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02592.jpg",
       "/images/products/dsc02593.jpg",
       "/images/products/dsc02595.jpg",
-      "/images/model-shoot/dsc09435.jpg"
+      "/images/products/dsc09860.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -658,7 +658,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02587.jpg",
       "/images/products/dsc02588.jpg",
       "/images/products/dsc02591.jpg",
-      "/images/model-shoot/dsc09436.jpg"
+      "/images/products/dsc09876.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -680,7 +680,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02556.jpg",
       "/images/products/dsc02558.jpg",
       "/images/products/dsc02559.jpg",
-      "/images/model-shoot/dsc09440.jpg"
+      "/images/products/dsc09887.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -701,11 +701,11 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02547.jpg",
       "/images/products/dsc02545.jpg",
       "/images/products/dsc02548.jpg",
-      "/images/model-shoot/dsc09445.jpg"
+      "/images/products/dsc09905.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 27,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 10.570g | Net Weight: 9.596g | Inventory Tag: 3-23511.",
     "stock": 8,
@@ -722,7 +722,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02541.jpg",
       "/images/products/dsc02542.jpg",
       "/images/products/dsc02543.jpg",
-      "/images/model-shoot/dsc09449.jpg"
+      "/images/products/dsc09911.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -742,7 +742,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02596.jpg",
       "/images/products/dsc02597.jpg",
-      "/images/model-shoot/dsc09450.jpg"
+      "/images/products/dsc09920.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -763,7 +763,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02605.jpg",
       "/images/products/dsc02606.jpg",
       "/images/products/dsc02607.jpg",
-      "/images/model-shoot/dsc09342.jpg"
+      "/images/products/dsc09927.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -783,11 +783,11 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02552.jpg",
       "/images/products/dsc02551.jpg",
-      "/images/model-shoot/dsc09345.jpg"
+      "/images/products/dsc09642.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 39,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 30.227g | Net Weight: 28.780g | Inventory Tag: 3-417.",
     "stock": 12,
@@ -802,7 +802,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc02531.jpg",
     "galleryImages": [
       "/images/products/dsc02531.jpg",
-      "/images/model-shoot/dsc09348.jpg"
+      "/images/products/dsc09643.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -821,7 +821,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc02600.jpg",
     "galleryImages": [
       "/images/products/dsc02600.jpg",
-      "/images/model-shoot/dsc09349.jpg"
+      "/images/products/dsc09652.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -865,7 +865,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 51,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 8.750g | Net Weight: 7.778g | Inventory Tag: 4-177.",
     "stock": 6,
@@ -925,7 +925,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02562.jpg",
       "/images/products/dsc02561.jpg",
-      "/images/model-shoot/dsc09360.jpg"
+      "/images/products/dsc09664.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -946,11 +946,11 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02610.jpg",
       "/images/products/dsc02608.jpg",
       "/images/products/dsc02612.jpg",
-      "/images/model-shoot/dsc09365.jpg"
+      "/images/products/dsc09667.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 18,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 22.740g | Net Weight: 17.630g | Inventory Tag: 3-1267.",
     "stock": 10,
@@ -966,7 +966,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02614.jpg",
       "/images/products/dsc02615.jpg",
-      "/images/model-shoot/dsc09366.jpg"
+      "/images/products/dsc09674.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -985,7 +985,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc02616.jpg",
     "galleryImages": [
       "/images/products/dsc02616.jpg",
-      "/images/model-shoot/dsc09371.jpg"
+      "/images/products/dsc09680.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -1006,7 +1006,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02618.jpg",
       "/images/products/dsc02619.jpg",
       "/images/products/dsc02620.jpg",
-      "/images/model-shoot/dsc09372.jpg"
+      "/images/products/dsc09692.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -1028,7 +1028,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 30,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 3.300g | Net Weight: 3.208g | Inventory Tag: 4-3817.",
     "stock": 4,
@@ -1104,7 +1104,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 42,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 8.500g | Net Weight: 4.940g | Inventory Tag: 4-393.",
     "stock": 8,
@@ -1178,7 +1178,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 54,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 3.320g | Net Weight: 2.580g | Inventory Tag: 4-7871.",
     "stock": 12,
@@ -1254,7 +1254,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 21,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 3.880g | Net Weight: 3.756g | Inventory Tag: 4-2239.",
     "stock": 6,
@@ -1333,7 +1333,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 33,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 7.020g | Net Weight: 6.380g | Inventory Tag: 4-45.",
     "stock": 10,
@@ -1409,7 +1409,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 45,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 5.470g | Net Weight: 5.112g | Inventory Tag: 4-4275.",
     "stock": 4,
@@ -1486,7 +1486,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 12,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 5.090g | Net Weight: 4.896g | Inventory Tag: 4-4054.",
     "stock": 8,
@@ -1544,7 +1544,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02741.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 21,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 9.400g | Net Weight: 8.920g | Inventory Tag: 7-2928.",
@@ -1563,8 +1563,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02738.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 24,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 18.262g | Net Weight: 17.920g | Inventory Tag: 7-149.",
     "stock": 12,
@@ -1600,7 +1600,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02755.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 30,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 4.850g | Net Weight: 4.802g | Inventory Tag: 7-11364.",
@@ -1619,7 +1619,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02777.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 33,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 8.798g | Net Weight: 8.630g | Inventory Tag: 15-1837.",
@@ -1638,8 +1638,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02840.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 36,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 13.430g | Net Weight: 12.070g | Inventory Tag: 7-403.",
     "stock": 6,
@@ -1656,7 +1656,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02727.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 39,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 9.700g | Net Weight: 9.332g | Inventory Tag: 7-2213.",
@@ -1676,7 +1676,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02821.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 42,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 20.232g | Net Weight: 19.450g | Inventory Tag: 7-286.",
@@ -1696,7 +1696,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02829.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.9,
     "reviews": 45,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 39.220g | Net Weight: 30.504g | Inventory Tag: 5-1075.",
@@ -1716,7 +1716,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 48,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 22.000g | Net Weight: 19.360g | Inventory Tag: 5-498.",
     "stock": 10,
@@ -1735,7 +1735,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02804.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.7,
     "reviews": 51,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 6.460g | Net Weight: 6.364g | Inventory Tag: 5-3540.",
@@ -1754,7 +1754,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02800.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 54,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 10.750g | Net Weight: 10.659g | Inventory Tag: 7-3246.",
@@ -1774,7 +1774,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02796.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 12,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 4.109g | Net Weight: 4.083g | Inventory Tag: 7-3245.",
@@ -1795,8 +1795,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02791.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 15,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 7.940g | Net Weight: 7.508g | Inventory Tag: 7-3564.",
     "stock": 4,
@@ -1833,7 +1833,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02779.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 21,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 6.970g | Net Weight: 6.782g | Inventory Tag: 7-189.",
@@ -1852,7 +1852,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02775.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.9,
     "reviews": 24,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 13.900g | Net Weight: 13.724g | Inventory Tag: 5-3539.",
@@ -1872,7 +1872,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 27,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 11.460g | Net Weight: 10.812g | Inventory Tag: 5-3543.",
     "stock": 8,
@@ -1890,7 +1890,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02771.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 30,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 6.660g | Net Weight: 6.628g | Inventory Tag: 7-446.",
@@ -1908,7 +1908,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02762.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 33,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 7.270g | Net Weight: 6.458g | Inventory Tag: 7-2939.",
@@ -1926,7 +1926,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02746.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 36,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 11.630g | Net Weight: 9.528g | Inventory Tag: 7-2264.",
@@ -1944,8 +1944,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02764.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 39,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 5.120g | Net Weight: 3.100g | Inventory Tag: 7-2454.",
     "stock": 12,
@@ -1964,7 +1964,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02735.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 42,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 6.920g | Net Weight: 6.014g | Inventory Tag: 7-1993.",
@@ -2022,7 +2022,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 51,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 8.080g | Net Weight: 6.799g | Inventory Tag: 16-4156.",
     "stock": 6,
@@ -2040,7 +2040,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02768.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 54,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 11.740g | Net Weight: 11.298g | Inventory Tag: 7-208.",
@@ -2058,7 +2058,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02757.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 12,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 12.138g | Net Weight: 12.020g | Inventory Tag: 7-134.",
@@ -2076,7 +2076,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02756.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 15,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 4.454g | Net Weight: 4.420g | Inventory Tag: 7-1362.",
@@ -2096,8 +2096,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02752.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 18,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 9.456g | Net Weight: 8.940g | Inventory Tag: 7-281.",
     "stock": 10,
@@ -2116,7 +2116,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02745.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 21,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 7.050g | Net Weight: 6.642g | Inventory Tag: 7-419.",
@@ -2134,7 +2134,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02736.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.8,
     "reviews": 24,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 16.722g | Net Weight: 16.358g | Inventory Tag: 5-180.",
@@ -2152,7 +2152,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02725.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 27,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 13.110g | Net Weight: 12.744g | Inventory Tag: 7-2449.",
@@ -2173,7 +2173,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 30,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 14.706g | Net Weight: 14.390g | Inventory Tag: 5-2242.",
     "stock": 4,
@@ -2191,7 +2191,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02841.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 33,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 17.438g | Net Weight: 17.006g | Inventory Tag: 7-1836.",
@@ -2211,7 +2211,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02831.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 36,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 16.828g | Net Weight: 14.502g | Inventory Tag: 15-2146.",
@@ -2231,7 +2231,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02823.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 39,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 16.070g | Net Weight: 14.376g | Inventory Tag: 15-257.",
@@ -2249,8 +2249,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02753.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 42,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 9.270g | Net Weight: 8.996g | Inventory Tag: 7-4268.",
     "stock": 8,
@@ -2267,7 +2267,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02818.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 45,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 18.590g | Net Weight: 17.698g | Inventory Tag: 15-2024.",
@@ -2288,7 +2288,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02817.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 48,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 31.880g | Net Weight: 28.036g | Inventory Tag: 7-421.",
@@ -2307,7 +2307,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02813.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 51,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 13.560g | Net Weight: 12.410g | Inventory Tag: 15-1965.",
@@ -2327,8 +2327,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02810.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 54,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 9.450g | Net Weight: 8.820g | Inventory Tag: 15-1948.",
     "stock": 12,
@@ -2363,7 +2363,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc02403.jpg",
     "galleryImages": [
       "/images/products/dsc02403.jpg",
-      "/images/model-shoot/dsc09355.jpg"
+      "/images/products/dsc09705.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -2407,9 +2407,9 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Kadas",
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 21,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 15.850g | Net Weight: 15.820g | Inventory Tag: 5-428.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 15.850g | Net Weight: 15.820g | Inventory Tag: 5-428.",
     "stock": 6,
     "tagNo": "5-428",
     "grossWeight": "15.850g",
@@ -2427,7 +2427,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.7,
     "reviews": 24,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 17.078g | Net Weight: 16.798g | Inventory Tag: 5-1541.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 17.078g | Net Weight: 16.798g | Inventory Tag: 5-1541.",
     "stock": 7,
     "tagNo": "5-1541",
     "grossWeight": "17.078g",
@@ -2446,7 +2446,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.8,
     "reviews": 27,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 16.907g | Net Weight: 16.692g | Inventory Tag: 5-1548.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 16.907g | Net Weight: 16.692g | Inventory Tag: 5-1548.",
     "stock": 8,
     "tagNo": "5-1548",
     "grossWeight": "16.907g",
@@ -2465,7 +2465,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.9,
     "reviews": 30,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 34.415g | Net Weight: 34.415g | Inventory Tag: 5-1585.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 34.415g | Net Weight: 34.415g | Inventory Tag: 5-1585.",
     "stock": 9,
     "tagNo": "5-1585",
     "grossWeight": "34.415g",
@@ -2482,7 +2482,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 33,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 19.300g | Net Weight: 12.920g | Inventory Tag: 5-1741.",
     "stock": 10,
@@ -2500,7 +2500,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01819.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 36,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 7.880g | Net Weight: 7.880g | Inventory Tag: 7-3466.",
@@ -2519,7 +2519,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01860.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 39,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 7.340g | Net Weight: 6.740g | Inventory Tag: 7-609.",
@@ -2538,7 +2538,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01817.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.9,
     "reviews": 42,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 12.590g | Net Weight: 12.550g | Inventory Tag: 5-384.",
@@ -2557,8 +2557,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01812.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 45,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 14.720g | Net Weight: 14.720g | Inventory Tag: 7-2607.",
     "stock": 4,
@@ -2577,7 +2577,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01786.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 48,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 13.900g | Net Weight: 13.900g | Inventory Tag: 7-4192.",
@@ -2618,7 +2618,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02011.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.9,
     "reviews": 54,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 45.970g | Net Weight: 35.480g | Inventory Tag: 5-675.",
@@ -2630,7 +2630,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "maharani-gem-kada-no-4-dsc02014",
     "title": "Maharani Gem Kada No. 4",
-    "price": 2679.0,
+    "price": 2679,
     "imageUrl": "/images/products/dsc02014.jpg",
     "galleryImages": [
       "/images/products/dsc02014.jpg",
@@ -2638,7 +2638,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 12,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 45.080g | Net Weight: 28.200g | Inventory Tag: 11-1470.",
     "stock": 8,
@@ -2657,7 +2657,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02005.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.7,
     "reviews": 15,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 44.110g | Net Weight: 38.339g | Inventory Tag: 5-582.",
@@ -2718,7 +2718,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 24,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 30.760g | Net Weight: 24.265g | Inventory Tag: 11-1321.",
     "stock": 12,
@@ -2736,7 +2736,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01855.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 27,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 2.280g | Net Weight: 2.195g | Inventory Tag: 28-3658.",
@@ -2755,7 +2755,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01850.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 30,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 3.300g | Net Weight: 3.307g | Inventory Tag: 30-860.",
@@ -2774,7 +2774,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02033.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.9,
     "reviews": 33,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 11.980g | Net Weight: 11.253g | Inventory Tag: 5-385.",
@@ -2794,7 +2794,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 36,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 17.740g | Net Weight: 17.350g | Inventory Tag: 5-2640.",
     "stock": 6,
@@ -2830,7 +2830,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01963.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.8,
     "reviews": 42,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 17.370g | Net Weight: 17.370g | Inventory Tag: 5-1923.",
@@ -2849,7 +2849,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01965.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.9,
     "reviews": 45,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 17.780g | Net Weight: 17.580g | Inventory Tag: 5-318.",
@@ -2861,15 +2861,15 @@ export const PRODUCTS: Product[] = [
   {
     "id": "seraphina-byzantine-chain-no-4-dsc01858",
     "title": "Seraphina Byzantine Chain No. 4",
-    "price": 646.0,
+    "price": 646,
     "imageUrl": "/images/products/dsc01858.jpg",
     "galleryImages": [
       "/images/products/dsc01858.jpg",
       "/images/products/dsc01857.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 48,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 6.800g | Net Weight: 6.800g | Inventory Tag: 7-1662.",
     "stock": 10,
@@ -2886,7 +2886,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01848.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.7,
     "reviews": 51,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 5.590g | Net Weight: 5.590g | Inventory Tag: 7-1464.",
@@ -2928,7 +2928,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.9,
     "reviews": 12,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 48.890g | Net Weight: 42.830g | Inventory Tag: 5-603.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 48.890g | Net Weight: 42.830g | Inventory Tag: 5-603.",
     "stock": 3,
     "tagNo": "5-603",
     "grossWeight": "48.890g",
@@ -2945,9 +2945,9 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Kadas",
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 15,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 44.120g | Net Weight: 11.930g | Inventory Tag: 7-1894.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 44.120g | Net Weight: 11.930g | Inventory Tag: 7-1894.",
     "stock": 4,
     "tagNo": "7-1894",
     "grossWeight": "44.120g",
@@ -2965,7 +2965,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.7,
     "reviews": 18,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 29.670g | Net Weight: 21.341g | Inventory Tag: 5-3590.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 29.670g | Net Weight: 21.341g | Inventory Tag: 5-3590.",
     "stock": 5,
     "tagNo": "5-3590",
     "grossWeight": "29.670g",
@@ -2985,7 +2985,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.8,
     "reviews": 21,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 53.010g | Net Weight: 45.060g | Inventory Tag: 5-90.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 53.010g | Net Weight: 45.060g | Inventory Tag: 5-90.",
     "stock": 6,
     "tagNo": "5-90",
     "grossWeight": "53.010g",
@@ -3004,7 +3004,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.9,
     "reviews": 24,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 10.520g | Net Weight: 10.520g | Inventory Tag: 7-3192.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 10.520g | Net Weight: 10.520g | Inventory Tag: 7-3192.",
     "stock": 7,
     "tagNo": "7-3192",
     "grossWeight": "10.520g",
@@ -3021,9 +3021,9 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Kadas",
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 27,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 51.270g | Net Weight: 39.700g | Inventory Tag: 11-3099.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 51.270g | Net Weight: 39.700g | Inventory Tag: 11-3099.",
     "stock": 8,
     "tagNo": "11-3099",
     "grossWeight": "51.270g",
@@ -3031,7 +3031,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     "id": "seraphina-byzantine-chain-no-5-dsc01738",
-    "title": "Padmavati Repouss\u00e9 Gold Kada",
+    "title": "Padmavati Repoussé Gold Kada",
     "price": 955.7,
     "imageUrl": "/images/products/dsc01738.jpg",
     "galleryImages": [
@@ -3041,7 +3041,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.7,
     "reviews": 30,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 10.290g | Net Weight: 10.060g | Inventory Tag: 7-3464.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 10.290g | Net Weight: 10.060g | Inventory Tag: 7-3464.",
     "stock": 9,
     "tagNo": "7-3464",
     "grossWeight": "10.290g",
@@ -3054,7 +3054,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01604.jpg",
     "galleryImages": [
       "/images/products/dsc01604.jpg",
-      "/images/model-shoot/dsc09351.jpg"
+      "/images/products/dsc09734.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3073,7 +3073,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01613.jpg",
     "galleryImages": [
       "/images/products/dsc01613.jpg",
-      "/images/model-shoot/dsc09354.jpg"
+      "/images/products/dsc09748.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3092,11 +3092,11 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01535.jpg",
     "galleryImages": [
       "/images/products/dsc01535.jpg",
-      "/images/model-shoot/dsc09355.jpg"
+      "/images/products/dsc09753.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 39,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 126.300g | Net Weight: 72.550g | Inventory Tag: 6-3457.",
     "stock": 12,
@@ -3111,7 +3111,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01510.jpg",
     "galleryImages": [
       "/images/products/dsc01510.jpg",
-      "/images/model-shoot/dsc09360.jpg"
+      "/images/products/dsc09787.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3130,7 +3130,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01691.jpg",
     "galleryImages": [
       "/images/products/dsc01691.jpg",
-      "/images/model-shoot/dsc09365.jpg"
+      "/images/products/dsc09805.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3149,7 +3149,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01672.jpg",
     "galleryImages": [
       "/images/products/dsc01672.jpg",
-      "/images/model-shoot/dsc09366.jpg"
+      "/images/products/dsc09822.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3171,7 +3171,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 51,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 8.720g | Net Weight: 7.480g | Inventory Tag: 4-1463.",
     "stock": 6,
@@ -3186,7 +3186,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01599.jpg",
     "galleryImages": [
       "/images/products/dsc01599.jpg",
-      "/images/model-shoot/dsc09372.jpg"
+      "/images/products/dsc09833.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3205,7 +3205,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01609.jpg",
     "galleryImages": [
       "/images/products/dsc01609.jpg",
-      "/images/model-shoot/dsc09373.jpg"
+      "/images/products/dsc09860.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3220,11 +3220,11 @@ export const PRODUCTS: Product[] = [
   {
     "id": "elysian-mango-mala-iii-dsc01570",
     "title": "Elysian Mango Mala III",
-    "price": 7524.0,
+    "price": 7524,
     "imageUrl": "/images/products/dsc01570.jpg",
     "galleryImages": [
       "/images/products/dsc01570.jpg",
-      "/images/model-shoot/dsc09376.jpg"
+      "/images/products/dsc09876.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3239,7 +3239,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "hemavati-royal-kada-no-4-dsc01992",
     "title": "Hemavati Royal Kada No. 4",
-    "price": 4769.0,
+    "price": 4769,
     "imageUrl": "/images/products/dsc01992.jpg",
     "galleryImages": [
       "/images/products/dsc01992.jpg",
@@ -3248,7 +3248,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 18,
     "description": "Handcrafted with mindful intention by master artisans in Erode, Tamil Nadu. Hand-finished with signature motifs and certified brilliance. Gross Weight: 63670.000g | Net Weight: 50.200g | Inventory Tag: 11-3260.",
     "stock": 10,
@@ -3278,7 +3278,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-001-dsc02372",
     "title": "Mayuri Peacock Dangler No. 4",
-    "price": 1444.0,
+    "price": 1444,
     "imageUrl": "/images/products/dsc02372.jpg",
     "galleryImages": [
       "/images/products/dsc02372.jpg",
@@ -3307,8 +3307,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02381.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 12,
     "description": "Handcrafted artisanal heirloom piece from our 27-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 4 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-002).",
     "stock": 6,
@@ -3365,11 +3365,11 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02410.jpg",
       "/images/products/dsc02411.jpg",
-      "/images/model-shoot/dsc09372.jpg"
+      "/images/products/dsc09887.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 18,
     "description": "Handcrafted artisanal heirloom piece from our 27-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-005).",
     "stock": 9,
@@ -3380,7 +3380,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-006-dsc02420",
     "title": "Mandakini Temple Haar II",
-    "price": 4750.0,
+    "price": 4750,
     "imageUrl": "/images/products/dsc02420.jpg",
     "galleryImages": [
       "/images/products/dsc02420.jpg",
@@ -3388,7 +3388,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02423.jpg",
       "/images/products/dsc02425.jpg",
       "/images/products/dsc02426.jpg",
-      "/images/model-shoot/dsc09373.jpg"
+      "/images/products/dsc09905.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3403,7 +3403,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-007-dsc02433",
     "title": "Finellase Heritage Bracelet No. 6",
-    "price": 1748.0,
+    "price": 1748,
     "imageUrl": "/images/products/dsc02433.jpg",
     "galleryImages": [
       "/images/products/dsc02433.jpg",
@@ -3413,7 +3413,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02438.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 22,
     "description": "Handcrafted artisanal heirloom piece from our 27-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 5 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-007).",
@@ -3433,7 +3433,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 24,
     "description": "Handcrafted artisanal heirloom piece from our 27-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-008).",
     "stock": 4,
@@ -3488,7 +3488,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 30,
     "description": "Handcrafted artisanal heirloom piece from our 31-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-011).",
     "stock": 7,
@@ -3536,14 +3536,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-014-dsc02581",
     "title": "Nandini Engraved Bangle No. 4",
-    "price": 3401.0,
+    "price": 3401,
     "imageUrl": "/images/products/dsc02581.jpg",
     "galleryImages": [
       "/images/products/dsc02581.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
-    "rating": 5.0,
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
+    "rating": 5,
     "reviews": 36,
     "description": "Handcrafted artisanal heirloom piece from our 31-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 1 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-014).",
     "stock": 10,
@@ -3554,13 +3554,13 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-015-dsc02653",
     "title": "Suhani Gold Braid Bracelet No. 5",
-    "price": 1178.0,
+    "price": 1178,
     "imageUrl": "/images/products/dsc02653.jpg",
     "galleryImages": [
       "/images/products/dsc02653.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.8,
     "reviews": 38,
     "description": "Handcrafted artisanal heirloom piece from our 31-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 1 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-015).",
@@ -3595,11 +3595,11 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc02730.jpg",
       "/images/products/dsc02731.jpg",
-      "/images/model-shoot/dsc09409.jpg"
+      "/images/products/dsc09911.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 42,
     "description": "Handcrafted artisanal heirloom piece from our 31-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-017).",
     "stock": 5,
@@ -3633,7 +3633,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc02835.jpg",
     "galleryImages": [
       "/images/products/dsc02835.jpg",
-      "/images/model-shoot/dsc09413.jpg"
+      "/images/products/dsc09920.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3648,16 +3648,16 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-020-dsc02845",
     "title": "Elysian Mango Mala No. 4",
-    "price": 4465.0,
+    "price": 4465,
     "imageUrl": "/images/products/dsc02845.jpg",
     "galleryImages": [
       "/images/products/dsc02845.jpg",
       "/images/products/dsc02846.jpg",
-      "/images/model-shoot/dsc09414.jpg"
+      "/images/products/dsc09927.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 13,
     "description": "Handcrafted artisanal heirloom piece from our 31-8 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-020).",
     "stock": 8,
@@ -3698,7 +3698,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01837.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.9,
     "reviews": 17,
     "description": "Handcrafted artisanal heirloom piece from our Bangle curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 4 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-022).",
@@ -3719,7 +3719,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Bangles",
     "material": "22k Handcrafted Gold Bangle",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 19,
     "description": "Handcrafted artisanal heirloom piece from our Bangle curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-023).",
     "stock": 11,
@@ -3734,7 +3734,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc01995.jpg",
     "galleryImages": [
       "/images/products/dsc01995.jpg",
-      "/images/model-shoot/dsc09434.jpg"
+      "/images/products/dsc09642.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3782,7 +3782,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 25,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 6 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-026).",
     "stock": 6,
@@ -3801,7 +3801,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02058.jpg",
       "/images/products/dsc02059.jpg",
       "/images/products/dsc02060.jpg",
-      "/images/model-shoot/dsc09440.jpg"
+      "/images/products/dsc09643.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3829,7 +3829,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02070.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 29,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 8 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-028).",
@@ -3871,8 +3871,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02102.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 31,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 25 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-029).",
     "stock": 9,
@@ -3883,7 +3883,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-030-dsc02105",
     "title": "Apsara Bridal Haar No. 4",
-    "price": 4750.0,
+    "price": 4750,
     "imageUrl": "/images/products/dsc02105.jpg",
     "galleryImages": [
       "/images/products/dsc02105.jpg",
@@ -3892,7 +3892,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02108.jpg",
       "/images/products/dsc02109.jpg",
       "/images/products/dsc02110.jpg",
-      "/images/model-shoot/dsc09450.jpg"
+      "/images/products/dsc09652.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -3928,15 +3928,15 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-032-dsc02123",
     "title": "Lavanya Beaded Chain No. 6",
-    "price": 1463.0,
+    "price": 1463,
     "imageUrl": "/images/products/dsc02123.jpg",
     "galleryImages": [
       "/images/products/dsc02123.jpg",
       "/images/products/dsc02124.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 37,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-032).",
     "stock": 4,
@@ -3947,7 +3947,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-033-dsc02134",
     "title": "Trishool Carved Ring III",
-    "price": 1311.0,
+    "price": 1311,
     "imageUrl": "/images/products/dsc02134.jpg",
     "galleryImages": [
       "/images/products/dsc02134.jpg",
@@ -3974,7 +3974,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02143.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.9,
     "reviews": 41,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-034).",
@@ -3986,7 +3986,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-035-dsc02149",
     "title": "Sovereign Signet Band II",
-    "price": 456.0,
+    "price": 456,
     "imageUrl": "/images/products/dsc02149.jpg",
     "galleryImages": [
       "/images/products/dsc02149.jpg",
@@ -3994,7 +3994,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 8,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-035).",
     "stock": 7,
@@ -4011,7 +4011,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02155.jpg",
       "/images/products/dsc02156.jpg",
       "/images/products/dsc02157.jpg",
-      "/images/model-shoot/dsc09351.jpg"
+      "/images/products/dsc09664.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4035,7 +4035,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02163.jpg",
       "/images/products/dsc02165.jpg",
       "/images/products/dsc02166.jpg",
-      "/images/model-shoot/dsc09354.jpg"
+      "/images/products/dsc09667.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4050,14 +4050,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-038-dsc02172",
     "title": "Aadhya Filigree Drops No. 4",
-    "price": 874.0,
+    "price": 874,
     "imageUrl": "/images/products/dsc02172.jpg",
     "galleryImages": [
       "/images/products/dsc02172.jpg"
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 14,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 1 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-038).",
     "stock": 10,
@@ -4068,7 +4068,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-039-dsc02175",
     "title": "Royal Peacock Hasli No. 4",
-    "price": 4750.0,
+    "price": 4750,
     "imageUrl": "/images/products/dsc02175.jpg",
     "galleryImages": [
       "/images/products/dsc02175.jpg",
@@ -4082,7 +4082,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02185.jpg",
       "/images/products/dsc02186.jpg",
       "/images/products/dsc02187.jpg",
-      "/images/model-shoot/dsc09360.jpg"
+      "/images/products/dsc09674.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4097,14 +4097,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-040-dsc02198",
     "title": "Kavya Filigree Cuff No. 7",
-    "price": 1178.0,
+    "price": 1178,
     "imageUrl": "/images/products/dsc02198.jpg",
     "galleryImages": [
       "/images/products/dsc02198.jpg",
       "/images/products/dsc02199.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 18,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-040).",
@@ -4123,8 +4123,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02204.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
-    "rating": 5.0,
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
+    "rating": 5,
     "reviews": 20,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-041).",
     "stock": 5,
@@ -4142,7 +4142,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02212.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.8,
     "reviews": 22,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-042).",
@@ -4180,8 +4180,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02222.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
-    "rating": 5.0,
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
+    "rating": 5,
     "reviews": 26,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-044).",
     "stock": 8,
@@ -4214,7 +4214,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-046-dsc02237",
     "title": "Mayuri Peacock Dangler No. 5",
-    "price": 1159.0,
+    "price": 1159,
     "imageUrl": "/images/products/dsc02237.jpg",
     "galleryImages": [
       "/images/products/dsc02237.jpg",
@@ -4237,7 +4237,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-047-dsc02249",
     "title": "Kavach Antique Gold Ring No. 4",
-    "price": 741.0,
+    "price": 741,
     "imageUrl": "/images/products/dsc02249.jpg",
     "galleryImages": [
       "/images/products/dsc02249.jpg",
@@ -4245,7 +4245,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 32,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-047).",
     "stock": 11,
@@ -4256,7 +4256,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-048-dsc02254",
     "title": "Pratibha Solitaire Band",
-    "price": 456.0,
+    "price": 456,
     "imageUrl": "/images/products/dsc02254.jpg",
     "galleryImages": [
       "/images/products/dsc02254.jpg",
@@ -4275,7 +4275,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-049-dsc02258",
     "title": "Kavya Filigree Cuff No. 8",
-    "price": 1748.0,
+    "price": 1748,
     "imageUrl": "/images/products/dsc02258.jpg",
     "galleryImages": [
       "/images/products/dsc02258.jpg",
@@ -4284,7 +4284,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc02261.jpg"
     ],
     "category": "Bracelets",
-    "material": "18k Hand-Finished Gold Vermeil with Micro-Pav\u00e9 Detailing",
+    "material": "18k Hand-Finished Gold Vermeil with Micro-Pavé Detailing",
     "rating": 4.9,
     "reviews": 36,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 4 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-049).",
@@ -4306,7 +4306,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 38,
     "description": "Handcrafted artisanal heirloom piece from our Day 3 curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 4 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-050).",
     "stock": 6,
@@ -4317,11 +4317,11 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-051-dsc01573",
     "title": "Hemavati Gold Choker III",
-    "price": 4750.0,
+    "price": 4750,
     "imageUrl": "/images/products/dsc01573.jpg",
     "galleryImages": [
       "/images/products/dsc01573.jpg",
-      "/images/model-shoot/dsc09403.jpg"
+      "/images/products/dsc09680.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4336,12 +4336,12 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-052-dsc01585",
     "title": "Dlicatine Temple Necklace No. 5",
-    "price": 4465.0,
+    "price": 4465,
     "imageUrl": "/images/products/dsc01585.jpg",
     "galleryImages": [
       "/images/products/dsc01585.jpg",
       "/images/products/dsc01586.jpg",
-      "/images/model-shoot/dsc09404.jpg"
+      "/images/products/dsc09692.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4361,11 +4361,11 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc01589.jpg",
       "/images/products/dsc01591.jpg",
-      "/images/model-shoot/dsc09405.jpg"
+      "/images/products/dsc09705.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 9,
     "description": "Handcrafted artisanal heirloom piece from our Heavy and medium neck piece in gold curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-053).",
     "stock": 9,
@@ -4381,7 +4381,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc01626.jpg",
       "/images/products/dsc01627.jpg",
-      "/images/model-shoot/dsc09406.jpg"
+      "/images/products/dsc09734.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4403,7 +4403,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc01660.jpg",
       "/images/products/dsc01662.jpg",
       "/images/products/dsc01663.jpg",
-      "/images/model-shoot/dsc09409.jpg"
+      "/images/products/dsc09748.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4418,17 +4418,17 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-056-dsc09642",
     "title": "Elysian Mango Mala No. 5",
-    "price": 4465.0,
+    "price": 4465,
     "imageUrl": "/images/products/dsc09642.jpg",
     "galleryImages": [
       "/images/products/dsc09642.jpg",
       "/images/products/dsc09643.jpg",
       "/images/products/dsc09645.jpg",
-      "/images/model-shoot/dsc09410.jpg"
+      "/images/products/dsc09753.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 15,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 4 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-056).",
     "stock": 4,
@@ -4444,7 +4444,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc09652.jpg",
       "/images/products/dsc09653.jpg",
-      "/images/model-shoot/dsc09413.jpg"
+      "/images/products/dsc09787.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4463,7 +4463,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc09657.jpg",
     "galleryImages": [
       "/images/products/dsc09657.jpg",
-      "/images/model-shoot/dsc09414.jpg"
+      "/images/products/dsc09805.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4482,11 +4482,11 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc09660.jpg",
     "galleryImages": [
       "/images/products/dsc09660.jpg",
-      "/images/model-shoot/dsc09420.jpg"
+      "/images/products/dsc09822.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 21,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-059).",
     "stock": 7,
@@ -4501,7 +4501,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc09664.jpg",
     "galleryImages": [
       "/images/products/dsc09664.jpg",
-      "/images/model-shoot/dsc09421.jpg"
+      "/images/products/dsc09833.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4521,7 +4521,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc09667.jpg",
       "/images/products/dsc09669.jpg",
-      "/images/model-shoot/dsc09433.jpg"
+      "/images/products/dsc09860.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4541,11 +4541,11 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc09674.jpg",
       "/images/products/dsc09676.jpg",
-      "/images/model-shoot/dsc09434.jpg"
+      "/images/products/dsc09876.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 27,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-062).",
     "stock": 10,
@@ -4562,7 +4562,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc09680.jpg",
       "/images/products/dsc09682.jpg",
       "/images/products/dsc09684.jpg",
-      "/images/model-shoot/dsc09435.jpg"
+      "/images/products/dsc09887.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4586,7 +4586,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc09696.jpg",
       "/images/products/dsc09697.jpg",
       "/images/products/dsc09698.jpg",
-      "/images/model-shoot/dsc09436.jpg"
+      "/images/products/dsc09905.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4601,14 +4601,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-065-dsc09701",
     "title": "Aadhya Filigree Drops No. 5",
-    "price": 1444.0,
+    "price": 1444,
     "imageUrl": "/images/products/dsc09701.jpg",
     "galleryImages": [
       "/images/products/dsc09701.jpg"
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 33,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 1 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-065).",
     "stock": 5,
@@ -4639,7 +4639,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-067-dsc09715",
     "title": "Padma Antique Ear Studs No. 5",
-    "price": 1444.0,
+    "price": 1444,
     "imageUrl": "/images/products/dsc09715.jpg",
     "galleryImages": [
       "/images/products/dsc09715.jpg",
@@ -4658,14 +4658,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-068-dsc09720",
     "title": "Tarika Tiered Chandbali No. 5",
-    "price": 1159.0,
+    "price": 1159,
     "imageUrl": "/images/products/dsc09720.jpg",
     "galleryImages": [
       "/images/products/dsc09720.jpg"
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 39,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 1 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-068).",
     "stock": 8,
@@ -4676,7 +4676,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-069-dsc09723",
     "title": "Revati Floral Drops No. 6",
-    "price": 589.0,
+    "price": 589,
     "imageUrl": "/images/products/dsc09723.jpg",
     "galleryImages": [
       "/images/products/dsc09723.jpg",
@@ -4695,7 +4695,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-070-dsc09729",
     "title": "Heritage Pearl Hoops No. 6",
-    "price": 1444.0,
+    "price": 1444,
     "imageUrl": "/images/products/dsc09729.jpg",
     "galleryImages": [
       "/images/products/dsc09729.jpg",
@@ -4714,7 +4714,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-071-dsc09734",
     "title": "Jhumka Chandbali Drops No. 8",
-    "price": 1159.0,
+    "price": 1159,
     "imageUrl": "/images/products/dsc09734.jpg",
     "galleryImages": [
       "/images/products/dsc09734.jpg",
@@ -4722,7 +4722,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 10,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-071).",
     "stock": 11,
@@ -4751,7 +4751,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-073-dsc09743",
     "title": "Mayuri Peacock Dangler No. 6",
-    "price": 1444.0,
+    "price": 1444,
     "imageUrl": "/images/products/dsc09743.jpg",
     "galleryImages": [
       "/images/products/dsc09743.jpg"
@@ -4769,7 +4769,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-074-dsc09746",
     "title": "Aadhya Filigree Drops No. 6",
-    "price": 874.0,
+    "price": 874,
     "imageUrl": "/images/products/dsc09746.jpg",
     "galleryImages": [
       "/images/products/dsc09746.jpg",
@@ -4778,7 +4778,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Earrings",
     "material": "22k Hallmarked Gold with Baroque Pearl Accents",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 16,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-074).",
     "stock": 6,
@@ -4793,7 +4793,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc09753.jpg",
     "galleryImages": [
       "/images/products/dsc09753.jpg",
-      "/images/model-shoot/dsc09354.jpg"
+      "/images/products/dsc09911.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4808,11 +4808,11 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-076-dsc09756",
     "title": "Rajputana Kundan Collar III",
-    "price": 4750.0,
+    "price": 4750,
     "imageUrl": "/images/products/dsc09756.jpg",
     "galleryImages": [
       "/images/products/dsc09756.jpg",
-      "/images/model-shoot/dsc09355.jpg"
+      "/images/products/dsc09920.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4827,16 +4827,16 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-077-dsc09759",
     "title": "Devangana Pearl Choker No. 4",
-    "price": 4180.0,
+    "price": 4180,
     "imageUrl": "/images/products/dsc09759.jpg",
     "galleryImages": [
       "/images/products/dsc09759.jpg",
       "/images/products/dsc09761.jpg",
-      "/images/model-shoot/dsc09360.jpg"
+      "/images/products/dsc09927.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 22,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-077).",
     "stock": 9,
@@ -4852,7 +4852,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc09765.jpg",
       "/images/products/dsc09767.jpg",
-      "/images/model-shoot/dsc09365.jpg"
+      "/images/products/dsc09642.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4867,12 +4867,12 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-079-dsc09770",
     "title": "Sovereign Navratna Mala No. 4",
-    "price": 4750.0,
+    "price": 4750,
     "imageUrl": "/images/products/dsc09770.jpg",
     "galleryImages": [
       "/images/products/dsc09770.jpg",
       "/images/products/dsc09772.jpg",
-      "/images/model-shoot/dsc09366.jpg"
+      "/images/products/dsc09643.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4894,11 +4894,11 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc09777.jpg",
       "/images/products/dsc09779.jpg",
       "/images/products/dsc09780.jpg",
-      "/images/model-shoot/dsc09371.jpg"
+      "/images/products/dsc09652.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 28,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 5 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-080).",
     "stock": 4,
@@ -4914,7 +4914,7 @@ export const PRODUCTS: Product[] = [
     "galleryImages": [
       "/images/products/dsc09783.jpg",
       "/images/products/dsc09784.jpg",
-      "/images/model-shoot/dsc09372.jpg"
+      "/images/products/dsc09664.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4929,14 +4929,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-082-dsc09787",
     "title": "Ananya Filigree Pendant Necklace III",
-    "price": 4180.0,
+    "price": 4180,
     "imageUrl": "/images/products/dsc09787.jpg",
     "galleryImages": [
       "/images/products/dsc09787.jpg",
       "/images/products/dsc09788.jpg",
       "/images/products/dsc09789.jpg",
       "/images/products/dsc09791.jpg",
-      "/images/model-shoot/dsc09373.jpg"
+      "/images/products/dsc09667.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4955,11 +4955,11 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc09795.jpg",
     "galleryImages": [
       "/images/products/dsc09795.jpg",
-      "/images/model-shoot/dsc09376.jpg"
+      "/images/products/dsc09674.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 34,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-083).",
     "stock": 7,
@@ -4974,7 +4974,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc09799.jpg",
     "galleryImages": [
       "/images/products/dsc09799.jpg",
-      "/images/model-shoot/dsc09377.jpg"
+      "/images/products/dsc09680.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -4989,7 +4989,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-085-dsc09803",
     "title": "Kalyani Traditional Kada II",
-    "price": 3116.0,
+    "price": 3116,
     "imageUrl": "/images/products/dsc09803.jpg",
     "galleryImages": [
       "/images/products/dsc09803.jpg",
@@ -5009,14 +5009,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-086-dsc09808",
     "title": "Nandini Engraved Bangle No. 5",
-    "price": 2831.0,
+    "price": 2831,
     "imageUrl": "/images/products/dsc09808.jpg",
     "galleryImages": [
       "/images/products/dsc09808.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
-    "rating": 5.0,
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
+    "rating": 5,
     "reviews": 40,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 1 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-086).",
     "stock": 10,
@@ -5047,7 +5047,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-088-dsc09822",
     "title": "Heritage Nakshi Kada No. 4",
-    "price": 2831.0,
+    "price": 2831,
     "imageUrl": "/images/products/dsc09822.jpg",
     "galleryImages": [
       "/images/products/dsc09822.jpg",
@@ -5074,8 +5074,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc09830.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
-    "rating": 5.0,
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
+    "rating": 5,
     "reviews": 11,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-089).",
     "stock": 5,
@@ -5086,14 +5086,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-090-dsc09833",
     "title": "Kangan Filigree Bangle No. 6",
-    "price": 3401.0,
+    "price": 3401,
     "imageUrl": "/images/products/dsc09833.jpg",
     "galleryImages": [
       "/images/products/dsc09833.jpg",
       "/images/products/dsc09835.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
     "rating": 4.8,
     "reviews": 13,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-090).",
@@ -5105,7 +5105,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-091-dsc09838",
     "title": "Maharani Gem Kada No. 7",
-    "price": 3116.0,
+    "price": 3116,
     "imageUrl": "/images/products/dsc09838.jpg",
     "galleryImages": [
       "/images/products/dsc09838.jpg",
@@ -5133,8 +5133,8 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc09848.jpg"
     ],
     "category": "Bangles",
-    "material": "22k Antique Finish Gold & Hand-Carved Repouss\u00e9",
-    "rating": 5.0,
+    "material": "22k Antique Finish Gold & Hand-Carved Repoussé",
+    "rating": 5,
     "reviews": 17,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 4 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-092).",
     "stock": 8,
@@ -5165,7 +5165,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-094-dsc09858",
     "title": "Ratnavali Sovereign Ring No. 4",
-    "price": 741.0,
+    "price": 741,
     "imageUrl": "/images/products/dsc09858.jpg",
     "galleryImages": [
       "/images/products/dsc09858.jpg",
@@ -5187,14 +5187,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-095-dsc09867",
     "title": "Amara Heritage Band No. 4",
-    "price": 1026.0,
+    "price": 1026,
     "imageUrl": "/images/products/dsc09867.jpg",
     "galleryImages": [
       "/images/products/dsc09867.jpg"
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 23,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 1 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-095).",
     "stock": 11,
@@ -5205,7 +5205,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-096-dsc09872",
     "title": "Trishool Carved Ring No. 4",
-    "price": 741.0,
+    "price": 741,
     "imageUrl": "/images/products/dsc09872.jpg",
     "galleryImages": [
       "/images/products/dsc09872.jpg"
@@ -5223,7 +5223,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-097-dsc09876",
     "title": "Aurelia Handcrafted Ring II",
-    "price": 1311.0,
+    "price": 1311,
     "imageUrl": "/images/products/dsc09876.jpg",
     "galleryImages": [
       "/images/products/dsc09876.jpg",
@@ -5252,7 +5252,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 29,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-098).",
     "stock": 6,
@@ -5281,7 +5281,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-100-dsc09890",
     "title": "Mayura Filigree Ring No. 6",
-    "price": 1311.0,
+    "price": 1311,
     "imageUrl": "/images/products/dsc09890.jpg",
     "galleryImages": [
       "/images/products/dsc09890.jpg"
@@ -5307,7 +5307,7 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Rings",
     "material": "22k Sovereign Solid Gold with Hand-Engraved Motifs",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 35,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-101).",
     "stock": 9,
@@ -5341,7 +5341,7 @@ export const PRODUCTS: Product[] = [
     "imageUrl": "/images/products/dsc09905.jpg",
     "galleryImages": [
       "/images/products/dsc09905.jpg",
-      "/images/model-shoot/dsc09440.jpg"
+      "/images/products/dsc09692.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -5356,15 +5356,15 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-104-dsc09908",
     "title": "Vasundhara Polki Necklace III",
-    "price": 4465.0,
+    "price": 4465,
     "imageUrl": "/images/products/dsc09908.jpg",
     "galleryImages": [
       "/images/products/dsc09908.jpg",
-      "/images/model-shoot/dsc09445.jpg"
+      "/images/products/dsc09705.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 41,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 2 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-104).",
     "stock": 4,
@@ -5383,7 +5383,7 @@ export const PRODUCTS: Product[] = [
       "/images/products/dsc09913.jpg",
       "/images/products/dsc09915.jpg",
       "/images/products/dsc09917.jpg",
-      "/images/model-shoot/dsc09449.jpg"
+      "/images/products/dsc09734.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -5398,14 +5398,14 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-106-dsc09920",
     "title": "Dlicatine Temple Necklace No. 6",
-    "price": 4180.0,
+    "price": 4180,
     "imageUrl": "/images/products/dsc09920.jpg",
     "galleryImages": [
       "/images/products/dsc09920.jpg",
       "/images/products/dsc09921.jpg",
       "/images/products/dsc09923.jpg",
       "/images/products/dsc09924.jpg",
-      "/images/model-shoot/dsc09450.jpg"
+      "/images/products/dsc09748.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
@@ -5420,16 +5420,16 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-107-dsc09927",
     "title": "Aurelia Floral Choker No. 5",
-    "price": 4180.0,
+    "price": 4180,
     "imageUrl": "/images/products/dsc09927.jpg",
     "galleryImages": [
       "/images/products/dsc09927.jpg",
       "/images/products/dsc09928.jpg",
-      "/images/model-shoot/dsc09342.jpg"
+      "/images/products/dsc09753.jpg"
     ],
     "category": "Necklaces",
     "material": "22k Hallmarked Gold & Temple Craftsmanship",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 12,
     "description": "Handcrafted artisanal heirloom piece from our Jewellery curation. Hand-finished by master jewelers in Tamil Nadu. Multi-angle archival views: 3 captures. Awaiting final store inventory cataloging (Reference ID: SHAS-UNCAT-107).",
     "stock": 7,
@@ -5440,7 +5440,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-108-dsc01746",
     "title": "Vedic Sacred Temple Kada",
-    "price": 3116.0,
+    "price": 3116,
     "imageUrl": "/images/products/dsc01746.jpg",
     "galleryImages": [
       "/images/products/dsc01746.jpg",
@@ -5450,7 +5450,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.8,
     "reviews": 14,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 35.424g | Net Weight: 32.800g | Inventory Tag: UNCAT-108.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 35.424g | Net Weight: 32.800g | Inventory Tag: UNCAT-108.",
     "stock": 8,
     "tagNo": "UNCAT-108",
     "grossWeight": "35.424g",
@@ -5469,7 +5469,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.9,
     "reviews": 16,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 40.284g | Net Weight: 37.300g | Inventory Tag: UNCAT-109.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 40.284g | Net Weight: 37.300g | Inventory Tag: UNCAT-109.",
     "stock": 9,
     "tagNo": "UNCAT-109",
     "grossWeight": "40.284g",
@@ -5486,9 +5486,9 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Kadas",
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 18,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 30.564g | Net Weight: 28.300g | Inventory Tag: UNCAT-110.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 30.564g | Net Weight: 28.300g | Inventory Tag: UNCAT-110.",
     "stock": 10,
     "tagNo": "UNCAT-110",
     "grossWeight": "30.564g",
@@ -5507,7 +5507,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.8,
     "reviews": 20,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 30.564g | Net Weight: 28.300g | Inventory Tag: UNCAT-111.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 30.564g | Net Weight: 28.300g | Inventory Tag: UNCAT-111.",
     "stock": 11,
     "tagNo": "UNCAT-111",
     "grossWeight": "30.564g",
@@ -5525,7 +5525,7 @@ export const PRODUCTS: Product[] = [
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
     "rating": 4.9,
     "reviews": 22,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 40.284g | Net Weight: 37.300g | Inventory Tag: UNCAT-112.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 40.284g | Net Weight: 37.300g | Inventory Tag: UNCAT-112.",
     "stock": 4,
     "tagNo": "UNCAT-112",
     "grossWeight": "40.284g",
@@ -5534,7 +5534,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "shas-uncat-113-dsc01804",
     "title": "Ananya Heritage Screw Kada",
-    "price": 3401.0,
+    "price": 3401,
     "imageUrl": "/images/products/dsc01804.jpg",
     "galleryImages": [
       "/images/products/dsc01804.jpg",
@@ -5543,9 +5543,9 @@ export const PRODUCTS: Product[] = [
     ],
     "category": "Kadas",
     "material": "22k Solid Antique Gold & Hand-Carved Nakshi Temple Craft",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 24,
-    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repouss\u00e9 motifs and intricate filigree details. Gross Weight: 38.664g | Net Weight: 35.800g | Inventory Tag: UNCAT-113.",
+    "description": "Handcrafted royal antique temple kada from our archival curation in Erode, Tamil Nadu. Hand-forged in solid 22k gold with traditional repoussé motifs and intricate filigree details. Gross Weight: 38.664g | Net Weight: 35.800g | Inventory Tag: UNCAT-113.",
     "stock": 5,
     "tagNo": "UNCAT-113",
     "grossWeight": "38.664g",
@@ -5565,6 +5565,36 @@ export const getProductsByCategory = (category: string): Product[] => {
 export const getProductImage = (id: string): string => {
   const match = PRODUCTS.find((p) => p.id === id);
   return match?.imageUrl || '/images/shas_hero_luxury.jpg';
+};
+
+export const sanitizeProductImage = (rawUrl: string | undefined | null, id: string): string => {
+  if (rawUrl && !rawUrl.includes('model-shoot')) {
+    return rawUrl;
+  }
+  return getProductImage(id);
+};
+
+export const sanitizeGalleryImages = (
+  rawGallery: string[] | undefined | null,
+  id: string,
+  primaryImage: string
+): string[] => {
+  const staticMatch = PRODUCTS.find((p) => p.id === id);
+  if (!rawGallery || rawGallery.length === 0) {
+    return staticMatch?.galleryImages || [primaryImage];
+  }
+  if (rawGallery.some((img) => img.includes('model-shoot'))) {
+    const cleaned = rawGallery.filter((img) => !img.includes('model-shoot'));
+    if (staticMatch?.galleryImages && staticMatch.galleryImages.length > cleaned.length) {
+      return staticMatch.galleryImages;
+    }
+    const fallbackMannequin = staticMatch?.galleryImages?.find((img) => !cleaned.includes(img));
+    if (fallbackMannequin) {
+      cleaned.push(fallbackMannequin);
+    }
+    return cleaned.length > 0 ? cleaned : [primaryImage];
+  }
+  return rawGallery;
 };
 
 export const FEATURED_PRODUCTS = PRODUCTS.slice(0, 8);

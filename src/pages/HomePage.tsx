@@ -7,7 +7,7 @@ import { ShoppingBag, Star, ArrowRight, Sparkles, ChevronDown } from 'lucide-rea
 import { useCartStore } from '../store/useCartStore';
 import backgroundDesktop from '../assets/shashdesktop.jpg';
 import backgroundMobile from '../assets/shashmob.jpg';
-import { PRODUCTS, getProductImage } from '@/data/products';
+import { PRODUCTS, sanitizeProductImage } from '@/data/products';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 
@@ -18,14 +18,14 @@ const NARRATIVES = [
   {
     title: "A Memory in the Making",
     quote: "One day, it won’t just be jewellery—it will be a memory. ❤️✨",
-    image: "/images/model-shoot/dsc09409.jpg",
+    image: "/images/products/dsc09674.jpg",
     body: "Every piece you own carries a story. A celebration, a milestone, a loved one, or a moment you’ll cherish forever. That’s why every SHAS creation begins with more than just a design—it begins with an emotion.\n\nThis soft blush pink piece paired with delicate pearls was born from a simple thought: Why not create something refreshingly elegant? The result is a timeless design that feels graceful, unique, and effortlessly beautiful. Because sometimes, the most memorable jewellery isn’t the boldest—it’s the one that speaks to your heart.\n\nDiscover jewellery that’s designed to become a part of your story. Visit SHAS, Periyar Nagar, Erode. ❤️",
     tags: ["designerjewellery", "blushpink", "pearljewellery", "luxuryjewellery", "bridaljewellery", "statementjewellery", "weddingjewellery", "erode", "shasjewellers"]
   },
   {
     title: "Complete Your Look",
     quote: "The right jewellery doesn’t just complete your outfit—it completes your look. ✨",
-    image: "/images/model-shoot/dsc09348.jpg",
+    image: "/images/products/dsc09822.jpg",
     body: "Sometimes, it’s not about having more jewellery. It’s about choosing the right piece. The wrong styling choice can take away from your entire look, while the perfect one can elevate it effortlessly.\n\nAt SHAS, we believe every jewellery piece has a purpose. Whether it’s a timeless Lakshmi design or a contemporary statement piece, the right styling makes all the difference. Because true elegance lies in knowing what to wear, and when to wear it.\n\nVisit SHAS and let us help you find the jewellery that complements your style perfectly. ❤️",
     tags: ["jewellerystyling", "stylingtips", "bridaljewellery", "traditionaljewellery", "lakshmijewellery", "goldjewellery", "luxuryjewellery", "erode", "shasjewellers"]
   },
@@ -46,14 +46,14 @@ const NARRATIVES = [
   {
     title: "Founder's GRWM Styling",
     quote: "Getting ready is never just about what you wear, it’s about how you feel. ✨",
-    image: "/images/model-shoot/dsc09355.jpg",
+    image: "/images/products/dsc09876.jpg",
     body: "Join Deepa Akka, Founder of SHAS, as she styles some of her favorite jewellery pieces.\n\nFrom timeless classics to statement pieces, every choice tells a story and celebrates individuality.\n\nWhich look is your favorite? Tell us in the comments below. ✨",
     tags: ["getreadywithme", "grwm", "jewellerystyling", "shasjewellers", "bridaljewellery", "goldjewellery", "fashionreel", "southindianjewellery"]
   },
   {
     title: "Details of Ruby",
     quote: "Every piece of jewellery tells a story, but it’s the details that make it unforgettable. ❤️✨",
-    image: "/images/model-shoot/dsc09445.jpg",
+    image: "/images/products/dsc09705.jpg",
     body: "The rich ruby at the heart of this design isn’t just a gemstone, it’s the soul of the piece. Its vibrant brilliance adds depth, elegance, and a timeless charm that makes every look feel extraordinary.\n\nWhether you’re the bride or someone celebrating alongside her, this collection is designed to make you feel like the center of every beautiful moment.\n\nDiscover the Ruby Collection at SHAS and find the piece that’s made to shine with you. ❤️",
     tags: ["rubyjewellery", "bridaljewellery", "bridalfashion", "weddingjewellery", "luxuryjewellery", "breadcrumbs", "erode", "shasjewellers"]
   },
@@ -67,7 +67,7 @@ const NARRATIVES = [
   {
     title: "Natural Light & Trust",
     quote: "What you see is what you get ✨",
-    image: "/images/model-shoot/dsc09376.jpg",
+    image: "/images/products/dsc09887.jpg",
     body: "At Shas Jewellers, we believe true beauty needs no filters. That’s why every piece is photographed in natural light, allowing its colours, craftsmanship, and brilliance to shine exactly as they do in real life 🧡\n\nFrom the soft glow of pearls to the rich sparkle of rubies, every detail is captured with honesty so when your jewellery reaches you, it feels just as beautiful as the moment you first saw it ✨💕\n\nBecause at Shas, trust is as important as craftsmanship, and elegance is best experienced in its truest form ❤️",
     tags: ["ShasJewellers", "RealBeauty", "NaturalLightJewellery", "AuthenticElegance", "PearlsAndRubies", "TimelessJeweller", "CraftedWithLove", "JewelleryWithEmotion", "FineJewellery", "LuxuryJewellery", "TraditionalMeetsModern", "ShasExperience", "TimelessElegance"]
   }
@@ -112,7 +112,7 @@ export function HomePage() {
             id: row.id,
             title: row.title,
             price: Number(row.price),
-            imageUrl: row.image_url || row.imageUrl || getProductImage(row.id),
+            imageUrl: sanitizeProductImage(row.image_url || row.imageUrl, row.id),
             category: row.category_name || row.category || 'Necklaces',
             material: row.material || '',
             rating: Number(row.rating ?? 5.0),
@@ -918,34 +918,34 @@ export function HomePage() {
               {
                 title: "The Royal Bridal Set",
                 curation: "Bridal Styling",
-                img: "/images/model-shoot/dsc09342.jpg",
+                img: "/images/products/dsc09642.jpg",
                 link: "/collections?category=Necklaces",
                 tag: "Bridal Series"
               },
               {
                 title: "Temple Choker Styling",
-                curation: "Atelier Model Shoot",
-                img: "/images/model-shoot/dsc09376.jpg",
+                curation: "Atelier Showcase",
+                img: "/images/products/dsc09748.jpg",
                 link: "/collections?category=Necklaces",
                 tag: "High Jewelry"
               },
               {
                 title: "Heritage Kada Elegance",
                 curation: "Artisan Bangles & Kadas",
-                img: "/images/model-shoot/dsc09414.jpg",
+                img: "/images/products/dsc02827.jpg",
                 link: "/collections?category=Kadas",
                 tag: "Handcrafted Kadas"
               },
               {
                 title: "Solitaire & Polki Glow",
                 curation: "Waterfall Earring Series",
-                img: "/images/model-shoot/dsc09405.jpg",
+                img: "/images/products/dsc09660.jpg",
                 link: "/collections?category=Earrings",
                 tag: "Fine Jewelry"
               }
-            ].map((item, idx) => (
+            ].map((item) => (
               <Link
-                key={idx}
+                key={item.title}
                 to={item.link}
                 className="group relative block aspect-[3/4] overflow-hidden border border-shas-border shadow-sm bg-stone-100"
               >
@@ -959,7 +959,7 @@ export function HomePage() {
                   <span className="inline-block px-2 py-0.5 bg-shas-burgundy text-[8px] uppercase tracking-wider font-bold mb-1">
                     {item.tag}
                   </span>
-                  <h3 className="font-serif text-lg font-bold leading-tight group-hover:text-shas-gold transition-colors">
+                  <h3 className="font-serif text-lg font-bold leading-tight text-white group-hover:text-shas-gold transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-[10px] text-stone-300 uppercase tracking-widest font-sans">

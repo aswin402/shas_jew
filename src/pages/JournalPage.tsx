@@ -11,7 +11,7 @@ const STORIES = [
     tags: ["designerjewellery", "blushpink", "pearljewellery", "luxuryjewellery", "erode"],
     date: "July 18, 2026",
     author: "Deepa Sakthi",
-    imageUrl: "/images/model-shoot/dsc09409.jpg",
+    imageUrl: "/images/products/dsc09674.jpg",
     readTime: "3 min read"
   },
   {
@@ -22,7 +22,7 @@ const STORIES = [
     tags: ["jewellerystyling", "stylingtips", "traditionaljewellery", "goldjewellery"],
     date: "July 12, 2026",
     author: "Deepa Sakthi",
-    imageUrl: "/images/model-shoot/dsc09348.jpg",
+    imageUrl: "/images/products/dsc09822.jpg",
     readTime: "2 min read"
   },
   {
@@ -55,7 +55,7 @@ const STORIES = [
     tags: ["getreadywithme", "grwm", "jewellerystyling", "bridaljewellery"],
     date: "June 22, 2026",
     author: "Deepa Sakthi",
-    imageUrl: "/images/model-shoot/dsc09355.jpg",
+    imageUrl: "/images/products/dsc09876.jpg",
     readTime: "3 min read"
   },
   {
@@ -66,7 +66,7 @@ const STORIES = [
     tags: ["rubyjewellery", "bridaljewellery", "luxuryjewellery", "erode"],
     date: "June 18, 2026",
     author: "SHAS Atelier",
-    imageUrl: "/images/model-shoot/dsc09445.jpg",
+    imageUrl: "/images/products/dsc09705.jpg",
     readTime: "2 min read"
   },
   {
@@ -88,7 +88,7 @@ const STORIES = [
     tags: ["ShasJewellers", "RealBeauty", "NaturalLight", "TimelessElegance"],
     date: "May 29, 2026",
     author: "Deepa Sakthi",
-    imageUrl: "/images/model-shoot/dsc09376.jpg",
+    imageUrl: "/images/products/dsc09887.jpg",
     readTime: "3 min read"
   }
 ];

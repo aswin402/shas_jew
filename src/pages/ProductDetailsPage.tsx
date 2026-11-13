@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ShoppingBag, Star, ShieldCheck, Truck, RefreshCw, ArrowRight, Package } from 'lucide-react';
-import { PRODUCTS, getProductImage } from '@/data/products';
+import { PRODUCTS, sanitizeProductImage, sanitizeGalleryImages } from '@/data/products';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import type { Product } from '@/types/product';
 import { useCartStore } from '@/store/useCartStore';
@@ -60,13 +60,17 @@ export function ProductDetailsPage() {
         const staticMatch = PRODUCTS.find((p) => p.id === id);
 
         if (prodData && !prodError) {
-          const primImg = prodData.image_url || prodData.imageUrl || getProductImage(prodData.id);
+          const primImg = sanitizeProductImage(prodData.image_url || prodData.imageUrl, prodData.id);
           currentProduct = {
             id: prodData.id,
             title: prodData.title,
             price: Number(prodData.price),
             imageUrl: primImg,
-            galleryImages: prodData.gallery_images || prodData.galleryImages || staticMatch?.galleryImages || [primImg],
+            galleryImages: sanitizeGalleryImages(
+              prodData.gallery_images || prodData.galleryImages,
+              prodData.id,
+              primImg
+            ),
             category: prodData.category_name || prodData.category || 'Necklaces',
             material: prodData.material || '',
             rating: Number(prodData.rating ?? 5.0),
@@ -99,7 +103,7 @@ export function ProductDetailsPage() {
             id: row.id,
             title: row.title,
             price: Number(row.price),
-            imageUrl: row.image_url || row.imageUrl || getProductImage(row.id),
+            imageUrl: sanitizeProductImage(row.image_url || row.imageUrl, row.id),
             category: row.category_name || row.category || 'Necklaces',
             material: row.material || '',
             rating: Number(row.rating ?? 5.0),
@@ -195,17 +199,15 @@ export function ProductDetailsPage() {
               />
             </div>
 
-            {/* Multi-angle & Model Shoot Gallery Thumbnails */}
+            {/* Multi-angle & Mannequin Showcase Gallery Thumbnails */}
             {product.galleryImages && product.galleryImages.length > 1 && (
               <div className="w-full mt-4">
                 <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin">
                   {product.galleryImages.map((imgUrl, idx) => {
                     const isSelected = (selectedImage || product.imageUrl) === imgUrl;
-                    const isModel = imgUrl.includes('model-shoot');
-                    const isBridal = imgUrl.includes('bride-day');
                     return (
                       <button
-                        key={idx}
+                        key={imgUrl}
                         type="button"
                         onClick={() => setSelectedImage(imgUrl)}
                         className={`relative w-20 h-20 flex-shrink-0 border-2 transition-all p-1 bg-stone-50 overflow-hidden cursor-pointer ${
@@ -213,26 +215,16 @@ export function ProductDetailsPage() {
                             ? 'border-shas-burgundy ring-2 ring-shas-burgundy/30'
                             : 'border-shas-border opacity-70 hover:opacity-100 hover:border-shas-secondary'
                         }`}
-                        title={`View ${idx === 0 ? 'Front View' : isModel ? 'On-Model Styling' : isBridal ? 'Bridal Editorial' : `Angle View ${idx}`}`}
+                        title={idx === 0 ? 'Front View' : `Angle View ${idx}`}
                       >
                         <img
                           src={imgUrl}
                           alt={`${product.title} view ${idx + 1}`}
                           className="w-full h-full object-cover"
                         />
-                        {isModel && (
-                          <span className="absolute bottom-1 right-1 bg-shas-burgundy text-white text-[7px] uppercase font-bold px-1 py-0.5 rounded shadow-sm">
-                            Model
-                          </span>
-                        )}
-                        {isBridal && (
-                          <span className="absolute bottom-1 right-1 bg-amber-800 text-white text-[7px] uppercase font-bold px-1 py-0.5 rounded shadow-sm">
-                            Bridal
-                          </span>
-                        )}
-                        {!isModel && !isBridal && idx > 0 && (
+                        {idx > 0 && (
                           <span className="absolute bottom-1 right-1 bg-stone-800/80 text-white text-[7px] uppercase font-medium px-1 py-0.5 rounded">
-                            Side
+                            View {idx + 1}
                           </span>
                         )}
                       </button>
